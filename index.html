@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Architecture of Responsible Organisations — The Descent</title>
+<meta name="description" content="A treatment in descent of Donald Innes Davies, The Architecture of Responsible Organisations: Dynamics of Fluidity (2026) — every Part, Movement and Interstice as a level of the shaft.">
+<meta name="author" content="Mark Downham · Principia Humanitatis">
+<meta property="og:title" content="The Architecture of Responsible Organisations — The Descent">
+<meta property="og:description" content="148 levels down. Responsibility is what remains possible.">
+<meta property="og:type" content="article">
+<meta name="theme-color" content="#07090a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2307090a'/%3E%3Cpath d='M16 4v24M9 9h14M7 14h18M9 19h14M11 24h10' stroke='%238fa3a6' stroke-width='1.5'/%3E%3C/svg%3E">
+<script>document.documentElement.className='js'</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#06080a; --steel:#8fa3a6; --dim:#4b5a5c; --faint:#2a3436; --bone:#d9d4c7; --rust:#a8643f; --glow:#c9d8d2;
+  --green:#8fcf9a; --amber:#d9a25b; --tint:143,163,166;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--bone);font-family:'Barlow Condensed',sans-serif;font-weight:300;overflow-x:hidden;letter-spacing:.02em}
+a{color:inherit}
+/* ---------- fixed atmosphere ---------- */
+#atmos{position:fixed;inset:0;z-index:0;pointer-events:none;transition:background 3s ease;
+  background:radial-gradient(ellipse at 50% 40%,rgba(var(--tint),.07),transparent 65%)}
+body[data-part="1"]{--tint:168,100,63}
+body[data-part="2"]{--tint:120,200,160}
+body[data-part="3"]{--tint:217,162,91}
+#shaft{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.9}
+#shaft svg{width:100%;height:100%}
+.grain{position:fixed;inset:-50%;z-index:1;pointer-events:none;opacity:.065;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 1.2s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+.vignette{position:fixed;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse at center,transparent 38%,rgba(0,0,0,.88) 100%)}
+.scan{position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.05;background:repeating-linear-gradient(0deg,#000 0 1px,transparent 1px 3px)}
+/* ---------- HUD ---------- */
+#hud{position:fixed;top:max(16px,env(safe-area-inset-top));left:20px;z-index:6;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.3em;color:var(--dim);text-transform:uppercase;pointer-events:none}
+#hud b{display:block;font-family:'Barlow Condensed';font-weight:600;font-size:34px;letter-spacing:.06em;color:var(--steel);font-variant-numeric:tabular-nums;line-height:1.1}
+#hud b small{font-size:13px;color:var(--dim);letter-spacing:.2em;font-weight:400}
+#hud .where{margin-top:6px;color:var(--rust);max-width:46vw;line-height:1.6}
+#rail{position:fixed;right:16px;top:14vh;bottom:14vh;width:1px;background:rgba(143,163,166,.16);z-index:6}
+#rail i{position:absolute;left:-3px;width:7px;height:7px;background:var(--glow);border-radius:50%;box-shadow:0 0 12px var(--glow);top:0}
+#rail a{position:absolute;right:8px;transform:translateY(-50%);font-family:'IBM Plex Mono';font-size:9px;letter-spacing:.2em;color:var(--dim);text-decoration:none;white-space:nowrap;padding:6px 0}
+#rail a::after{content:'';position:absolute;right:-10px;top:50%;width:5px;height:1px;background:var(--dim)}
+#rail a:hover{color:var(--glow)}
+#pulse{position:fixed;bottom:max(18px,env(safe-area-inset-bottom));left:20px;z-index:6;width:120px;height:24px;opacity:.55}
+@media (max-width:640px){#rail a{display:none}#hud b{font-size:28px}}
+/* ---------- content ---------- */
+main{position:relative;z-index:3}
+section{min-height:96vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:14vh 9vw}
+section.short{min-height:74vh}
+.level{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.42em;color:var(--rust);text-transform:uppercase;margin-bottom:3rem;line-height:2}
+.level span{color:var(--dim)}
+p.l{font-size:clamp(21px,3.2vw,36px);line-height:1.36;margin:.22em 0;max-width:24em}
+p.s{font-size:clamp(16px,2.1vw,23px);color:var(--steel);letter-spacing:.11em;margin:.45em 0;max-width:34em;line-height:1.5}
+p.gap,.gap{height:2.4rem}
+em,.it{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;letter-spacing:0}
+.caps{font-weight:600;letter-spacing:.3em;text-transform:uppercase;font-size:clamp(17px,2.5vw,29px);color:var(--glow);text-shadow:0 0 18px rgba(201,216,210,.22);margin:.3em 0}
+.green{color:var(--green);text-shadow:0 0 14px rgba(143,207,154,.45)}
+.amber{color:var(--amber);text-shadow:0 0 16px rgba(217,162,91,.35)}
+.rust{color:var(--rust)}
+.q{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4.2vw,52px);line-height:1.22;color:var(--glow);max-width:17em}
+.epi{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(20px,2.8vw,32px);color:var(--bone);max-width:22em;line-height:1.35}
+.cite{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.3em;color:var(--dim);text-transform:uppercase;margin-top:1.2rem}
+h1{font-weight:300;font-size:clamp(34px,7.4vw,96px);letter-spacing:.17em;line-height:1.04;text-transform:uppercase}
+h1 small{display:block;font-size:.3em;letter-spacing:.62em;color:var(--steel);margin-top:2rem}
+h2.part{font-weight:300;font-size:clamp(46px,11vw,150px);letter-spacing:.22em;text-transform:uppercase;line-height:1;color:var(--bone)}
+h2.part.long{font-size:clamp(30px,6.4vw,112px);letter-spacing:.14em}
+h2.part small{display:block;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.6em;color:var(--rust);margin-bottom:2rem}
+.partq{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(20px,2.8vw,32px);color:var(--steel);margin-top:2.5rem;max-width:20em}
+.triad{margin-top:2rem;font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.5em;color:var(--dim);text-transform:uppercase}
+h3.mv{font-weight:400;font-size:clamp(30px,5.6vw,68px);letter-spacing:.16em;text-transform:uppercase;line-height:1.08}
+h3.mv small{display:block;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.55em;color:var(--rust);margin-bottom:1.6rem}
+ul.asks{list-style:none;margin-top:2.6rem;max-width:30em}
+ul.asks li{font-size:clamp(16px,2vw,22px);color:var(--steel);letter-spacing:.08em;margin:.55em 0;line-height:1.4}
+ul.asks li::before{content:'— ';color:var(--dim)}
+.by{margin-top:3rem;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5em;color:var(--dim);text-transform:uppercase}
+.cue{margin-top:5rem;font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.6em;color:var(--dim);animation:breathe 3.6s ease-in-out infinite}
+@keyframes breathe{50%{opacity:.25}}
+/* figures */
+figure.fx{width:min(560px,88vw);margin:3rem auto 2.4rem;position:relative}
+figure.fx canvas,figure.fx svg{display:block;width:100%;height:auto}
+figure.fx figcaption{font-family:'IBM Plex Mono';font-size:9.5px;letter-spacing:.32em;color:var(--dim);text-transform:uppercase;margin-top:1rem;line-height:1.9}
+figure.wide{width:min(760px,92vw)}
+.tap{cursor:pointer}
+/* index */
+nav.index{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem 3rem;max-width:860px;text-align:left;margin-top:3rem}
+nav.index h4{font-family:'IBM Plex Mono';font-weight:400;font-size:10px;letter-spacing:.42em;color:var(--rust);text-transform:uppercase;margin-bottom:1rem}
+nav.index a{display:block;text-decoration:none;font-size:17px;letter-spacing:.07em;color:var(--steel);padding:.28em 0;border-bottom:1px solid rgba(143,163,166,.08)}
+nav.index a span{font-family:'IBM Plex Mono';font-size:10px;color:var(--dim);margin-right:.8em}
+nav.index a:hover{color:var(--glow)}
+@media (max-width:720px){nav.index{grid-template-columns:1fr;gap:1.6rem}}
+/* plate */
+.plate{border:1px solid rgba(143,163,166,.25);padding:2.2rem 2.4rem;max-width:34em;margin:2.4rem auto 0;text-align:left;position:relative;background:rgba(6,8,10,.6)}
+.plate::before,.plate::after{content:'';position:absolute;width:10px;height:10px;border:1px solid var(--steel);border-radius:50%;top:10px;left:10px;opacity:.5}
+.plate::after{left:auto;right:10px}
+.plate h5{font-family:'IBM Plex Mono';font-weight:400;font-size:10px;letter-spacing:.4em;color:var(--rust);text-transform:uppercase;margin-bottom:1.2rem;text-align:center}
+.plate ol{list-style:none;counter-reset:c}
+.plate li{counter-increment:c;font-size:clamp(16px,2vw,21px);color:var(--bone);margin:.5em 0;line-height:1.35;padding-left:2.4em;position:relative}
+.plate li::before{content:"(" counter(c,lower-alpha) ")";position:absolute;left:0;font-family:'IBM Plex Mono';font-size:12px;color:var(--steel);top:.35em}
+.plate.def li::before{content:counter(c,upper-roman);}
+/* dashboard */
+.dash{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;font-family:'IBM Plex Mono';text-align:left}
+.tile{border:1px solid rgba(143,207,154,.25);background:rgba(10,24,16,.55);padding:12px 12px 14px;position:relative;min-height:84px}
+.tile small{display:block;font-size:8.5px;letter-spacing:.25em;color:#5d8a68;text-transform:uppercase}
+.tile b{display:block;font-weight:400;font-size:clamp(17px,2.6vw,26px);color:var(--green);margin-top:8px;text-shadow:0 0 10px rgba(143,207,154,.4)}
+.tile i{position:absolute;right:10px;top:10px;font-style:normal;color:var(--green);font-size:12px}
+.waiting{grid-column:1/-1;border:1px dashed rgba(217,212,199,.18);padding:14px;display:flex;align-items:center;gap:14px;color:var(--bone);font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.0;transition:opacity 3s ease 2.5s}
+.seen .waiting{opacity:.85}
+.waiting svg,figure.fx .waiting svg{width:22px!important;height:36px;flex:none;animation:breathe 4s ease-in-out infinite}
+/* two accounts */
+.accounts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(143,163,166,.2);text-align:left;margin-top:2.4rem;max-width:640px;width:100%}
+.accounts div{background:var(--bg);padding:1.3rem 1.2rem}
+.accounts h6{font-family:'IBM Plex Mono';font-weight:400;font-size:9px;letter-spacing:.35em;color:var(--dim);text-transform:uppercase;margin-bottom:.9rem}
+.accounts p{font-size:clamp(15px,1.9vw,19px);color:var(--steel);margin:.6em 0;line-height:1.35}
+.accounts .them p{color:var(--bone)}
+.accounts .them h6{color:var(--amber)}
+/* claims */
+.claims{position:relative;width:min(420px,86vw);height:260px;margin:3rem auto 1rem}
+.claim{position:absolute;left:50%;width:78%;padding:14px 16px;border:1px solid rgba(143,163,166,.3);background:rgba(8,11,12,.92);font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.14em;color:var(--steel);text-align:left;text-transform:uppercase;transform:translateX(-50%);transition:transform 1.6s cubic-bezier(.2,.8,.2,1),opacity 1.6s}
+.claim span{float:right;color:var(--dim)}
+.js .claim{transform:translate(-50%,0) rotate(0)}
+.js .claims .claim:nth-child(1){top:0}.js .claims .claim:nth-child(2){top:0}.js .claims .claim:nth-child(3){top:0}.js .claims .claim:nth-child(4){top:0}.js .claims .claim:nth-child(5){top:0}
+.claims .claim:nth-child(1){top:0}.claims .claim:nth-child(2){top:52px}.claims .claim:nth-child(3){top:104px}.claims .claim:nth-child(4){top:156px}.claims .claim:nth-child(5){top:208px}
+.js .seen .claims .claim:nth-child(1){top:0;transform:translate(-50%,0) rotate(-1deg)}
+.js .seen .claims .claim:nth-child(2){top:52px;transform:translate(-46%,0) rotate(1.5deg)}
+.js .seen .claims .claim:nth-child(3){top:104px;transform:translate(-55%,0) rotate(-2deg)}
+.js .seen .claims .claim:nth-child(4){top:156px;transform:translate(-48%,0) rotate(1deg)}
+.js .seen .claims .claim:nth-child(5){top:208px;transform:translate(-52%,0) rotate(-.5deg)}
+.claims .claim{transition-property:top,transform}
+/* fading words */
+.fade-words{display:flex;flex-wrap:wrap;justify-content:center;gap:.4em 1.2em;max-width:30em;margin:2.4rem auto 0}
+.fade-words span{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,2.6vw,28px);color:var(--bone);transition:opacity 5s ease,filter 5s ease}
+.js .seen .fade-words span{opacity:.12;filter:blur(1.5px)}
+.js .seen .fade-words span:nth-child(odd){transition-delay:2.5s}
+.js .seen .fade-words span:nth-child(3n){transition-delay:4s}
+.fade-words:hover span{opacity:1!important;filter:none!important;transition:opacity .6s,filter .6s}
+/* doors (interstices) */
+.interstice{min-height:100vh}
+.interstice .tag{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.55em;color:var(--dim);text-transform:uppercase;margin-bottom:1rem}
+.interstice h4{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;font-size:clamp(26px,4vw,46px);color:var(--glow);margin-bottom:2.6rem}
+.door{position:relative;width:min(300px,64vw);height:38vh;margin:0 auto 3rem;overflow:hidden}
+.door::before,.door::after{content:'';position:absolute;top:0;bottom:0;width:50%;background:linear-gradient(90deg,#0c1012,#151b1d 50%,#0c1012);border:1px solid rgba(143,163,166,.18);transition:transform 3.2s cubic-bezier(.6,0,.2,1)}
+.door::before{left:0;border-right:none}
+.door::after{right:0;border-left:none}
+.door i{position:absolute;left:50%;top:0;bottom:0;width:var(--gap);transform:translateX(-50%);background:linear-gradient(transparent,rgba(var(--tint),.0) 0%,rgba(230,238,233,.95) 50%,rgba(var(--tint),.0) 100%);box-shadow:0 0 40px 10px rgba(var(--tint),.25);opacity:0;transition:opacity 3s ease 1s}
+.door b{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(240,236,224,.55),rgba(var(--tint),.15) 40%,transparent 70%);opacity:0;transition:opacity 3s ease}
+.seen .door::before{transform:translateX(calc(var(--gap) / -2))}
+.seen .door::after{transform:translateX(calc(var(--gap) / 2))}
+.seen .door i{opacity:1}
+.no-js .door i{opacity:1}
+.door.full{height:60vh;width:min(420px,80vw)}
+.seen .door.full::before{transform:translateX(-101%)}
+.seen .door.full::after{transform:translateX(101%)}
+.seen .door.full b{opacity:1;transition-delay:1.8s}
+.door .bolt{position:absolute;top:50%;width:6px;height:6px;border-radius:50%;background:var(--dim);z-index:2;transform:translateY(-50%)}
+/* reveal */
+.js .r{opacity:0;transform:translateY(18px);filter:blur(4px);transition:opacity 1.5s ease,transform 1.5s ease,filter 1.5s ease}
+.js .seen .r{opacity:1;transform:none;filter:none}
+.seen .r:nth-child(2){transition-delay:.22s}.seen .r:nth-child(3){transition-delay:.44s}.seen .r:nth-child(4){transition-delay:.66s}
+.seen .r:nth-child(5){transition-delay:.88s}.seen .r:nth-child(6){transition-delay:1.1s}.seen .r:nth-child(7){transition-delay:1.32s}
+.seen .r:nth-child(8){transition-delay:1.54s}.seen .r:nth-child(9){transition-delay:1.76s}.seen .r:nth-child(10){transition-delay:1.98s}
+.seen .r:nth-child(11){transition-delay:2.2s}.seen .r:nth-child(12){transition-delay:2.42s}.seen .r:nth-child(n+13){transition-delay:2.64s}
+.swerve{display:inline-block;transition:transform 2.5s cubic-bezier(.2,.8,.2,1) 1.2s}
+.seen .swerve{transform:translateX(.9em) rotate(-6deg)}
+/* svg draw */
+.js svg .draw{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 4s ease}
+.js .seen svg .draw{stroke-dashoffset:0}
+.js .seen svg .draw.d2{transition-delay:1s}.js .seen svg .draw.d3{transition-delay:2s}.js .seen svg .draw.d4{transition-delay:3s}
+footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.42em;color:var(--dim);text-transform:uppercase;line-height:2.2}
+#surface{background:radial-gradient(ellipse at 50% 20%,rgba(201,216,210,.06),transparent 60%)}
+@media (prefers-reduced-motion:reduce){.js .r,.swerve,.door::before,.door::after{transition:none}.grain{animation:none}}
+</style>
+</head>
+<body data-part="0">
+<div id="atmos"></div>
+<div id="shaft" aria-hidden="true"><svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="sf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fa3a6" stop-opacity="0"/><stop offset=".5" stop-color="#8fa3a6" stop-opacity=".3"/><stop offset="1" stop-color="#8fa3a6" stop-opacity="0"/></linearGradient></defs><g id="stair" stroke="url(#sf)" fill="none" stroke-width="1"></g><line x1="200" y1="0" x2="200" y2="800" stroke="#8fa3a6" stroke-opacity=".07"/></svg></div>
+<div class="grain"></div><div class="scan"></div><div class="vignette"></div>
+
+<div id="hud" aria-hidden="true">Depth<b id="lvl">000<small> / 148</small></b><div class="where" id="where">Surface</div></div>
+<div id="rail"><i id="dot"></i></div>
+<svg id="pulse" viewBox="0 0 120 24" aria-hidden="true"><polyline id="pl" fill="none" stroke="#8fa3a6" stroke-width="1"/></svg>
+
+<main>
+
+<!-- ================= SURFACE ================= -->
+<section id="surface" data-page="0" data-part="0" data-where="Surface">
+  <figure class="fx r" style="width:min(240px,50vw);margin-top:0">
+    <svg viewBox="0 0 200 300" fill="none" stroke="#8fa3a6" stroke-width=".8">
+      <path class="draw" pathLength="1" d="M40 20 V280 M160 20 V280"/>
+      <path class="draw d2" pathLength="1" d="M40 20 Q100 4 160 20 M40 280 Q100 296 160 280"/>
+      <path class="draw d2" pathLength="1" stroke-opacity=".5" d="M40 55H160M40 90H160M40 125H160M40 160H160M40 195H160M40 230H160M40 265H160"/>
+      <path class="draw d3" pathLength="1" stroke="#c9d8d2" d="M100 20 C130 32 130 48 100 55 C70 62 70 82 100 90 C130 98 130 118 100 125 C70 132 70 152 100 160 C130 168 130 188 100 195 C70 202 70 222 100 230 C130 238 130 258 100 265 C80 270 85 278 100 280"/>
+      <path class="draw d4" pathLength="1" stroke="#a8643f" stroke-opacity=".7" d="M30 20h-8M30 280h-8M26 20V280"/>
+    </svg>
+  </figure>
+  <h1 class="r">The Architecture of<br>Responsible Organisations<small>Dynamics of Fluidity</small></h1>
+  <p class="epi r" style="margin-top:2.6rem">How humanity becomes capable of carrying increasing awareness without losing relation</p>
+  <p class="by r">Donald Innes Davies · 2026</p>
+  <p class="s r" style="margin-top:2rem">A treatment in descent, 148 levels down</p>
+  <p class="cue r">Descend</p>
+</section>
+
+<section class="short" data-page="1" data-part="0" data-where="Shaft index">
+  <div class="level r">The shaft <span>· index of levels</span></div>
+  <nav class="index r">
+    <div><h4>Above</h4>
+      <a href="#why"><span>017</span>Why Architecture?</a>
+      <a href="#waves"><span>023</span>The Waves of Time</a>
+      <a href="#clinamen"><span>028</span>Note on the Clinamen</a>
+      <h4 style="margin-top:2rem">Part 1 · Formation</h4>
+      <a href="#m1"><span>032</span>I · The Swerve and the Field</a>
+      <a href="#m2"><span>038</span>II · What We Inherit</a>
+      <a href="#m3"><span>049</span>III · Purpose in Motion</a></div>
+    <div><h4>Part 2 · Rational</h4>
+      <a href="#m4"><span>064</span>IV · Judgement in Practice</a>
+      <a href="#m5"><span>077</span>V · What Becomes Hard to Notice</a>
+      <h4 style="margin-top:2rem">Part 3 · Transformative</h4>
+      <a href="#m6"><span>094</span>VI · Opening Possibilities</a>
+      <a href="#m7"><span>107</span>VII · Noticing Again</a>
+      <a href="#m8"><span>120</span>VIII · What We Carry Forward</a></div>
+    <div><h4>Below</h4>
+      <a href="#lineages"><span>136</span>Foundational Lineages</a>
+      <a href="#reflections"><span>140</span>Author’s Reflections</a>
+      <a href="#airlock"><span>148</span>The Airlock</a></div>
+  </nav>
+</section>
+
+<!-- ================= ABOVE THE PARTS ================= -->
+<section id="why" data-page="17" data-part="0" data-where="Why Architecture?">
+  <div class="level r">Level 017 <span>· Why Architecture?</span></div>
+  <p class="l r">An organisation has to keep going.</p>
+  <p class="l r">It has to pay for the work already done,</p>
+  <p class="l r">keep the promises already made,</p>
+  <p class="l r">find the means for work still to come.</p>
+  <p class="gap"></p>
+  <p class="l r">And the way it keeps going <em>makes things possible</em></p>
+  <p class="l r">for people it will never meet.</p>
+  <p class="gap"></p>
+  <p class="s r">The architecture is not the building.</p>
+  <p class="s r">It is the relationships through which people judge, learn and change course.</p>
+</section>
+
+<section class="short" data-page="19" data-part="0" data-where="Author’s Preface">
+  <div class="level r">Level 019 <span>· Author’s Preface</span></div>
+  <p class="l r">Forty years in banking.</p>
+  <p class="l r">One question, carried the whole way down:</p>
+  <p class="gap"></p>
+  <p class="q r">What happens to a decision after the people who took it have moved on?</p>
+  <p class="gap"></p>
+  <p class="s r">The agreement keeps shaping the work.</p>
+  <p class="s r">The consequence arrives through someone who was never in the room.</p>
+  <p class="s r">Someone else inherits what follows.</p>
+</section>
+
+<section class="short" data-page="20" data-part="0" data-where="Knowledge in Motion">
+  <div class="level r">Level 020 <span>· Knowledge in Motion</span></div>
+  <p class="epi r">The knowledge of an effect depends on and involves knowledge of a cause.</p>
+  <p class="cite r">Spinoza · Ethics · 1677</p>
+  <p class="gap"></p>
+  <p class="l r">An idea from physics reaches communication.</p>
+  <p class="l r">An account of conduct changes a procedure.</p>
+  <p class="l r">Knowledge travels, and what it means keeps changing.</p>
+  <p class="gap"></p>
+  <p class="caps r">Understanding an effect changes the effect.</p>
+</section>
+
+<section data-page="22" data-part="0" data-where="The Arc of the Inquiry">
+  <div class="level r">Level 022 <span>· The Arc of the Inquiry</span></div>
+  <figure class="fx wide r">
+    <svg viewBox="0 0 600 220" fill="none" font-family="IBM Plex Mono" font-size="10" letter-spacing="3">
+      <g stroke="#8fa3a6">
+        <circle class="draw" pathLength="1" cx="100" cy="110" r="58"/>
+        <circle class="draw d2" pathLength="1" cx="300" cy="110" r="58"/>
+        <circle class="draw d3" pathLength="1" cx="500" cy="110" r="58" stroke="#d9a25b"/>
+        <path class="draw d2" pathLength="1" d="M160 110H240M360 110H440" stroke-opacity=".6"/>
+        <path class="draw d4" pathLength="1" d="M500 50 C 440 -10, 160 -10, 100 50" stroke="#a8643f" stroke-dasharray="2 4" stroke-opacity=".8"/>
+        <path class="draw d4" pathLength="1" d="M300 170 C 260 215, 140 215, 100 170" stroke="#a8643f" stroke-opacity=".5"/>
+      </g>
+      <g fill="#d9d4c7" text-anchor="middle">
+        <text x="100" y="106">FORMATION</text><text x="100" y="122" fill="#4b5a5c" font-size="8">HOW IT CAME</text>
+        <text x="300" y="106">RATIONAL</text><text x="300" y="122" fill="#4b5a5c" font-size="8">HOW WE JUDGE</text>
+        <text x="500" y="106" fill="#d9a25b">TRANSFORMATIVE</text><text x="500" y="122" fill="#4b5a5c" font-size="8">WHAT MAY BECOME</text>
+      </g>
+    </svg>
+    <figcaption>Three Parts · Eight Movements · nine Interstices — what returns from later changes what came before</figcaption>
+  </figure>
+  <p class="l r">A commitment met in Formation</p>
+  <p class="l r">comes back as a question of judgement in Rational,</p>
+  <p class="l r">and means something new in Transformative.</p>
+  <p class="gap"></p>
+  <p class="s r">The descent is not a line. It is a return, made with more experience each time.</p>
+</section>
+
+<section id="waves" data-page="23" data-part="0" data-where="The Waves of Time · Echoes in the Water">
+  <div class="level r">Level 023 <span>· The Waves of Time · Echoes in the Water</span></div>
+  <figure class="fx r" data-fx="ripples" data-ar="0.62"><figcaption>1996 published · 2011 bought · 2026 read again — the book never changed; the reader did</figcaption></figure>
+  <p class="l r">A book sits on a shelf for fifteen years.</p>
+  <p class="l r">The reader keeps changing.</p>
+  <p class="gap"></p>
+  <p class="l r">McMaster, 1996: <em>learn new cooperative behaviours at every level.</em></p>
+  <p class="l r">Thirty years later the words come back as echoes in the water,</p>
+  <p class="l r">the Lady of Shalott drifting into an experience whose ending no one knows.</p>
+  <p class="gap"></p>
+  <p class="s r">Re-sensitisation. Atmosphere. Hermes. Potentiality. Symbiosis.</p>
+  <p class="s r">Five inquiries meet here and become one architecture.</p>
+</section>
+
+<section id="clinamen" class="short" data-page="28" data-part="0" data-where="Note on the Clinamen">
+  <div class="level r">Level 028 <span>· Note on the Clinamen</span></div>
+  <p class="r" style="font-family:'Cormorant Garamond';font-style:italic;font-size:clamp(64px,14vw,170px);line-height:1;color:var(--glow);letter-spacing:.02em">clīnāmen</p>
+  <p class="cite r">Lucretius · De Rerum Natura II · ca. 55 BCE</p>
+  <p class="gap"></p>
+  <p class="l r">A swerve. An inclination.</p>
+  <p class="l r">Slight, and at no fixed time or place.</p>
+  <p class="l r">Variation <em>inside</em> a motion already under way.</p>
+</section>
+
+<!-- ================= PART 1 ================= -->
+<section data-page="31" data-part="1" data-where="Part 1 · Formation">
+  <h2 class="part r"><small>Part 1</small>Formation</h2>
+  <p class="partq r">What form do organisations now face, and how did it come to be?</p>
+  <p class="triad r">Swerve · Field · Inheritance</p>
+</section>
+
+<section id="m1" class="short" data-page="32" data-part="1" data-where="Movement I · The Swerve and the Field">
+  <h3 class="mv r"><small>Movement I</small>The Swerve<br>and the Field</h3>
+  <ul class="asks">
+    <li class="r">How a form endures as the people within it change</li>
+    <li class="r">What a small change of course can set in motion</li>
+    <li class="r">How an influence can be felt far from where it began</li>
+  </ul>
+</section>
+
+<section data-page="32" data-part="1" data-where="I · How a Form Endures">
+  <div class="level r">Level 032 <span>· How a Form Endures</span></div>
+  <figure class="fx r" data-fx="names" data-ar="0.42"><figcaption>The name holds · the people change · the promise outlasts them</figcaption></figure>
+  <p class="l r">A promise made years ago still matters.</p>
+  <p class="l r">Different people do the work now, and do it differently.</p>
+  <p class="l r">It takes longer still to see what the work has meant for others.</p>
+  <p class="gap"></p>
+  <p class="s r">Keeping the promise may ask something its makers could hardly have imagined.</p>
+</section>
+
+<section data-page="33" data-part="1" data-where="I · The Swerve and the Possibility of Encounter">
+  <div class="level r">Level 033 <span>· The Swerve and the Possibility of Encounter</span></div>
+  <figure class="fx tap r" data-fx="atoms" data-ar="0.9"><figcaption>Tap the void to make a swerve</figcaption></figure>
+  <p class="l r">Rain falling through empty space.</p>
+  <p class="l r">Every drop at the same speed. The gaps never change.</p>
+  <p class="gap"></p>
+  <p class="l r">What could ever bring two of them together?</p>
+  <p class="gap"></p>
+  <p class="l r">One of them <span class="swerve">swerves.</span></p>
+</section>
+
+<section data-page="34" data-part="1" data-where="I · Faraday, Maxwell and the Field">
+  <div class="level r">Level 034 <span>· Faraday, Maxwell and the Field</span></div>
+  <figure class="fx r" data-fx="faraday" data-ar="0.6"><figcaption>29 August 1831 · an iron ring · two coils · a needle</figcaption></figure>
+  <p class="l r">Make the connection: the needle jumps, then settles.</p>
+  <p class="l r">Hold it: nothing.</p>
+  <p class="l r">Break it: the needle jumps the other way.</p>
+  <p class="gap"></p>
+  <p class="caps r">The current comes only with change.</p>
+  <p class="gap"></p>
+  <p class="s r">An influence crosses the space between separate circuits.</p>
+  <p class="s r">Whoever sees what has changed must find words, find a listener, find the authority to reconsider.</p>
+</section>
+
+<section data-page="35" data-part="1" data-where="I · How an Arrangement Becomes Familiar">
+  <div class="level r">Level 035 <span>· How an Arrangement Becomes Familiar</span></div>
+  <figure class="fx r" data-fx="crossing" data-ar="0.62"><figcaption>A figuration (Elias) · strangers adjusting to one another in a few seconds</figcaption></figure>
+  <p class="l r">A pedestrian crossing.</p>
+  <p class="l r">A driver eases off. A walker watches. Someone hesitates. Everyone adjusts.</p>
+  <p class="gap"></p>
+  <p class="s r">Street design, law, and the habits of everyone who crossed before</p>
+  <p class="s r">are present in what strangers can expect of each other.</p>
+</section>
+
+<section class="interstice" data-page="36" data-part="1" data-where="Interstice · What Takes Hold">
+  <div class="door r" style="--gap:2px"><i></i></div>
+  <p class="tag r">The Interstice · I</p>
+  <h4 class="r">What Takes Hold</h4>
+  <p class="s r">A promise gives people the confidence to make plans of their own.</p>
+  <p class="s r">By the time it is inherited, it matters to people the original parties never met.</p>
+  <p class="gap"></p>
+  <p class="q r">How did the organisation learn to carry a commitment so far, and what did that ask of those who came after?</p>
+</section>
+
+<section id="m2" class="short" data-page="38" data-part="1" data-where="Movement II · What We Inherit">
+  <h3 class="mv r"><small>Movement II</small>What We Inherit</h3>
+  <ul class="asks">
+    <li class="r">How an organisation came to hold property and carry commitments through changes of ownership</li>
+    <li class="r">Who set the pace once industrial work began, and who lived with the consequences</li>
+    <li class="r">Why the law binds companies and the people who direct them</li>
+    <li class="r">How conduct, evidence and culture shape what an organisation can learn about itself</li>
+  </ul>
+</section>
+
+<section data-page="38" data-part="1" data-where="II · The Making of the Enduring Organisation">
+  <div class="level r">Level 038 <span>· The Making of the Enduring Organisation</span></div>
+  <figure class="fx r" style="width:min(260px,60vw)">
+    <svg viewBox="0 0 200 200" fill="none">
+      <circle class="draw" pathLength="1" cx="100" cy="100" r="78" stroke="#a8643f" stroke-width="1.2"/>
+      <circle class="draw d2" pathLength="1" cx="100" cy="100" r="66" stroke="#a8643f" stroke-opacity=".6"/>
+      <path class="draw d3" pathLength="1" d="M100 52 L112 88 L150 88 L119 110 L131 146 L100 124 L69 146 L81 110 L50 88 L88 88Z" stroke="#a8643f" stroke-opacity=".5"/>
+      <text x="100" y="186" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" letter-spacing="3" fill="#4b5a5c">31 DEC 1600</text>
+      <text x="100" y="107" text-anchor="middle" font-family="Cormorant Garamond" font-size="26" font-style="italic" fill="#d9d4c7">Charter</text>
+    </svg>
+  </figure>
+  <p class="l r">A ship returns. The cargo is sold. The money is divided.</p>
+  <p class="l r">The next voyage needs a fresh agreement.</p>
+  <p class="gap"></p>
+  <p class="l r">Then a royal charter gives London merchants a name</p>
+  <p class="l r">that holds property while governors come and go.</p>
+  <p class="gap"></p>
+  <p class="caps r">The venture becomes a body.</p>
+  <p class="s r">Whoever takes it over inherits property and promises that can still be traced.</p>
+</section>
+
+<section data-page="40" data-part="1" data-where="II · The Birth of the Industrial Era">
+  <div class="level r">Level 040 <span>· The Birth of the Industrial Era</span></div>
+  <figure class="fx r" data-fx="gears" data-ar="0.55"><figcaption>c. 1700 · Crowley Iron Works · a bell at five in the morning</figcaption></figure>
+  <p class="l r">Water and steam bring the operations under one roof.</p>
+  <p class="l r">Capital outlasts any single order.</p>
+  <p class="l r">People keep time with each other, and with the machine.</p>
+  <p class="gap"></p>
+  <p class="s r">Someone counts the hour in a ledger.</p>
+  <p class="s r">Someone else lives that hour on the spinning floor.</p>
+</section>
+
+<section data-page="41" data-part="1" data-where="II · Time, Distance and the Organisation of Work">
+  <div class="level r">Level 041 <span>· Time, Distance and the Organisation of Work</span></div>
+  <figure class="fx r" data-fx="clock" style="width:min(320px,70vw)" data-ar="1"><figcaption>Bristol Corn Exchange · two minute hands · London time runs eleven minutes ahead</figcaption></figure>
+  <p class="l r">January 1841: the Great Western keeps London time.</p>
+  <p class="l r">Bristol keeps its own.</p>
+  <p class="gap"></p>
+  <p class="caps r">Both hands are right.</p>
+  <p class="s r">Which one you need depends on what you are about to do.</p>
+  <p class="gap"></p>
+  <p class="s r">Organising at a distance works best when nobody notices it,</p>
+  <p class="s r">until someone needs to know what went into the result, or what it cost elsewhere.</p>
+</section>
+
+<section data-page="42" data-part="1" data-where="II · Offices, Records and Answerability">
+  <div class="level r">Level 042 <span>· Offices, Records and Answerability</span></div>
+  <figure class="fx r" data-fx="offices" data-ar="0.5"><figcaption>Weber · the office outlives the officer · the record outlives the meeting</figcaption></figure>
+  <p class="l r">An office is a role with duties and authority.</p>
+  <p class="l r">Whoever fills it can read the records and carry on the work.</p>
+  <p class="gap"></p>
+  <p class="l r">If you want to question a decision, you know where to take it.</p>
+  <p class="s r">A claim gets heard because someone has a duty to hear it,</p>
+  <p class="s r">even after the person you first dealt with has gone.</p>
+</section>
+
+<section data-page="43" data-part="1" data-where="II · What the Law Asks of Companies and Directors">
+  <div class="level r">Level 043 <span>· What the Law Asks of Companies and Directors</span></div>
+  <p class="l r">A company owes obligations in its own name.</p>
+  <p class="l r">Directors owe their duties to the company.</p>
+  <div class="plate r">
+    <h5>Companies Act 2006 · s.172(1) · having regard to</h5>
+    <ol>
+      <li>the likely consequences of any decision in the long term</li>
+      <li>the interests of the company’s employees</li>
+      <li>relationships with suppliers, customers and others</li>
+      <li>the impact on the community and the environment</li>
+      <li>a reputation for high standards of business conduct</li>
+      <li>acting fairly as between members</li>
+    </ol>
+  </div>
+  <p class="gap"></p>
+  <p class="s r">Without records that can be followed and questioned,</p>
+  <p class="s r">every change of personnel makes the past harder to know.</p>
+</section>
+
+<section class="short" data-page="44" data-part="1" data-where="II · Why the FCA Asks for Evidence of Conduct">
+  <div class="level r">Level 044 <span>· Why the FCA Asks for Evidence of Conduct</span></div>
+  <p class="l r">Someone designs the product. Someone sells it.</p>
+  <p class="l r">Someone else handles what goes wrong later.</p>
+  <p class="gap"></p>
+  <p class="l r">The customer experiences what all of them do <em>together</em>.</p>
+  <p class="gap"></p>
+  <p class="s r">Was it one bad interaction, or are people meeting the same arrangement again and again?</p>
+  <p class="s r">Sometimes the arrangement has to change before the outcome can.</p>
+</section>
+
+<section data-page="45" data-part="1" data-where="II · How Conduct Becomes Culture">
+  <div class="level r">Level 045 <span>· How Conduct Becomes Culture</span></div>
+  <figure class="fx r" data-fx="strata" data-ar="0.62"><figcaption>Schein · what you can see moves fast · what people assume moves slowly</figcaption></figure>
+  <p class="l r">A statement of values can be changed at a board meeting.</p>
+  <p class="l r">It takes repeated experience before anyone believes</p>
+  <p class="l r">that raising a concern counts as doing the job well.</p>
+  <p class="gap"></p>
+  <p class="s r">Which questions are welcomed. How a manager meets a mistake.</p>
+  <p class="s r">What earns recognition when demands compete.</p>
+</section>
+
+<section data-page="47" data-part="1" data-where="II · How Consequences Return">
+  <div class="level r">Level 047 <span>· How Consequences Return</span></div>
+  <figure class="fx r" data-fx="governor" data-ar="0.75"><figcaption>Maxwell · On Governors · 1868 · the change has to get into the mechanism</figcaption></figure>
+  <p class="l r">A governor keeps the engine steady.</p>
+  <p class="l r">A change of speed lifts the arms, and the lifting adjusts the valve.</p>
+  <p class="gap"></p>
+  <p class="l r">Seeing the variation is not enough.</p>
+  <p class="caps r">It has to enter what decides what happens next.</p>
+  <p class="gap"></p>
+  <p class="s r">Output figures arrive quickly.</p>
+  <p class="s r">An account of what people gave up to produce them arrives much later.</p>
+</section>
+
+<section class="interstice" data-page="48" data-part="1" data-where="Interstice · The Weight of a Promise">
+  <div class="door r" style="--gap:5px"><i></i></div>
+  <p class="tag r">The Interstice · II</p>
+  <h4 class="r">The Weight of a Promise</h4>
+  <p class="s r">1853: London Bridge receives the time from Greenwich.</p>
+  <p class="s r">The distance is the same; what one end can know has changed.</p>
+  <p class="gap"></p>
+  <p class="s r">1765: Bengal, Bihar and Orissa. A sum collected becomes a ledger entry read far away.</p>
+  <p class="s r">What a household gave up to pay it never reaches the page.</p>
+  <p class="gap"></p>
+  <p class="q r">How does a result the organisation has learnt to count as success gain the authority to shape what it does next?</p>
+</section>
+
+<section id="m3" class="short" data-page="49" data-part="1" data-where="Movement III · Purpose in Motion">
+  <h3 class="mv r"><small>Movement III</small>Purpose in Motion</h3>
+  <ul class="asks">
+    <li class="r">How repeated decisions give purpose a direction</li>
+    <li class="r">Why particular results come to count as success</li>
+    <li class="r">How commercial interests and obligations to others enter the same decision</li>
+    <li class="r">How changing circumstances alter what seems reasonable</li>
+  </ul>
+</section>
+
+<section data-page="49" data-part="1" data-where="III · How Purpose Takes Shape">
+  <div class="level r">Level 049 <span>· How Purpose Takes Shape</span></div>
+  <p class="l r">A revenue figure gets there before the people making the next decision.</p>
+  <p class="gap"></p>
+  <p class="q r">“the purpose of a system is what it does”</p>
+  <p class="cite r">Stafford Beer · 2001</p>
+  <p class="gap"></p>
+  <p class="s r">What keeps receiving resources?</p>
+  <p class="s r">Which results lead people to repeat an earlier decision?</p>
+  <p class="s r">What happens when experience calls those decisions into question?</p>
+</section>
+
+<section data-page="51" data-part="1" data-where="III · What Came to Count as Success">
+  <div class="level r">Level 051 <span>· What Came to Count as Success</span></div>
+  <figure class="fx r" data-fx="stopwatch" style="width:min(340px,74vw)" data-ar="1"><figcaption>Taylor · The Principles of Scientific Management · 1911</figcaption></figure>
+  <p class="l r">The clock measured how long you were present.</p>
+  <p class="l r">Then came a harder question:</p>
+  <p class="l r">what should you get done in those hours?</p>
+  <p class="gap"></p>
+  <p class="s r">Study the task. Fix the method. Train the worker.</p>
+  <p class="s r">Over time, these decisions teach people which contributions matter most.</p>
+</section>
+
+<section data-page="53" data-part="1" data-where="III · Whose Interests Count?">
+  <div class="level r">Level 053 <span>· Whose Interests Count?</span></div>
+  <figure class="fx r" data-fx="scales" data-ar="0.6"><figcaption>Friedman, 1970 · the executive acts for the owners · within law and ethical custom</figcaption></figure>
+  <p class="l r">A standard tells you whether you got what was expected.</p>
+  <p class="l r">It cannot tell you whether it was worth pursuing.</p>
+  <p class="gap"></p>
+  <p class="s r">What lets the undertaking continue?</p>
+  <p class="s r">On whose behalf are its decisions taken?</p>
+  <p class="gap"></p>
+  <p class="q r">How do you stay able to compete, and answerable for what competing asks of others?</p>
+</section>
+
+<section data-page="55" data-part="1" data-where="III · When the Rule Becomes the Aim">
+  <div class="level r">Level 055 <span>· When the Rule Becomes the Aim</span></div>
+  <figure class="fx r" style="width:min(380px,80vw)">
+    <svg viewBox="0 0 300 180" fill="none" font-family="IBM Plex Mono" font-size="9" letter-spacing="3">
+      <text x="40" y="96" fill="#d9d4c7">RULE</text>
+      <text x="230" y="96" fill="#4b5a5c">AIM</text>
+      <path class="draw" pathLength="1" d="M80 92 H210" stroke="#4b5a5c" stroke-dasharray="3 5"/>
+      <path class="draw d2" pathLength="1" d="M80 86 C 130 20, 190 20, 190 70 C 190 120, 120 140, 70 104" stroke="#a8643f" stroke-width="1.4"/>
+      <path class="draw d3" pathLength="1" d="M76 96 l-8 10 l12 -2" stroke="#a8643f" stroke-width="1.4"/>
+    </svg>
+    <figcaption>Merton · 1940 · displacement of goals</figcaption>
+  </figure>
+  <p class="l r">Reliable work needs people attached to the rules.</p>
+  <p class="l r">Slowly the attachment moves.</p>
+  <p class="caps r">The procedure becomes the point.</p>
+  <p class="gap"></p>
+  <p class="s r">The office keeps delivering what is expected of it,</p>
+  <p class="s r">while those living with its effects start asking what it actually achieves.</p>
+</section>
+
+<section data-page="57" data-part="1" data-where="III · When Reported Success Misleads">
+  <div class="level r">Level 057 <span>· When Reported Success Misleads</span></div>
+  <figure class="fx r" data-fx="enron" data-ar="0.6"><figcaption>December 2001 · false profits · concealed debt</figcaption></figure>
+  <p class="l r">A lender lends. A supplier extends credit. An employee plans a life.</p>
+  <p class="l r">All of it rests on the figures.</p>
+  <p class="gap"></p>
+  <p class="l r">Enron kept the <em>appearance</em> of success going on purpose.</p>
+  <p class="gap"></p>
+  <p class="s r">Confidence is more dependable when its grounds can be traced,</p>
+  <p class="s r">the account can be tested, and understanding revised when the evidence demands it.</p>
+</section>
+
+<section class="interstice" data-page="59" data-part="1" data-where="Interstice · A Different Light">
+  <div class="door r" style="--gap:9px"><i></i></div>
+  <p class="tag r">The Interstice · III</p>
+  <h4 class="r">A Different Light</h4>
+  <p class="s r">The power to continue gave people something to build their lives around.</p>
+  <p class="s r">Property outlasting a single venture. Commitments passing through new hands.</p>
+  <p class="s r">Measures that let strangers rely on one another.</p>
+  <p class="gap"></p>
+  <p class="q r">When does an inherited way of working deserve confidence, and when does it need another look?</p>
+</section>
+
+<!-- ================= PART 2 ================= -->
+<section data-page="63" data-part="2" data-where="Part 2 · Rational">
+  <h2 class="part r"><small>Part 2</small>Rational</h2>
+  <p class="partq r">How do organisations decide what matters, and what shapes those decisions?</p>
+  <p class="triad r">Success · Judgement · Feedback</p>
+</section>
+
+<section id="m4" class="short" data-page="64" data-part="2" data-where="Movement IV · Judgement in Practice">
+  <h3 class="mv r"><small>Movement IV</small>Judgement<br>in Practice</h3>
+  <ul class="asks">
+    <li class="r">How people decide what deserves attention</li>
+    <li class="r">How commercial pressures and obligations meet</li>
+    <li class="r">Whose knowledge enters a decision</li>
+    <li class="r">When experience gives people reason to reconsider</li>
+  </ul>
+</section>
+
+<section data-page="64" data-part="2" data-where="IV · What Makes a Decision Reasonable?">
+  <div class="level r">Level 064 <span>· What Makes a Decision Reasonable?</span></div>
+  <figure class="fx r" data-fx="balance" data-ar="0.55"><figcaption>Income · people · customers · colleagues · the beam never quite settles</figcaption></figure>
+  <p class="l r">The service needs more people.</p>
+  <p class="l r">The organisation cannot fund every request.</p>
+  <p class="l r">Customers wait. Colleagues cover the gaps.</p>
+  <p class="gap"></p>
+  <p class="caps r">The decision comes before agreement does.</p>
+  <p class="s r">Every concern has grounds that deserve a hearing.</p>
+</section>
+
+<section data-page="67" data-part="2" data-where="IV · What Reaches the Decision">
+  <div class="level r">Level 067 <span>· What Reaches the Decision</span></div>
+  <figure class="fx r" data-fx="filter" data-ar="0.9"><figcaption>Rising from the work · thinned by each layer · a few signals reach the decision</figcaption></figure>
+  <p class="l r">Long before a concern appears in a report,</p>
+  <p class="l r">someone has started working around it.</p>
+  <p class="gap"></p>
+  <p class="s r">Checks it twice. Stays late. Makes the phone call</p>
+  <p class="s r">that the record will show as <em>completed without incident</em>.</p>
+  <p class="gap"></p>
+  <p class="q r">How does something people are living with become something the organisation can act on?</p>
+</section>
+
+<section data-page="70" data-part="2" data-where="IV · What Deserves Priority?">
+  <div class="level r">Level 070 <span>· What Deserves Priority?</span></div>
+  <div class="claims r">
+    <div class="claim">Replace ageing equipment<span>01</span></div>
+    <div class="claim">Retain experienced people<span>02</span></div>
+    <div class="claim">Improve the service<span>03</span></div>
+    <div class="claim">Develop future income<span>04</span></div>
+    <div class="claim" style="color:var(--amber);border-color:rgba(217,162,91,.4)">A difficulty only now clear<span>05</span></div>
+  </div>
+  <p class="l r">Several claims all deserve attention at the same time.</p>
+  <p class="gap"></p>
+  <p class="s r">People find out what gets protected when money is short,</p>
+  <p class="s r">which promises hold, and which concerns have to explain themselves twice.</p>
+</section>
+
+<section data-page="73" data-part="2" data-where="IV · Reasons to Reconsider">
+  <div class="level r">Level 073 <span>· Reasons to Reconsider</span></div>
+  <figure class="fx r" data-fx="course" data-ar="0.5"><figcaption>A reasonable course · new experience · a course reconsidered with care</figcaption></figure>
+  <p class="l r">A decision can be reasonable when it is made</p>
+  <p class="l r">and still need to change.</p>
+  <p class="gap"></p>
+  <p class="s r">Demand develops differently. A method proves harder than expected.</p>
+  <p class="s r">An opportunity turns up that the plan never imagined.</p>
+  <p class="gap"></p>
+  <p class="q r">How does an organisation keep the confidence to act while staying open to what its actions reveal?</p>
+</section>
+
+<section class="interstice" data-page="76" data-part="2" data-where="Interstice · Room to Respond">
+  <div class="door r" style="--gap:14px"><i></i></div>
+  <p class="tag r">The Interstice · IV</p>
+  <h4 class="r">Room to Respond</h4>
+  <p class="s r">An office gives authority. A record gives back the reasons. A relationship lets in another’s experience.</p>
+  <p class="s r">Together they leave room to respond.</p>
+  <p class="gap"></p>
+  <p class="s r">That room is hard to keep. A question raised too often loses its urgency.</p>
+  <p class="gap"></p>
+  <p class="q r">What happens to our ability to notice once a way of working becomes familiar?</p>
+</section>
+
+<section id="m5" class="short" data-page="77" data-part="2" data-where="Movement V · What Becomes Hard to Notice">
+  <h3 class="mv r"><small>Movement V</small>What Becomes<br>Hard to Notice</h3>
+  <ul class="asks">
+    <li class="r">How familiarity shapes attention</li>
+    <li class="r">What we learn to trust</li>
+    <li class="r">How reports and screens shape what we perceive</li>
+    <li class="r">What becomes difficult to question</li>
+  </ul>
+</section>
+
+<section data-page="77" data-part="2" data-where="V · When the Familiar Recedes">
+  <div class="level r">Level 077 <span>· When the Familiar Recedes</span></div>
+  <p class="l r">Knowing the work well is an achievement.</p>
+  <p class="l r">Then the contributions that keep it dependable sink into the walls.</p>
+  <div class="fade-words r">
+    <span>the second check</span><span>the extra hour</span><span>the phone call</span><span>the colleague who knows</span>
+    <span>the quiet warning</span><span>the care</span><span>the cover</span><span>the patience</span><span>the remembered exception</span>
+  </div>
+  <p class="gap"></p>
+  <p class="s r">Hover or touch to bring them back.</p>
+  <p class="s r">Their value is often clearest when they stop.</p>
+</section>
+
+<section class="short" data-page="80" data-part="2" data-where="V · What We Learn to Trust">
+  <div class="level r">Level 080 <span>· What We Learn to Trust</span></div>
+  <p class="l r">An accountant relies on methods older than her career.</p>
+  <p class="l r">An engineer on investigations he never witnessed.</p>
+  <p class="l r">A manager on reports she cannot follow in every detail.</p>
+  <p class="gap"></p>
+  <p class="s r">Qualifications, standards and records let knowledge travel between strangers.</p>
+  <p class="gap"></p>
+  <p class="q r">What do we start to see when the account of the work is more familiar than the work?</p>
+</section>
+
+<section data-page="83" data-part="2" data-where="V · Through Reports and Screens">
+  <div class="level r">Level 083 <span>· Through Reports and Screens</span></div>
+  <figure class="fx wide r">
+    <div class="dash">
+      <div class="tile"><small>Requests closed</small><b data-count="98.4">98.4%</b><i>✓</i></div>
+      <div class="tile"><small>Within target</small><b data-count="96.1">96.1%</b><i>✓</i></div>
+      <div class="tile"><small>Open issues</small><b>0</b><i>✓</i></div>
+      <div class="tile"><small>Spend vs plan</small><b>−0.8%</b><i>✓</i></div>
+      <div class="tile"><small>Satisfaction</small><b>4.6</b><i>✓</i></div>
+      <div class="tile"><small>Status</small><b>GREEN</b><i>✓</i></div>
+      <div class="waiting"><svg viewBox="0 0 22 36" fill="none" stroke="#d9d4c7" stroke-width="1.2"><circle cx="11" cy="6" r="4.5"/><path d="M11 11v13M4 16l7-3 7 3M7 35l4-11 4 11"/></svg>Case 4471 · marked completed · still waiting for help</div>
+    </div>
+    <figcaption>Both experiences belong to the history of the work · only one reaches the screen</figcaption>
+  </figure>
+  <p class="l r">The screen gathers sales, requests and spending from many sites.</p>
+  <p class="l r">Someone decided what belongs together and what counts as <em>done</em>.</p>
+  <p class="gap"></p>
+  <p class="caps r">The record is not the reality.</p>
+  <p class="caps r">The total is a choice.</p>
+  <p class="caps r">The screen is a sieve.</p>
+</section>
+
+<section class="short" data-page="86" data-part="2" data-where="V · What Becomes Difficult to Question">
+  <div class="level r">Level 086 <span>· What Becomes Difficult to Question</span></div>
+  <p class="l r">People built their confidence learning it.</p>
+  <p class="l r">They earned recognition using it well.</p>
+  <p class="l r">They taught others to do the same.</p>
+  <p class="gap"></p>
+  <p class="s r">So asking whether a measure still works can sound like accusing the people who introduced it.</p>
+  <p class="s r">The concern still has to be examined.</p>
+  <p class="gap"></p>
+  <p class="q r">What becomes possible once an arrangement is seen as something people made, and can keep changing?</p>
+</section>
+
+<section class="interstice" data-page="89" data-part="2" data-where="Interstice · A Familiar View">
+  <div class="door r" style="--gap:20px"><i></i></div>
+  <p class="tag r">The Interstice · V</p>
+  <h4 class="r">A Familiar View</h4>
+  <p class="s r">What looks ordinary holds years of learning, help and care.</p>
+  <p class="s r">A question gives the familiar a new presence.</p>
+  <p class="s r">Something experienced as fixed becomes open to reconsideration.</p>
+  <p class="gap"></p>
+  <p class="q r">Where might that opening lead, and who might help another course become possible?</p>
+</section>
+
+<!-- ================= PART 3 ================= -->
+<section data-page="93" data-part="3" data-where="Part 3 · Transformative">
+  <h2 class="part long r"><small>Part 3</small>Transformative</h2>
+  <p class="partq r">What might organisations become as they learn to see their effects?</p>
+  <p class="triad r">Re-sensitisation · Agency · Symbiosis</p>
+</section>
+
+<section id="m6" class="short" data-page="94" data-part="3" data-where="Movement VI · Opening Possibilities">
+  <h3 class="mv r"><small>Movement VI</small>Opening<br>Possibilities</h3>
+  <ul class="asks">
+    <li class="r">How a different understanding opens another course</li>
+    <li class="r">What people become able to undertake together</li>
+    <li class="r">How new possibilities meet existing commitments</li>
+    <li class="r">Why transformation stays open to what follows</li>
+  </ul>
+</section>
+
+<section data-page="94" data-part="3" data-where="VI · A Different Starting Point">
+  <div class="level r">Level 094 <span>· A Different Starting Point</span></div>
+  <figure class="fx r" data-fx="fragments" data-ar="0.6"><figcaption>Each role holds a piece the others need · the arrangement kept them apart</figcaption></figure>
+  <p class="l r">A repeated request for help looks like a training gap.</p>
+  <p class="l r">Conversation shows something else: the trouble comes</p>
+  <p class="l r">whenever work passes between the same roles.</p>
+  <p class="gap"></p>
+  <p class="caps r">What changes first is what we think we are dealing with.</p>
+</section>
+
+<section class="short" data-page="97" data-part="3" data-where="VI · Becoming Able to Act">
+  <div class="level r">Level 097 <span>· Becoming Able to Act</span></div>
+  <p class="l r">Everyone agrees it could be better,</p>
+  <p class="l r">and the next morning they go back to the old way.</p>
+  <p class="gap"></p>
+  <p class="s r">The commitments still stand. The resources are already allocated.</p>
+  <p class="s r">Each person needs something from someone else before they can move.</p>
+  <p class="gap"></p>
+  <p class="l r">A lot happens in the interval between <em>seeing</em> a possibility and <em>being able</em> to pursue it.</p>
+</section>
+
+<section data-page="100" data-part="3" data-where="VI · Giving a Possibility Time">
+  <div class="level r">Level 100 <span>· Giving a Possibility Time</span></div>
+  <figure class="fx r" data-fx="growth" data-ar="0.8"><figcaption>Attention given · resources committed before the benefit is proven</figcaption></figure>
+  <p class="l r">A new undertaking needs enough support</p>
+  <p class="l r">to find out what it can become.</p>
+  <p class="gap"></p>
+  <p class="s r">That time has a cost, and the old service still has to run alongside it.</p>
+  <p class="gap"></p>
+  <p class="q r">What should be made to last, and how can it stay responsive once others depend on it?</p>
+</section>
+
+<section class="short" data-page="103" data-part="3" data-where="VI · As a New Practice Takes Hold">
+  <div class="level r">Level 103 <span>· As a New Practice Takes Hold</span></div>
+  <p class="l r">Others start to rely on it.</p>
+  <p class="l r">What once took long explanation becomes easy to do.</p>
+  <p class="gap"></p>
+  <p class="s r">What once needed an explicit decision becomes an ordinary expectation.</p>
+  <p class="s r">The question returns to where Formation began, and now carries the experience of change.</p>
+  <p class="gap"></p>
+  <p class="q r">As a new practice becomes ordinary, how do people stay sensitive to what it asks of others?</p>
+</section>
+
+<section class="interstice" data-page="106" data-part="3" data-where="Interstice · What Opens Between Us">
+  <div class="door r" style="--gap:30px"><i></i></div>
+  <p class="tag r">The Interstice · VI</p>
+  <h4 class="r">What Opens Between Us</h4>
+  <p class="s r">One person notices. Another responds. Knowledge meets experience.</p>
+  <p class="s r">Together they find they can do work none of them could do alone.</p>
+  <p class="gap"></p>
+  <p class="l r amber">There is hope in this capacity.</p>
+  <p class="gap"></p>
+  <p class="q r">What helps us become receptive to something we have lived alongside but not yet understood?</p>
+</section>
+
+<section id="m7" class="short" data-page="107" data-part="3" data-where="Movement VII · Noticing Again">
+  <h3 class="mv r"><small>Movement VII</small>Noticing Again</h3>
+  <ul class="asks">
+    <li class="r">How familiar experience gains fresh significance</li>
+    <li class="r">What feeling and imagination bring into view</li>
+    <li class="r">How another person’s account changes understanding</li>
+    <li class="r">How renewed attention becomes a capacity to respond</li>
+  </ul>
+</section>
+
+<section data-page="107" data-part="3" data-where="VII · When Something Reaches Us">
+  <div class="level r">Level 107 <span>· When Something Reaches Us</span></div>
+  <figure class="fx tap r" data-fx="wave" data-ar="0.42"><figcaption>Touch the line · re-sensitisation · the signal returns</figcaption></figure>
+  <p class="l r">The words are the same.</p>
+  <p class="l r">We come back to them carrying experience</p>
+  <p class="l r">that lets us recognise what was always there.</p>
+  <p class="gap"></p>
+  <p class="caps r">Re-sensitisation.</p>
+  <p class="s r">It gives responsibility a human depth.</p>
+</section>
+
+<section class="short" data-page="110" data-part="3" data-where="VII · Feeling and Understanding">
+  <div class="level r">Level 110 <span>· Feeling and Understanding</span></div>
+  <p class="l r">A phrase. A hesitation.</p>
+  <p class="l r">The effort it took someone to explain.</p>
+  <p class="gap"></p>
+  <p class="l r">There is an interval between <em>being affected</em></p>
+  <p class="l r">and understanding what affected us.</p>
+  <p class="gap"></p>
+  <p class="s r">We feel uneasy before we can say why. We are drawn to a possibility before we can describe it.</p>
+  <p class="s r">These experiences belong inside judgement.</p>
+</section>
+
+<section data-page="113" data-part="3" data-where="VII · When Another Account Matters">
+  <div class="level r">Level 113 <span>· When Another Account Matters</span></div>
+  <p class="l r">The event is familiar.</p>
+  <p class="l r">It means something different seen from where they stood.</p>
+  <div class="accounts r">
+    <div><h6>The record</h6><p>Delivery date revised · agreed change</p><p>Employee departed · one vacancy</p></div>
+    <div class="them"><h6>The account</h6><p>Three weeks of rework to accommodate it</p><p>Knowledge and relationships no hire will replace</p></div>
+  </div>
+  <p class="gap"></p>
+  <p class="s r">The difficult choices remain.</p>
+  <p class="s r">What changes is the care with which they are made.</p>
+</section>
+
+<section class="short" data-page="116" data-part="3" data-where="VII · Keeping Responsiveness Alive">
+  <div class="level r">Level 116 <span>· Keeping Responsiveness Alive</span></div>
+  <p class="l r">One person’s understanding can change</p>
+  <p class="l r">while the organisation carries on exactly as before.</p>
+  <p class="gap"></p>
+  <p class="s r">Explain it to a colleague. Qualify the record.</p>
+  <p class="s r">Give the people next door the chance to see what it means for their work.</p>
+  <p class="gap"></p>
+  <p class="caps r">Understanding gains reach through connection.</p>
+</section>
+
+<section class="interstice" data-page="119" data-part="3" data-where="Interstice · A Renewed Presence">
+  <div class="door r" style="--gap:44px"><i></i></div>
+  <p class="tag r">The Interstice · VII</p>
+  <h4 class="r">A Renewed Presence</h4>
+  <p class="s r">We begin to see what someone else has been carrying alongside us.</p>
+  <p class="s r">It may bring discomfort, gratitude, or a fresh sense of possibility.</p>
+  <p class="s r">Someone finds time to listen. An explanation reaches someone able to act.</p>
+  <p class="gap"></p>
+  <p class="q r">How might its way of continuing leave others more able to continue too?</p>
+</section>
+
+<section id="m8" class="short" data-page="120" data-part="3" data-where="Movement VIII · What We Carry Forward">
+  <h3 class="mv r"><small>Movement VIII</small>What We<br>Carry Forward</h3>
+  <ul class="asks">
+    <li class="r">How commercial continuation depends on others</li>
+    <li class="r">What makes mutual dependence a moral concern</li>
+    <li class="r">How cooperation can preserve agency and difference</li>
+    <li class="r">What an organisation leaves possible through its activity</li>
+  </ul>
+</section>
+
+<section data-page="120" data-part="3" data-where="VIII · Continuing with Others">
+  <div class="level r">Level 120 <span>· Continuing with Others</span></div>
+  <figure class="fx r" data-fx="symbiosis" data-ar="0.75"><figcaption>Symbiosis · bound together · each keeping its own colour</figcaption></figure>
+  <p class="l r">Customers, employees, suppliers, lenders, public institutions.</p>
+  <p class="l r">The organisation keeps going because others keep contributing.</p>
+  <p class="gap"></p>
+  <p class="caps r">Independence inside dependence.</p>
+  <p class="s r">Cooperation without giving up difference. Competition continuing within the relationship.</p>
+</section>
+
+<section data-page="123" data-part="3" data-where="VIII · The Conditions We Depend Upon">
+  <div class="level r">Level 123 <span>· The Conditions We Depend Upon</span></div>
+  <figure class="fx r" data-fx="roots" data-ar="0.75"><figcaption>Above the line, the price · below it, everything that keeps the supply alive</figcaption></figure>
+  <p class="l r">An invoice records what was supplied and what is owed.</p>
+  <p class="l r">The knowledge, maintenance and materials behind it run far below the surface.</p>
+  <p class="gap"></p>
+  <p class="q r">What does our activity help sustain, and what does it make harder for others to sustain?</p>
+</section>
+
+<section data-page="126" data-part="3" data-where="VIII · What Others Inherit">
+  <div class="level r">Level 126 <span>· What Others Inherit</span></div>
+  <figure class="fx r" data-fx="relay" data-ar="0.45"><figcaption>Generation to generation · what is passed on grows in the hands that receive it</figcaption></figure>
+  <p class="l r">A completed piece of work becomes part of someone else’s plan.</p>
+  <p class="l r">An agreement keeps working long after its negotiators have gone.</p>
+  <p class="gap"></p>
+  <p class="q r">What would it mean to leave an inheritance others can rely on and still be free to develop?</p>
+</section>
+
+<section data-page="129" data-part="3" data-where="VIII · Recognising Responsibility">
+  <div class="level r">Level 129 <span>· Recognising Responsibility</span></div>
+  <p class="l r">The definition the whole descent has been building towards.</p>
+  <div class="plate def r">
+    <h5>A responsible organisation</h5>
+    <ol>
+      <li>pursues its purposes and sustains its commercial viability</li>
+      <li>meets its legal obligations</li>
+      <li>takes moral responsibility for how its activity affects others</li>
+      <li>builds the relationships, authority, knowledge and resources through which people can judge, question, learn and respond</li>
+      <li>and gives these commitments practical meaning through its culture and collective conduct</li>
+    </ol>
+  </div>
+  <p class="gap"></p>
+  <p class="s r">Each generation receives something it did not create,</p>
+  <p class="s r">finds out more of what it means, and adds to what others will inherit.</p>
+</section>
+
+<section class="interstice" data-page="133" data-part="3" data-where="Interstice · What Remains Possible">
+  <div class="door r" style="--gap:64px"><i></i></div>
+  <p class="tag r">The Interstice · VIII</p>
+  <h4 class="r">What Remains Possible</h4>
+  <p class="s r">A promise travels further than the people who made it.</p>
+  <p class="s r">Someone can bring an account. Someone else has the authority to respond.</p>
+  <p class="s r">Knowledge survives a change of personnel.</p>
+  <p class="s r">A familiar arrangement can be questioned without losing sight of what makes it valuable.</p>
+  <p class="gap"></p>
+  <p class="l r amber">There is room for hope within this work.</p>
+</section>
+
+<!-- ================= BELOW ================= -->
+<section id="lineages" data-page="136" data-part="3" data-where="Foundational Lineages">
+  <div class="level r">Level 136 <span>· Foundational Lineages</span></div>
+  <figure class="fx r" data-fx="constellation" data-ar="0.72"><figcaption>Beer · Stacey · Bateson — and the company gathered around them</figcaption></figure>
+  <p class="l r">No inquiry develops alone.</p>
+  <p class="gap"></p>
+  <p class="s r"><span class="rust">Beer</span>: viability, autonomy and coordination in the same inquiry.</p>
+  <p class="s r"><span class="rust">Stacey</span>: the conversations, power and identity through which organisational life actually happens.</p>
+  <p class="s r"><span class="rust">Bateson</span>: pattern, communication, learning and context, where a response can change what came before it.</p>
+  <p class="gap"></p>
+  <p class="q r">What might people become able to do together while keeping their freedom to differ?</p>
+</section>
+
+<section id="reflections" data-page="140" data-part="3" data-where="Author’s Reflections · November 2026">
+  <div class="level r">Level 140 <span>· Author’s Reflections · November 2026</span></div>
+  <p class="l r">Reach keeps growing.</p>
+  <p class="l r">Decisions travel through arrangements whose participants barely know each other.</p>
+  <p class="l r">Distant activity arrives as records, reports and screens.</p>
+  <p class="gap"></p>
+  <p class="s r">That distance is hard to see from inside.</p>
+  <p class="s r">Managers carry real pressures, worthwhile ambitions, and responsibilities that pull different ways.</p>
+  <p class="gap"></p>
+  <p class="l r">Responsibility continues through the willingness to learn</p>
+  <p class="l r">what our activity asks of others,</p>
+  <p class="l r">and the practical capacity to respond.</p>
+  <p class="cite r">Donald Innes Davies · November 2026</p>
+</section>
+
+<section id="airlock" class="interstice" data-page="148" data-part="3" data-where="The Airlock">
+  <div class="door full r" style="--gap:2px"><i></i><b></b></div>
+  <p class="tag r">Level 148 · The Airlock</p>
+  <p class="s r">Light at the seam. A single question, held in the breath before the door opens:</p>
+  <p class="gap"></p>
+  <p class="q r">What might we leave them able to continue, reconsider and begin?</p>
+  <p class="gap"></p>
+  <p class="s r" id="flat">The pulse stops.</p>
+  <p class="gap"></p>
+  <p class="q r"><em>Responsibility is what remains possible.</em></p>
+</section>
+
+</main>
+
+<footer>
+  The Architecture of Responsible Organisations · Dynamics of Fluidity<br>
+  Donald Innes Davies · 2026<br>
+  A treatment in descent · Principia Humanitatis
+</footer>
+
+<script>
+(function(){
+"use strict";
+var C={steel:'143,163,166',bone:'217,212,199',glow:'201,216,210',rust:'168,100,63',green:'143,207,154',amber:'217,162,91',dim:'75,90,92'};
+function rgba(k,a){return 'rgba('+C[k]+','+a+')'}
+var MONO='"IBM Plex Mono",monospace', SERIF='"Cormorant Garamond",serif';
+function txt(x,s,X,Y,o){o=o||{};x.save();x.font=(o.size||9)+'px '+(o.font||MONO);x.fillStyle=o.col||rgba('dim',1);x.textAlign=o.align||'center';x.textBaseline='middle';
+  if(o.ls&&x.letterSpacing!==undefined)x.letterSpacing=o.ls+'px';x.fillText(s,X,Y);x.restore()}
+function rnd(a,b){return a+Math.random()*(b-a)}
+function lerp(a,b,t){return a+(b-a)*t}
+function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2}
+
+/* ---------------- FX library ---------------- */
+var FX={};
+
+FX.ripples={init:function(s,W,H){s.src=[{x:.2,l:'1996',p:0},{x:.5,l:'2011',p:1.3},{x:.8,l:'2026',p:2.6}]},
+draw:function(x,W,H,t,s){
+  var hy=H*.5;
+  x.strokeStyle=rgba('steel',.18);x.beginPath();x.moveTo(0,hy);x.lineTo(W,hy);x.stroke();
+  s.src.forEach(function(o,i){
+    var cx=o.x*W;
+    for(var k=0;k<5;k++){var ph=((t*.22+o.p*.2+k/5)%1),r=ph*W*.42,a=(1-ph)*.55;
+      x.strokeStyle=rgba(i==2?'amber':'glow',a);x.lineWidth=1;x.beginPath();x.ellipse(cx,hy,r,r*.22,0,0,Math.PI*2);x.stroke();}
+    x.fillStyle=rgba(i==2?'amber':'glow',.95);x.beginPath();x.arc(cx,hy,2.4,0,7);x.fill();
+    txt(x,o.l,cx,hy+H*.32,{size:11,col:rgba(i==2?'amber':'steel',.9),ls:3});
+  });
+  // drifting boat (Shalott)
+  var bx=((t*.025)%1.2-.1)*W, by=hy-6;
+  x.strokeStyle=rgba('bone',.5);x.beginPath();x.moveTo(bx-14,by);x.quadraticCurveTo(bx,by+7,bx+14,by);x.stroke();
+  x.beginPath();x.moveTo(bx-3,by);x.lineTo(bx-3,by-12);x.stroke();
+}};
+
+FX.names={init:function(s){s.slots=[];for(var i=0;i<7;i++)s.slots.push({per:rnd(5,9),off:rnd(0,9),h:Math.random()})},
+draw:function(x,W,H,t,s){
+  var py=H*.2;
+  x.strokeStyle=rgba('steel',.5);x.strokeRect(W*.18,py-14,W*.64,28);
+  txt(x,'THE GOVERNOR AND COMPANY',W/2,py,{size:Math.max(8,W*.022),col:rgba('bone',.9),ls:3});
+  s.slots.forEach(function(o,i){
+    var cx=W*(.14+i*.12),cy=H*.72, ph=((t+o.off)/o.per)%1, a=Math.sin(ph*Math.PI);
+    var gen=Math.floor((t+o.off)/o.per);
+    var col=['steel','bone','glow','rust'][(gen+i)%4];
+    x.strokeStyle=rgba('steel',.12*a);x.beginPath();x.moveTo(W/2,py+14);x.lineTo(cx,cy-16);x.stroke();
+    x.strokeStyle=rgba(col,.85*a);x.fillStyle=rgba(col,.85*a);x.lineWidth=1.2;
+    x.beginPath();x.arc(cx,cy-10,4,0,7);x.stroke();
+    x.beginPath();x.moveTo(cx,cy-5);x.lineTo(cx,cy+10);x.moveTo(cx-6,cy+1);x.lineTo(cx+6,cy+1);x.moveTo(cx,cy+10);x.lineTo(cx-5,cy+20);x.moveTo(cx,cy+10);x.lineTo(cx+5,cy+20);x.stroke();
+    txt(x,String(1600+gen*37+i*11).slice(0,4),cx,cy+32,{size:8,col:rgba('dim',.9*a)});
+  });
+}};
+
+FX.atoms={init:function(s,W,H){s.p=[];for(var i=0;i<46;i++)s.p.push(newP(W,H,true));s.next=1.5;s.bonds=0;
+  function newP(W,H,any){return{x:rnd(8,W-8),y:any?rnd(-H,H):rnd(-60,-10),vx:0,b:-1,sw:0}} s.newP=newP;},
+tap:function(s,W,H,px,py){var best=null,d=1e9;s.p.forEach(function(p){var dd=Math.hypot(p.x-px,p.y-py);if(dd<d&&p.b<0){d=dd;best=p}});if(best){best.vx=(px<W/2?1:-1)*rnd(25,45);best.sw=1}},
+draw:function(x,W,H,t,s,dt){
+  var v=H*.16;s.next-=dt;
+  if(s.next<0){s.next=rnd(1.4,2.6);var cand=s.p.filter(function(p){return p.b<0&&p.y>0&&p.y<H*.5});if(cand.length){var p=cand[(Math.random()*cand.length)|0];p.vx=(Math.random()<.5?-1:1)*rnd(22,40);p.sw=1}}
+  for(var i=0;i<s.p.length;i++){var p=s.p[i];p.y+=v*dt;p.x+=p.vx*dt;
+    if(p.b<0&&p.sw){for(var j=0;j<s.p.length;j++){var q=s.p[j];if(q!==p&&q.b<0&&Math.abs(q.x-p.x)<5&&Math.abs(q.y-p.y)<9){p.b=j;q.b=i;var m=(p.vx)/2;p.vx=m*.15;q.vx=m*.15;p.sw=0;q.sw=0;p.bt=t;q.bt=t;break}}}
+    if(p.y>H+20){if(p.b>=0){s.p[p.b].b=-1}var n=s.newP(W,H);p.x=n.x;p.y=n.y;p.vx=0;p.b=-1;p.sw=0}
+  }
+  for(i=0;i<s.p.length;i++){p=s.p[i];
+    var col=p.b>=0?'amber':(p.sw?'glow':'steel');
+    x.strokeStyle=rgba(col,p.b>=0?.95:.55);x.lineWidth=p.b>=0?1.6:1;
+    x.beginPath();x.moveTo(p.x-p.vx*.12,p.y-12);x.lineTo(p.x,p.y);x.stroke();
+    if(p.b>i){var q=s.p[p.b],age=t-p.bt;
+      x.strokeStyle=rgba('amber',.6);x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke();
+      var g=x.createRadialGradient((p.x+q.x)/2,(p.y+q.y)/2,0,(p.x+q.x)/2,(p.y+q.y)/2,18+Math.min(age*10,14));
+      g.addColorStop(0,rgba('amber',.35));g.addColorStop(1,rgba('amber',0));x.fillStyle=g;x.beginPath();x.arc((p.x+q.x)/2,(p.y+q.y)/2,34,0,7);x.fill();}
+  }
+}};
+
+FX.faraday={draw:function(x,W,H,t,s){
+  var cx=W/2,cy=H*.48,R=Math.min(W*.17,H*.34),cyc=8,ph=t%cyc, imp=0,state;
+  if(ph<4){state='MAKE';var u=ph;imp=Math.exp(-u*2.2)*Math.sin(u*9)}else{state='BREAK';u=ph-4;imp=-Math.exp(-u*2.2)*Math.sin(u*9)}
+  var hold=(ph>1.2&&ph<4);var on=ph<4;if(hold)state='HOLD';if(ph>5.2)state='OPEN';
+  var energy=Math.abs(imp);
+  // field lines inside ring
+  for(var k=1;k<=4;k++){x.strokeStyle=rgba('glow',.05+energy*.35*(1-k/5));x.beginPath();x.ellipse(cx,cy,R*(.95-k*.0)*1,R*(.95),0,0,7);}
+  var g=x.createRadialGradient(cx,cy,R*.5,cx,cy,R*1.25);g.addColorStop(0,rgba('glow',0));g.addColorStop(.6,rgba('glow',energy*.25));g.addColorStop(1,rgba('glow',0));x.fillStyle=g;x.beginPath();x.arc(cx,cy,R*1.3,0,7);x.fill();
+  x.lineWidth=R*.22;x.strokeStyle=rgba('steel',.28);x.beginPath();x.arc(cx,cy,R,0,7);x.stroke();x.lineWidth=1;
+  // coils
+  function coil(side,col,a){for(var i=-5;i<=5;i++){var an=(side<0?Math.PI:0)+i*.085,px=cx+Math.cos(an)*R,py=cy+Math.sin(an)*R;
+      x.strokeStyle=rgba(col,a);x.lineWidth=1.3;x.beginPath();x.ellipse(px,py,R*.16,R*.05,an+Math.PI/2,0,7);x.stroke();}x.lineWidth=1}
+  coil(-1,'rust',.9);coil(1,'glow',.5+energy*.5);
+  // battery left
+  var bx=cx-R*2,by=cy;x.strokeStyle=rgba('rust',.8);
+  x.beginPath();x.moveTo(bx-8,by-10);x.lineTo(bx-8,by+10);x.moveTo(bx,by-5);x.lineTo(bx,by+5);x.stroke();
+  x.beginPath();x.moveTo(bx-8,by);x.lineTo(bx-22,by);x.lineTo(bx-22,cy-R*.9);x.lineTo(cx-R*1.15,cy-R*.35);x.stroke();
+  x.beginPath();x.moveTo(bx,by);x.lineTo(bx+14,by);x.stroke();
+  // switch
+  var sx=bx+14,sy=by;x.beginPath();x.moveTo(sx,sy);var ang=on?0:-.5;x.lineTo(sx+20*Math.cos(ang),sy+20*Math.sin(ang));x.stroke();
+  x.beginPath();x.moveTo(sx+22,sy);x.lineTo(cx-R*1.15,cy+R*.35);x.stroke();
+  txt(x,'BATTERY',bx-6,by+26,{size:8,col:rgba('rust',.8),ls:2});
+  // galvanometer right
+  var gx=cx+R*2,gy=cy,gr=Math.min(28,R*.5);x.strokeStyle=rgba('glow',.7);
+  x.beginPath();x.moveTo(cx+R*1.15,cy-R*.35);x.lineTo(gx,gy-gr-14);x.lineTo(gx,gy-gr);x.moveTo(cx+R*1.15,cy+R*.35);x.lineTo(gx,gy+gr+14);x.lineTo(gx,gy+gr);x.stroke();
+  x.beginPath();x.arc(gx,gy,gr,0,7);x.stroke();
+  for(var m=-3;m<=3;m++){var a=-Math.PI/2+m*.22;x.beginPath();x.moveTo(gx+Math.cos(a)*gr*.78,gy+Math.sin(a)*gr*.78);x.lineTo(gx+Math.cos(a)*gr*.92,gy+Math.sin(a)*gr*.92);x.stroke();}
+  var na=-Math.PI/2+imp*.75;x.strokeStyle=rgba('amber',1);x.lineWidth=1.5;x.beginPath();x.moveTo(gx,gy+gr*.3);x.lineTo(gx+Math.cos(na)*gr*.85,gy+Math.sin(na)*gr*.85);x.stroke();x.lineWidth=1;
+  txt(x,'GALVANOMETER',gx,gy+gr+30,{size:8,col:rgba('glow',.7),ls:2});
+  txt(x,state,cx,H*.94,{size:11,col:rgba(state=='HOLD'||state=='OPEN'?'dim':'amber',1),ls:5});
+}};
+
+FX.crossing={init:function(s){s.peds=[];s.cars=[];s.ts=0;s.tc=0},
+draw:function(x,W,H,t,s,dt){
+  var rx0=W*.36,rx1=W*.64,zy0=H*.42,zy1=H*.58;
+  x.fillStyle='rgba(20,26,28,.8)';x.fillRect(rx0,0,rx1-rx0,H);
+  x.strokeStyle=rgba('steel',.35);x.beginPath();x.moveTo(rx0,0);x.lineTo(rx0,H);x.moveTo(rx1,0);x.lineTo(rx1,H);x.stroke();
+  x.setLineDash([10,12]);x.strokeStyle=rgba('steel',.2);x.beginPath();x.moveTo(W/2,0);x.lineTo(W/2,H);x.stroke();x.setLineDash([]);
+  for(var i=0;i<7;i++){x.fillStyle=rgba('bone',.12);x.fillRect(rx0+(rx1-rx0)*i/7+3,zy0,(rx1-rx0)/7-6,zy1-zy0)}
+  s.ts-=dt;s.tc-=dt;
+  if(s.ts<0){s.ts=rnd(.8,2);var d=Math.random()<.5?1:-1;s.peds.push({x:d>0?-10:W+10,y:rnd(zy0+6,zy1-6),d:d,v:rnd(20,30),wait:0})}
+  if(s.tc<0){s.tc=rnd(1.8,3.4);var up=Math.random()<.5;s.cars.push({x:up?W*.57:W*.43,y:up?H+30:-30,d:up?-1:1,v:60,vt:60})}
+  var onX=s.peds.filter(function(p){return p.x>rx0-8&&p.x<rx1+8});
+  s.cars.forEach(function(c){
+    var front=c.y+c.d*18, approaching=c.d>0?(front<zy0&&front>zy0-90):(front>zy1&&front<zy1+90);
+    c.vt=(approaching&&onX.length)?0:65; if(!approaching&&((c.d>0&&front>=zy0-2&&front<zy0+4)||(c.d<0&&front<=zy1+2&&front>zy1-4))&&onX.length)c.vt=0;
+    c.v=lerp(c.v,c.vt,dt*2.2);c.y+=c.d*c.v*dt;
+    x.strokeStyle=rgba('steel',.75);x.strokeRect(c.x-8,c.y-16,16,32);
+    var ly=c.y+c.d*16;x.fillStyle=rgba('glow',.8);x.fillRect(c.x-6,ly-1,3,2);x.fillRect(c.x+3,ly-1,3,2);
+    var g=x.createRadialGradient(c.x,ly+c.d*20,0,c.x,ly+c.d*20,30);g.addColorStop(0,rgba('glow',.15));g.addColorStop(1,rgba('glow',0));x.fillStyle=g;x.fillRect(c.x-30,ly+c.d*20-30,60,60);
+    if(c.v<20){x.fillStyle=rgba('rust',.9);x.fillRect(c.x-6,c.y-c.d*16-1,3,2);x.fillRect(c.x+3,c.y-c.d*16-1,3,2)}
+  });
+  s.peds.forEach(function(p){
+    var atKerb=(p.d>0&&p.x>rx0-14&&p.x<rx0-4)||(p.d<0&&p.x<rx1+14&&p.x>rx1+4);
+    var carNear=s.cars.some(function(c){var f=c.y+c.d*18;return Math.abs(f-(zy0+zy1)/2)<70&&c.v>30});
+    var go=!(atKerb&&carNear); p.x+=p.d*(go?p.v:0)*dt;
+    x.fillStyle=rgba(go?'bone':'amber',.95);x.beginPath();x.arc(p.x,p.y,2.6,0,7);x.fill();
+    x.strokeStyle=rgba('bone',.15);x.beginPath();x.moveTo(p.x,p.y);x.lineTo(p.x-p.d*10,p.y);x.stroke();
+  });
+  s.peds=s.peds.filter(function(p){return p.x>-20&&p.x<W+20});s.cars=s.cars.filter(function(c){return c.y>-60&&c.y<H+60});
+}};
+
+function gear(x,cx,cy,r,n,a,col){x.save();x.translate(cx,cy);x.rotate(a);x.beginPath();
+  for(var i=0;i<n*2;i++){var an=i/(n*2)*Math.PI*2,rr=i%2?r:r*1.14;var a1=an-Math.PI/(n*2)*.6,a2=an+Math.PI/(n*2)*.6;x.lineTo(Math.cos(a1)*rr,Math.sin(a1)*rr);x.lineTo(Math.cos(a2)*rr,Math.sin(a2)*rr)}
+  x.closePath();x.strokeStyle=col;x.stroke();x.beginPath();x.arc(0,0,r*.25,0,7);x.stroke();
+  for(i=0;i<4;i++){x.beginPath();x.moveTo(Math.cos(i*Math.PI/2)*r*.25,Math.sin(i*Math.PI/2)*r*.25);x.lineTo(Math.cos(i*Math.PI/2)*r*.8,Math.sin(i*Math.PI/2)*r*.8);x.stroke()}x.restore()}
+FX.gears={draw:function(x,W,H,t){
+  var r1=H*.3,n1=18,r2=H*.18,n2=11,r3=H*.13,n3=8,cx=W*.38,cy=H*.52,w=t*.45;
+  gear(x,cx,cy,r1,n1,w,rgba('rust',.75));
+  var c2x=cx+(r1+r2)*1.07,c2y=cy-H*.08;gear(x,c2x,c2y,r2,n2,-w*n1/n2+.15,rgba('steel',.7));
+  var ang=Math.atan2(c2y-cy,c2x-cx);
+  var c3x=c2x+(r2+r3)*1.07*Math.cos(.9),c3y=c2y+(r2+r3)*1.07*Math.sin(.9);gear(x,c3x,c3y,r3,n3,w*n1/n3+.3,rgba('steel',.55));
+  // bell
+  var bx=W*.12,by=H*.22,sw=Math.sin(t*2.4)*Math.max(0,Math.sin(t*.5))*.5;
+  x.save();x.translate(bx,by);x.rotate(sw);x.strokeStyle=rgba('bone',.7);x.beginPath();x.moveTo(-12,24);x.quadraticCurveTo(-12,0,0,0);x.quadraticCurveTo(12,0,12,24);x.closePath();x.stroke();x.beginPath();x.arc(0,27,2.5,0,7);x.stroke();x.restore();
+  txt(x,'05:00',bx,by+50,{size:10,col:rgba('bone',.6),ls:2});
+}};
+
+FX.clock={draw:function(x,W,H,t){
+  var cx=W/2,cy=H/2,R=Math.min(W,H)*.42,now=new Date(),sec=now.getSeconds()+now.getMilliseconds()/1000,min=now.getMinutes()+sec/60,hr=(now.getHours()%12)+min/60;
+  x.strokeStyle=rgba('steel',.5);x.lineWidth=1;x.beginPath();x.arc(cx,cy,R,0,7);x.stroke();x.beginPath();x.arc(cx,cy,R*1.05,0,7);x.strokeStyle=rgba('steel',.2);x.stroke();
+  var rom=['XII','I','II','III','IIII','V','VI','VII','VIII','IX','X','XI'];
+  for(var i=0;i<60;i++){var a=i/60*Math.PI*2-Math.PI/2,l=i%5?.04:.09;x.strokeStyle=rgba('steel',i%5?.35:.8);x.beginPath();x.moveTo(cx+Math.cos(a)*R*(1-l),cy+Math.sin(a)*R*(1-l));x.lineTo(cx+Math.cos(a)*R*.99,cy+Math.sin(a)*R*.99);x.stroke();
+    if(i%5==0)txt(x,rom[i/5],cx+Math.cos(a)*R*.78,cy+Math.sin(a)*R*.78,{size:Math.max(10,R*.11),font:SERIF,col:rgba('bone',.8)});}
+  function hand(v,len,w,col){var a=v*Math.PI*2-Math.PI/2;x.strokeStyle=col;x.lineWidth=w;x.lineCap='round';x.beginPath();x.moveTo(cx-Math.cos(a)*R*.08,cy-Math.sin(a)*R*.08);x.lineTo(cx+Math.cos(a)*R*len,cy+Math.sin(a)*R*len);x.stroke();x.lineWidth=1;}
+  hand(hr/12,.48,2.6,rgba('bone',.9));
+  hand(((min-11+60)%60)/60,.74,1.6,rgba('bone',.9));
+  hand(min/60,.8,1.6,rgba('rust',1));
+  hand(sec/60,.86,.7,rgba('glow',.5));
+  x.fillStyle=rgba('bone',1);x.beginPath();x.arc(cx,cy,3,0,7);x.fill();
+  txt(x,'LONDON',cx+R*.28,cy+R*.3,{size:8,col:rgba('rust',1),ls:2});txt(x,'BRISTOL',cx-R*.28,cy+R*.3,{size:8,col:rgba('bone',.7),ls:2});
+}};
+
+FX.offices={init:function(s){s.roles=['CLERK','CASHIER','SECRETARY','SURVEYOR','AUDITOR','DIRECTOR','TREASURER','COUNSEL'];s.o=s.roles.map(function(){return{per:rnd(6,11),off:rnd(0,10)}})},
+draw:function(x,W,H,t,s){
+  var cols=4,rows=2,bw=W*.2,bh=H*.36,gx=(W-cols*bw)/(cols+1),gy=H*.08;
+  s.roles.forEach(function(r,i){var c=i%cols,ro=(i/cols)|0,bx=gx+c*(bw+gx),by=gy+ro*(bh+gy*1.4);
+    x.strokeStyle=rgba('steel',.4);x.strokeRect(bx,by,bw,bh);
+    txt(x,r,bx+bw/2,by+12,{size:Math.max(7,W*.014),col:rgba('steel',.7),ls:2});
+    var o=s.o[i],ph=((t+o.off)/o.per)%1,a=ph<.12?ph/.12:ph>.88?(1-ph)/.12:1,gen=Math.floor((t+o.off)/o.per);
+    var col=['bone','glow','amber','steel'][gen%4];
+    x.fillStyle=rgba(col,.9*a);x.beginPath();x.arc(bx+bw/2,by+bh*.5,4,0,7);x.fill();
+    // records accumulate
+    var n=Math.min(12,gen+3);for(var k=0;k<n;k++){x.strokeStyle=rgba('rust',.45);x.beginPath();x.moveTo(bx+8,by+bh-6-k*3);x.lineTo(bx+bw-8,by+bh-6-k*3);x.stroke()}
+  });
+}};
+
+FX.strata={draw:function(x,W,H,t){
+  var bands=[{y:.3,sp:1.6,amp:7,l:'ARTEFACTS',sub:'what can be seen',col:'glow'},{y:.62,sp:.35,amp:5,l:'ESPOUSED VALUES',sub:'what people say',col:'steel'},{y:1,sp:.05,amp:4,l:'BASIC ASSUMPTIONS',sub:'what guides what they do',col:'rust'}];
+  var prev=null;
+  bands.forEach(function(b,i){
+    var top=i==0?0:bands[i-1].y*H;
+    x.fillStyle=rgba(b.col,.04+i*.03);x.beginPath();x.moveTo(0,H);
+    for(var X=0;X<=W;X+=6){var y=i==0?0:bands[i-1].y*H+Math.sin(X*.02+t*bands[i-1].sp)*bands[i-1].amp;x.lineTo(X,y)}
+    x.lineTo(W,H);x.closePath();x.fill();
+    if(i<2){x.strokeStyle=rgba(b.col,.6);x.beginPath();for(X=0;X<=W;X+=6){y=b.y*H+Math.sin(X*.02+t*b.sp)*b.amp;X?x.lineTo(X,y):x.moveTo(X,y)}x.stroke()}
+    var my=((i==0?0:bands[i-1].y)+b.y)/2*H;
+    txt(x,b.l,W*.05,my-7,{size:Math.max(8,W*.017),col:rgba(b.col,.95),align:'left',ls:3});
+    txt(x,b.sub,W*.05,my+9,{size:Math.max(12,W*.026),font:SERIF,col:rgba('bone',.55),align:'left'});
+    for(var k=0;k<6;k++){var px=((k*137+t*b.sp*40)%W),py=my+Math.sin(k*3+t*b.sp)*10;x.fillStyle=rgba(b.col,.5);x.fillRect(W*.55+(px%(W*.4)),py,2,2)}
+  });
+  txt(x,'fast',W*.95,H*.15,{size:9,col:rgba('dim',1),align:'right'});txt(x,'slow',W*.95,H*.85,{size:9,col:rgba('dim',1),align:'right'});
+}};
+
+FX.governor={init:function(s){s.w=1;s.th=.6;s.load=.5;s.hist=[];s.nx=2},
+draw:function(x,W,H,t,s,dt){
+  dt=Math.min(dt,.05);s.nx-=dt;if(s.nx<0){s.nx=rnd(2.5,4.5);s.load=rnd(.25,.85)}
+  var throttle=clamp(1.25-1.1*s.th,0,1);
+  s.w+=dt*(1.6*throttle-1.2*s.load*s.w-.2*(s.w-1));s.th+=dt*2.2*((.15+.5*s.w)-s.th);
+  s.hist.push(s.w);if(s.hist.length>220)s.hist.shift();
+  var cx=W*.38,top=H*.08,len=H*.32,ph=t*s.w*6;
+  x.strokeStyle=rgba('steel',.7);x.beginPath();x.moveTo(cx,top);x.lineTo(cx,H*.62);x.stroke();
+  var th=clamp(s.th,.15,1.2);
+  for(var side=-1;side<=1;side+=2){var sp=Math.cos(ph+(side>0?0:Math.PI)),bx=cx+side*Math.sin(th)*len*Math.abs(sp)*.9+ (side*Math.sin(th)*len*.1),by=top+Math.cos(th)*len;
+    var depth=(Math.sin(ph+(side>0?0:Math.PI))+1)/2;
+    x.strokeStyle=rgba('steel',.5+.4*depth);x.beginPath();x.moveTo(cx,top);x.lineTo(bx,by);x.stroke();
+    var sl=top+Math.cos(th)*len*.55+ len*.25;x.beginPath();x.moveTo(lerp(cx,bx,.5),lerp(top,by,.5));x.lineTo(cx,sl);x.stroke();
+    var g=x.createRadialGradient(bx-3,by-3,1,bx,by,11);g.addColorStop(0,rgba('amber',.9));g.addColorStop(1,rgba('rust',.6+.3*depth));x.fillStyle=g;x.beginPath();x.arc(bx,by,8+3*depth,0,7);x.fill();}
+  var sl=top+Math.cos(th)*len*.55+len*.25;x.strokeStyle=rgba('glow',.8);x.strokeRect(cx-8,sl-4,16,8);
+  // valve
+  var vx=W*.72,vy=H*.3;x.strokeStyle=rgba('steel',.5);x.beginPath();x.arc(vx,vy,H*.09,Math.PI,0);x.stroke();
+  var va=Math.PI+throttle*Math.PI;x.strokeStyle=rgba('amber',1);x.beginPath();x.moveTo(vx,vy);x.lineTo(vx+Math.cos(va)*H*.085,vy+Math.sin(va)*H*.085);x.stroke();
+  txt(x,'VALVE',vx,vy+14,{size:8,col:rgba('dim',1),ls:2});
+  txt(x,'LOAD '+(s.load*100|0),vx,vy+30,{size:8,col:rgba('rust',.9),ls:2});
+  // trace
+  var gy=H*.82,gh=H*.14;x.strokeStyle=rgba('steel',.15);x.beginPath();x.moveTo(W*.06,gy);x.lineTo(W*.94,gy);x.stroke();
+  x.strokeStyle=rgba('glow',.8);x.beginPath();s.hist.forEach(function(v,i){var X=W*.06+i/220*W*.88,Y=gy-(v-1)*gh*2;i?x.lineTo(X,Y):x.moveTo(X,Y)});x.stroke();
+  txt(x,'SPEED',W*.06,gy-gh-4,{size:8,col:rgba('dim',1),align:'left',ls:2});
+}};
+
+FX.stopwatch={init:function(s){s.n=0;s.last=0},draw:function(x,W,H,t,s){
+  var cx=W/2,cy=H*.54,R=Math.min(W,H)*.36;
+  x.strokeStyle=rgba('steel',.6);x.beginPath();x.arc(cx,cy,R,0,7);x.stroke();x.strokeRect(cx-8,cy-R-18,16,12);x.beginPath();x.arc(cx,cy-R-24,6,0,7);x.stroke();
+  for(var i=0;i<60;i++){var a=i/60*Math.PI*2-Math.PI/2,l=i%5?.05:.1;x.strokeStyle=rgba('steel',i%5?.3:.7);x.beginPath();x.moveTo(cx+Math.cos(a)*R*(1-l),cy+Math.sin(a)*R*(1-l));x.lineTo(cx+Math.cos(a)*R,cy+Math.sin(a)*R);x.stroke()}
+  var sec=(t*4)%60;var a=sec/60*Math.PI*2-Math.PI/2;
+  var tick=Math.floor(t*4/7.5);if(tick!==s.last){s.last=tick;s.n++}
+  for(var k=0;k<Math.min(s.n,40);k++){var aa=k/40*Math.PI*2-Math.PI/2;x.fillStyle=rgba('rust',.7);x.beginPath();x.arc(cx+Math.cos(aa)*R*1.12,cy+Math.sin(aa)*R*1.12,1.6,0,7);x.fill()}
+  x.strokeStyle=rgba('amber',1);x.lineWidth=1.4;x.beginPath();x.moveTo(cx,cy);x.lineTo(cx+Math.cos(a)*R*.88,cy+Math.sin(a)*R*.88);x.stroke();x.lineWidth=1;
+  txt(x,String(s.n).padStart(3,'0'),cx,cy+R*.38,{size:R*.22,font:'"Barlow Condensed"',col:rgba('bone',.9)});
+  txt(x,'TASKS COUNTED',cx,cy+R*.6,{size:8,col:rgba('dim',1),ls:2});
+}};
+
+function beam(x,W,H,tilt,L,Rt,lc,rc){
+  var cx=W/2,cy=H*.3,bl=W*.36;
+  x.strokeStyle=rgba('steel',.6);x.beginPath();x.moveTo(cx,cy);x.lineTo(cx,H*.86);x.moveTo(cx-30,H*.86);x.lineTo(cx+30,H*.86);x.stroke();
+  x.beginPath();x.moveTo(cx-8,cy-14);x.lineTo(cx,cy);x.lineTo(cx+8,cy-14);x.stroke();
+  var dx=Math.cos(tilt)*bl,dy=Math.sin(tilt)*bl;x.strokeStyle=rgba('bone',.85);x.lineWidth=1.4;x.beginPath();x.moveTo(cx-dx,cy-dy);x.lineTo(cx+dx,cy+dy);x.stroke();x.lineWidth=1;
+  [[-1,L,lc],[1,Rt,rc]].forEach(function(o){var px=cx+o[0]*dx,py=cy+o[0]*dy,ph=H*.26;
+    x.strokeStyle=rgba('steel',.5);x.beginPath();x.moveTo(px,py);x.lineTo(px-24,py+ph);x.moveTo(px,py);x.lineTo(px+24,py+ph);x.stroke();
+    x.strokeStyle=rgba(o[2],.9);x.beginPath();x.moveTo(px-30,py+ph);x.quadraticCurveTo(px,py+ph+14,px+30,py+ph);x.stroke();
+    o[1].forEach(function(l,i){txt(x,l,px,py+ph+24+i*13,{size:Math.max(7,W*.015),col:rgba(o[2],.9),ls:2})});
+  });
+}
+FX.scales={draw:function(x,W,H,t){var others=Math.min(3,Math.floor(t/3)%5);var R=['EMPLOYEES','CUSTOMERS','COMMUNITY'].slice(0,others);
+  var tilt=(.22-others*.09)+Math.sin(t*.9)*.03;beam(x,W,H,tilt,['OWNERS'],R.length?R:['—'],'rust','amber')}};
+FX.balance={draw:function(x,W,H,t){var tilt=Math.sin(t*.7)*.12+Math.sin(t*1.9)*.05+Math.sin(t*.23)*.06;beam(x,W,H,tilt,['INCOME','EXPENDITURE'],['PEOPLE','SERVICE'],'steel','bone')}};
+
+FX.enron={draw:function(x,W,H,t){
+  var cyc=11,ph=t%cyc,base=H*.55,n=8,bw=W*.07,gap=(W*.84-n*bw)/(n-1);
+  var collapse=ph>8.5?ease(clamp((ph-8.5)/1.5,0,1)):0;
+  x.strokeStyle=rgba('steel',.4);x.beginPath();x.moveTo(W*.06,base);x.lineTo(W*.94,base);x.stroke();
+  for(var i=0;i<n;i++){var g=clamp((ph-i*.7)/1.2,0,1),h=(.12+i*.045)*H*ease(g)*(1-collapse),bx=W*.08+i*(bw+gap);
+    x.fillStyle=rgba('green',.18);x.fillRect(bx,base-h,bw,h);x.strokeStyle=rgba('green',.85);x.strokeRect(bx,base-h,bw,h);
+    var d=(.05+i*.04)*H*ease(clamp((ph-2-i*.6)/1.5,0,1));var vis=clamp((ph-6)/2,0,1)*.9+.08;
+    x.setLineDash([3,4]);x.strokeStyle=rgba('rust',vis);x.strokeRect(bx,base+2,bw,d*(1+collapse*.6));x.setLineDash([]);}
+  txt(x,'REPORTED PROFIT',W*.08,H*.06,{size:8,col:rgba('green',.8),align:'left',ls:2});
+  txt(x,'CONCEALED DEBT',W*.08,H*.96,{size:8,col:rgba('rust',.8),align:'left',ls:2});
+  if(collapse>0)txt(x,'DEC 2001',W*.9,H*.06,{size:9,col:rgba('bone',collapse),align:'right',ls:3});
+}};
+
+FX.filter={init:function(s){s.p=[];s.reach=0;s.nx=0},draw:function(x,W,H,t,s,dt){
+  var layers=['TEAM','REPORT','COMMITTEE','BOARD'],ly=function(i){return H*(.78-i*.17)};
+  txt(x,'THE WORK',W/2,H*.95,{size:9,col:rgba('bone',.8),ls:4});txt(x,'DECISION',W/2,H*.04,{size:9,col:rgba('amber',1),ls:4});
+  layers.forEach(function(l,i){var y=ly(i);x.strokeStyle=rgba('steel',.3);x.setLineDash([2,5]);x.beginPath();x.moveTo(W*.1,y);x.lineTo(W*.9,y);x.stroke();x.setLineDash([]);txt(x,l,W*.08,y-8,{size:8,col:rgba('dim',1),align:'left',ls:2})});
+  s.nx-=dt;if(s.nx<0){s.nx=.09;s.p.push({x:rnd(W*.15,W*.85),y:H*.9,v:rnd(40,60),l:0,dead:0})}
+  s.p.forEach(function(p){if(p.dead){p.dead-=dt;x.fillStyle=rgba('rust',p.dead);x.beginPath();x.arc(p.x,p.y,2+ (1-p.dead)*4,0,7);x.fill();return}
+    p.y-=p.v*dt;p.x+=(W/2-p.x)*dt*.25;
+    if(p.l<4&&p.y<ly(p.l)){if(Math.random()<.5){p.dead=1}else p.l++}
+    if(p.y<H*.08&&!p.done){p.done=1;s.reach++}
+    x.fillStyle=rgba(p.l>=4?'amber':'glow',.85);x.beginPath();x.arc(p.x,p.y,1.8,0,7);x.fill();});
+  s.p=s.p.filter(function(p){return p.dead>0||(!p.dead&&p.y>0)});
+  var g=x.createRadialGradient(W/2,H*.06,0,W/2,H*.06,40);g.addColorStop(0,rgba('amber',.25));g.addColorStop(1,rgba('amber',0));x.fillStyle=g;x.fillRect(W/2-40,0,80,80);
+}};
+
+FX.course={draw:function(x,W,H,t){
+  var cyc=9,ph=(t%cyc)/cyc,sx=W*.08,sy=H*.6,ex=W*.92,ey=H*.6,nx=W*.92,ny=H*.22,bend=.45;
+  x.setLineDash([4,6]);x.strokeStyle=rgba('steel',.35);x.beginPath();x.moveTo(sx,sy);x.lineTo(ex,ey);x.stroke();x.setLineDash([]);
+  txt(x,'AS PLANNED',ex,ey+16,{size:8,col:rgba('dim',1),align:'right',ls:2});
+  function P(u){if(u<bend)return[lerp(sx,ex,u),sy];var k=(u-bend)/(1-bend),bx=lerp(sx,ex,bend);
+    var cx=lerp(bx,nx,.5),cy=sy;var a=(1-k)*(1-k),b=2*(1-k)*k,c=k*k;return[a*bx+b*cx+c*nx,a*sy+b*cy+c*ny]}
+  x.strokeStyle=rgba('amber',.9);x.lineWidth=1.6;x.beginPath();for(var u=0;u<=ph;u+=.01){var p=P(u);u?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1])}x.stroke();x.lineWidth=1;
+  var p=P(ph);x.fillStyle=rgba('bone',1);x.beginPath();x.arc(p[0],p[1],3.5,0,7);x.fill();
+  if(ph>bend-.08){var a=clamp((ph-bend+.08)/.08,0,1),bx=lerp(sx,ex,bend);x.strokeStyle=rgba('glow',.6*a);x.beginPath();x.arc(bx,sy,10+a*14,0,7);x.stroke();txt(x,'NEW EXPERIENCE',bx,sy+36,{size:8,col:rgba('glow',a),ls:2})}
+  if(ph>.85)txt(x,'RECONSIDERED',nx,ny-16,{size:8,col:rgba('amber',1),align:'right',ls:2});
+}};
+
+FX.fragments={draw:function(x,W,H,t){
+  var cyc=10,ph=(t%cyc)/cyc,k=ph<.15?0:ph<.45?ease((ph-.15)/.3):ph<.75?1:1-ease((ph-.75)/.25);
+  var cx=W/2,cy=H*.5,R=H*.22,labs=['SALES','OPERATIONS','SERVICE'];
+  for(var i=0;i<3;i++){var a0=i*Math.PI*2/3-Math.PI/2,far=[[W*.16,H*.3],[W*.84,H*.3],[W*.5,H*.86]][i];
+    var ox=lerp(far[0],cx,k),oy=lerp(far[1],cy,k),col=k>.98?'amber':'steel';
+    x.strokeStyle=rgba(col,.9);x.lineWidth=2;x.beginPath();x.arc(ox,oy,R,a0+.06,a0+Math.PI*2/3-.06);x.stroke();x.lineWidth=1;
+    txt(x,labs[i],ox+Math.cos(a0+Math.PI/3)*(R+18),oy+Math.sin(a0+Math.PI/3)*(R+18),{size:8,col:rgba('dim',1),ls:2});}
+  if(k>.98){var g=x.createRadialGradient(cx,cy,0,cx,cy,R*1.4);g.addColorStop(0,rgba('amber',.16));g.addColorStop(1,rgba('amber',0));x.fillStyle=g;x.beginPath();x.arc(cx,cy,R*1.4,0,7);x.fill();
+    txt(x,'brought together',cx,cy,{size:Math.max(13,W*.03),font:SERIF,col:rgba('bone',.8)})}
+}};
+
+FX.growth={init:function(s,W,H){s.b=[];function grow(x,y,a,len,d,t0){var x2=x+Math.cos(a)*len,y2=y+Math.sin(a)*len;s.b.push({x:x,y:y,x2:x2,y2:y2,d:d,t0:t0,dur:.8+d*.15});
+  if(d<8){var n=d<2?2:Math.random()<.7?2:3;for(var i=0;i<n;i++)grow(x2,y2,a+rnd(-.55,.55),len*rnd(.66,.8),d+1,t0+.8+d*.15)}}
+  grow(W/2,H*.98,-Math.PI/2,H*.2,0,0);s.W=W},
+draw:function(x,W,H,t,s){var cyc=16,ph=t%cyc,fade=ph>13?1-(ph-13)/3:1;
+  s.b.forEach(function(b){var k=clamp((ph-b.t0)/b.dur,0,1);if(!k)return;
+    x.strokeStyle=rgba(b.d<3?'rust':b.d<6?'amber':'bone',(.9-b.d*.06)*fade);x.lineWidth=Math.max(.6,3.2-b.d*.38);
+    x.beginPath();x.moveTo(b.x,b.y);x.lineTo(lerp(b.x,b.x2,k),lerp(b.y,b.y2,k));x.stroke();
+    if(b.d==8&&k==1){x.fillStyle=rgba('amber',.6*fade);x.beginPath();x.arc(b.x2,b.y2,1.6,0,7);x.fill()}});x.lineWidth=1;
+  txt(x,'T+'+String(Math.floor(ph*3)).padStart(2,'0')+' MONTHS',W*.95,H*.06,{size:8,col:rgba('dim',1),align:'right',ls:2});
+}};
+
+FX.wave={init:function(s){s.p=[];s.nx=1;s.base=0},tap:function(s,W,H,px){s.p.push({x:px,t0:s.t,a:H*.28})},
+draw:function(x,W,H,t,s,dt){s.t=t;s.nx-=dt;s.base=Math.min(1,s.base+dt*.05);if(s.nx<0){s.nx=rnd(3,5);s.p.push({x:rnd(W*.2,W*.8),t0:t,a:H*rnd(.12,.22)})}
+  var cy=H/2;x.strokeStyle=rgba('steel',.12);x.beginPath();x.moveTo(0,cy);x.lineTo(W,cy);x.stroke();
+  for(var layer=0;layer<3;layer++){x.strokeStyle=rgba(layer?'glow':'amber',layer?.25:.95);x.lineWidth=layer?1:1.5;x.beginPath();
+    for(var X=0;X<=W;X+=2){var y=Math.sin(X*.05+t*3)*1.2*(1-s.base*.5)+Math.sin(X*.013+t)*s.base*4;
+      s.p.forEach(function(p){var age=t-p.t0,d1=X-(p.x+age*W*.18),d2=X-(p.x-age*W*.18),env=p.a*Math.exp(-age*.55),sg=W*.05;
+        y+=env*(Math.exp(-d1*d1/(sg*sg))+Math.exp(-d2*d2/(sg*sg)))*Math.sin(X*.09-age*6)});
+      y=y*(layer?(.6+layer*.25):1);X?x.lineTo(X,cy+y+layer*2):x.moveTo(X,cy+y)}x.stroke()}x.lineWidth=1;
+  s.p=s.p.filter(function(p){return t-p.t0<9});
+}};
+
+FX.symbiosis={init:function(s,W,H){var cols=['rust','amber','glow','green','steel','bone','rust','amber','glow'],labs=['CUSTOMERS','EMPLOYEES','SUPPLIERS','LENDERS','INVESTORS','COMMUNITY','PUBLIC BODIES','THE ORGANISATION','PARTNERS'];
+  s.n=labs.map(function(l,i){var a=i/labs.length*Math.PI*2;return{l:l,c:cols[i],bx:W/2+Math.cos(a)*W*.32,by:H/2+Math.sin(a)*H*.34,ph:rnd(0,7),x:0,y:0}});s.n[7].bx=W/2;s.n[7].by=H/2;s.pk=[]},
+draw:function(x,W,H,t,s,dt){
+  s.n.forEach(function(n){n.x=n.bx+Math.sin(t*.4+n.ph)*W*.025;n.y=n.by+Math.cos(t*.33+n.ph)*H*.03});
+  for(var i=0;i<s.n.length;i++)for(var j=i+1;j<s.n.length;j++){var a=s.n[i],b=s.n[j],d=Math.hypot(a.x-b.x,a.y-b.y);var str=(i==7||j==7)?.5:Math.max(0,.5-d/(W*.9))*Math.max(0,Math.sin(t*.3+i+j));
+    if(str<.03)continue;var g=x.createLinearGradient(a.x,a.y,b.x,b.y);g.addColorStop(0,rgba(a.c,str));g.addColorStop(1,rgba(b.c,str));x.strokeStyle=g;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke();
+    if(Math.random()<.004)s.pk.push({a:a,b:b,u:0})}
+  s.pk.forEach(function(p){p.u+=dt*.5;var X=lerp(p.a.x,p.b.x,p.u),Y=lerp(p.a.y,p.b.y,p.u);x.fillStyle=rgba(p.a.c,1-p.u*.6);x.beginPath();x.arc(X,Y,1.8,0,7);x.fill()});s.pk=s.pk.filter(function(p){return p.u<1});
+  s.n.forEach(function(n,i){var r=i==7?9:5;var g=x.createRadialGradient(n.x,n.y,0,n.x,n.y,r*4);g.addColorStop(0,rgba(n.c,.35));g.addColorStop(1,rgba(n.c,0));x.fillStyle=g;x.beginPath();x.arc(n.x,n.y,r*4,0,7);x.fill();
+    x.fillStyle=rgba(n.c,1);x.beginPath();x.arc(n.x,n.y,r*.55,0,7);x.fill();txt(x,n.l,n.x,n.y+r+12,{size:Math.max(7,W*.014),col:rgba(n.c,.85),ls:2})});
+}};
+
+FX.roots={init:function(s,W,H){s.b=[];var gy=H*.3,tips=['MAINTENANCE','KNOWLEDGE','MATERIALS','TIME','CARE','SKILL'],ti=0;
+  function grow(x,y,a,len,d,t0){var x2=x+Math.cos(a)*len,y2=y+Math.sin(a)*len;var o={x:x,y:y,x2:x2,y2:y2,d:d,t0:t0};s.b.push(o);
+    if(d<6){grow(x2,y2,a+rnd(-.6,-.15),len*rnd(.65,.8),d+1,t0+.6);grow(x2,y2,a+rnd(.15,.6),len*rnd(.65,.8),d+1,t0+.6)}else if(d==6&&Math.random()<.12&&ti<tips.length){o.lab=tips[ti++]}}
+  grow(W/2,gy,Math.PI/2,H*.14,0,0);s.gy=gy;s.tips=tips;s.ti=ti;
+  // guarantee labels
+  var leaves=s.b.filter(function(b){return b.d==6});for(var k=0;k<tips.length;k++){var L=leaves[Math.floor((k+.5)/tips.length*leaves.length)];if(L)L.lab=tips[k]}},
+draw:function(x,W,H,t,s){var cyc=14,ph=t%cyc,fade=ph>11.5?1-(ph-11.5)/2.5:1;
+  x.strokeStyle=rgba('steel',.6);x.beginPath();x.moveTo(W*.05,s.gy);x.lineTo(W*.95,s.gy);x.stroke();
+  x.strokeStyle=rgba('bone',.6);x.strokeRect(W/2-W*.2,s.gy-H*.2,W*.4,H*.16);
+  txt(x,'INVOICE 0417',W/2,s.gy-H*.16,{size:8,col:rgba('dim',1),ls:3});
+  txt(x,'£12,480 · SUPPLIED',W/2,s.gy-H*.1,{size:Math.max(9,W*.02),col:rgba('bone',.9),ls:2});
+  s.b.forEach(function(b){var k=clamp((ph-b.t0)/.6,0,1);if(!k)return;x.strokeStyle=rgba(b.d<2?'rust':'amber',(.85-b.d*.08)*fade);x.lineWidth=Math.max(.5,2.4-b.d*.32);
+    x.beginPath();x.moveTo(b.x,b.y);x.lineTo(lerp(b.x,b.x2,k),lerp(b.y,b.y2,k));x.stroke();
+    if(b.lab&&k==1)txt(x,b.lab,b.x2,b.y2+10,{size:Math.max(7,W*.013),col:rgba('glow',.85*fade),ls:2})});x.lineWidth=1;
+}};
+
+FX.relay={draw:function(x,W,H,t){
+  var n=6,cy=H*.5,per=1.8,total=n*per+2,ph=t%total,cur=ph/per;
+  for(var i=0;i<n;i++){var cx=W*(.1+i*.16),lit=clamp(cur-i,0,1),after=cur>i+1;
+    if(i<n-1){x.strokeStyle=rgba('steel',.25);x.beginPath();x.moveTo(cx+8,cy);x.lineTo(cx+W*.16-8,cy);x.stroke()}
+    var br=Math.min(4,Math.floor(Math.max(0,cur-i)*2)+i%2);
+    for(var k=0;k<br;k++){var a=-Math.PI/2+(k-(br-1)/2)*.5;x.strokeStyle=rgba('amber',(after?.35:.8)*Math.min(1,lit*2));x.beginPath();x.moveTo(cx,cy);x.lineTo(cx+Math.cos(a)*H*.22,cy+Math.sin(a)*H*.22);x.stroke();
+      x.fillStyle=rgba('amber',.6);x.beginPath();x.arc(cx+Math.cos(a)*H*.22,cy+Math.sin(a)*H*.22,1.5,0,7);x.fill()}
+    var g=x.createRadialGradient(cx,cy,0,cx,cy,22);g.addColorStop(0,rgba('amber',lit*(after?.25:.6)));g.addColorStop(1,rgba('amber',0));x.fillStyle=g;x.beginPath();x.arc(cx,cy,22,0,7);x.fill();
+    x.strokeStyle=rgba('bone',.7);x.beginPath();x.arc(cx,cy,6,0,7);x.stroke();
+    txt(x,'GEN '+(i+1),cx,cy+H*.3,{size:8,col:rgba('dim',1),ls:2});}
+  if(cur<n){var i0=Math.floor(cur),u=cur-i0,px=W*(.1+i0*.16)+u*W*.16*(i0<n-1?1:0);x.fillStyle=rgba('glow',1);x.beginPath();x.arc(px,cy,3,0,7);x.fill()}
+}};
+
+FX.constellation={init:function(s,W,H){s.big=[{l:'BEER',x:.25,y:.3},{l:'STACEY',x:.74,y:.28},{l:'BATESON',x:.5,y:.76}];
+  var sm=['Lucretius','Spinoza','Faraday','Maxwell','Weber','Elias','Schein','Wiener','Merton','Taylor','E. P. Thompson','McMaster','Kauffman','W. B. Arthur','Griffin','Shaw','Friedman'];
+  s.sm=sm.map(function(l,i){return{l:l,x:rnd(.08,.92),y:rnd(.08,.92),k:i%3,ph:rnd(0,7)}})},
+draw:function(x,W,H,t,s){
+  s.sm.forEach(function(o){var b=s.big[o.k];x.strokeStyle=rgba('steel',.12);x.beginPath();x.moveTo(o.x*W,o.y*H);x.lineTo(b.x*W,b.y*H);x.stroke()});
+  x.strokeStyle=rgba('amber',.35);x.beginPath();s.big.forEach(function(b,i){i?x.lineTo(b.x*W,b.y*H):x.moveTo(b.x*W,b.y*H)});x.closePath();x.stroke();
+  s.sm.forEach(function(o){var a=.45+.4*Math.sin(t*1.3+o.ph);x.fillStyle=rgba('bone',a);x.beginPath();x.arc(o.x*W,o.y*H,1.4,0,7);x.fill();txt(x,o.l,o.x*W,o.y*H+11,{size:Math.max(9,W*.02),font:SERIF,col:rgba('steel',a*.9)})});
+  s.big.forEach(function(b,i){var X=b.x*W,Y=b.y*H,r=5+Math.sin(t*.8+i)*1;var g=x.createRadialGradient(X,Y,0,X,Y,30);g.addColorStop(0,rgba('amber',.5));g.addColorStop(1,rgba('amber',0));x.fillStyle=g;x.beginPath();x.arc(X,Y,30,0,7);x.fill();
+    x.fillStyle=rgba('bone',1);x.beginPath();x.arc(X,Y,r*.5,0,7);x.fill();x.strokeStyle=rgba('bone',.6);x.beginPath();x.moveTo(X-r*2,Y);x.lineTo(X+r*2,Y);x.moveTo(X,Y-r*2);x.lineTo(X,Y+r*2);x.stroke();
+    txt(x,b.l,X,Y+22,{size:10,col:rgba('amber',1),ls:4})});
+}};
+
+/* ---------------- runtime ---------------- */
+var DPR=Math.min(2,window.devicePixelRatio||1),live=[];
+[].forEach.call(document.querySelectorAll('figure[data-fx]'),function(fig){
+  var fx=FX[fig.dataset.fx];if(!fx)return;var c=document.createElement('canvas');fig.insertBefore(c,fig.firstChild);
+  var o={fig:fig,c:c,x:c.getContext('2d'),fx:fx,s:{},vis:false,t:0,ar:+fig.dataset.ar||.6,init:false};
+  function size(){var w=fig.clientWidth||300,h=Math.round(w*o.ar);c.width=w*DPR;c.height=h*DPR;c.style.height=h+'px';o.W=w;o.H=h;o.x.setTransform(DPR,0,0,DPR,0,0);if(!o.init||fx.init){o.s={};fx.init&&fx.init(o.s,w,h);o.init=true}}
+  o.size=size;size();
+  if(fx.tap)c.addEventListener('pointerdown',function(e){var r=c.getBoundingClientRect();fx.tap(o.s,o.W,o.H,e.clientX-r.left,e.clientY-r.top)});
+  live.push(o);
+});
+var vio=new IntersectionObserver(function(es){es.forEach(function(e){live.forEach(function(o){if(o.fig===e.target)o.vis=e.isIntersecting})})},{rootMargin:'80px'});
+live.forEach(function(o){vio.observe(o.fig)});
+var rz;addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(function(){live.forEach(function(o){o.size()})},200)});
+
+var last=performance.now();
+function frame(now){var dt=Math.min(.05,(now-last)/1000);last=now;
+  live.forEach(function(o){if(!o.vis)return;o.t+=dt;var x=o.x;x.clearRect(0,0,o.W,o.H);try{o.fx.draw(x,o.W,o.H,o.t,o.s,dt)}catch(err){console.log(err)}});
+  requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+
+/* reveal */
+var secs=[].slice.call(document.querySelectorAll('main section'));
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('seen')})},{threshold:.18});
+secs.forEach(function(s){io.observe(s)});
+
+/* shaft stair */
+var g=document.getElementById('stair'),NS='http://www.w3.org/2000/svg',steps=[];
+for(var i=0;i<90;i++){var l=document.createElementNS(NS,'line');g.appendChild(l);steps.push(l)}
+function stair(off){for(var i=0;i<steps.length;i++){var tt=i*.42+off,y=((i*9-off*40)%810+810)%810-5,xx=Math.cos(tt),z=Math.sin(tt),w=150*Math.abs(xx)+20,cx=200+xx*60,l=steps[i];
+  l.setAttribute('x1',cx-w/2);l.setAttribute('x2',cx+w/2);l.setAttribute('y1',y);l.setAttribute('y2',y+z*6);l.setAttribute('stroke-opacity',(.25+.75*(z+1)/2).toFixed(2))}}
+
+/* HUD + rail */
+var lvl=document.getElementById('lvl'),where=document.getElementById('where'),dot=document.getElementById('dot'),rail=document.getElementById('rail');
+var shown=0,target=0,curWhere='';
+var marks=[['m1','I'],['m2','II'],['m3','III'],['m4','IV'],['m5','V'],['m6','VI'],['m7','VII'],['m8','VIII'],['airlock','148']];
+function placeMarks(){[].forEach.call(rail.querySelectorAll('a'),function(a){a.remove()});var max=document.documentElement.scrollHeight-innerHeight;
+  marks.forEach(function(m){var el=document.getElementById(m[0]);if(!el)return;var a=document.createElement('a');a.href='#'+m[0];a.textContent=m[1];a.style.top=(clamp(el.offsetTop/max,0,1)*100)+'%';rail.appendChild(a)})}
+function onScroll(){var max=document.documentElement.scrollHeight-innerHeight,p=max>0?scrollY/max:0;stair(p*40);dot.style.top=(p*(rail.clientHeight-7))+'px';
+  var mid=innerHeight/2;for(var i=0;i<secs.length;i++){var r=secs[i].getBoundingClientRect();if(r.top<mid&&r.bottom>mid){target=+secs[i].dataset.page;
+    var w=secs[i].dataset.where;if(w!==curWhere){curWhere=w;where.textContent=w}var pt=secs[i].dataset.part;if(document.body.dataset.part!==pt)document.body.dataset.part=pt;break}}}
+function tick(){if(shown!==target)shown+=(target>shown?1:-1)*Math.max(1,Math.round(Math.abs(target-shown)/7));lvl.firstChild.nodeValue=String(shown).padStart(3,'0');requestAnimationFrame(tick)}
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',function(){onScroll();placeMarks()});
+addEventListener('load',placeMarks);setTimeout(placeMarks,600);onScroll();requestAnimationFrame(tick);
+
+/* pulse */
+var pl=document.getElementById('pl'),alive=true;
+new IntersectionObserver(function(es){es.forEach(function(e){alive=!e.isIntersecting})},{threshold:.55}).observe(document.getElementById('airlock'));
+function pulse(ts){var pts=[];for(var X=0;X<=120;X+=2){var ph=((X/120)+ts/2600)%1,y=12;
+  if(alive){if(ph>.46&&ph<.5)y=12-(ph-.46)*250;else if(ph>=.5&&ph<.54)y=2+(ph-.5)*400;else if(ph>=.54&&ph<.58)y=18-(ph-.54)*150}pts.push(X+','+y.toFixed(1))}
+  pl.setAttribute('points',pts.join(' '));requestAnimationFrame(pulse)}
+requestAnimationFrame(pulse);
+})();
+</script>
+</body>
+</html>
