@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Architecture of Responsible Organisations — The Descent</title>
-<meta name="description" content="A treatment in descent of Donald Innes Davies, The Architecture of Responsible Organisations: Dynamics of Fluidity (2026) — every Part, Movement and Interstice as a level of the shaft.">
+<meta name="description" content="A treatment in descent of Donald Innes Davies, The Architecture of Responsible Organisations: Dynamics of Fluidity — An Inquiry through Cybernetics and Complexity (2026). Every Part, Movement and Interstice as a level of the shaft.">
 <meta name="author" content="Mark Downham · Principia Humanitatis">
 <meta property="og:title" content="The Architecture of Responsible Organisations — The Descent">
-<meta property="og:description" content="148 levels down. Responsibility is what remains possible.">
+<meta property="og:description" content="150 levels down through cybernetics and complexity. Responsibility is what remains possible.">
 <meta property="og:type" content="article">
 <meta name="theme-color" content="#07090a">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2307090a'/%3E%3Cpath d='M16 4v24M9 9h14M7 14h18M9 19h14M11 24h10' stroke='%238fa3a6' stroke-width='1.5'/%3E%3C/svg%3E">
@@ -69,6 +69,19 @@ em,.it{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;
 .epi{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(20px,2.8vw,32px);color:var(--bone);max-width:22em;line-height:1.35}
 .cite{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.3em;color:var(--dim);text-transform:uppercase;margin-top:1.2rem}
 h1{font-weight:300;font-size:clamp(34px,7.4vw,96px);letter-spacing:.17em;line-height:1.04;text-transform:uppercase}
+h1+.sub2,.sub2{font-family:'IBM Plex Mono',monospace;font-size:clamp(10px,1.3vw,13px);letter-spacing:.42em;color:var(--amber);text-transform:uppercase;margin-top:1.6rem;line-height:1.9}
+.lens{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(143,163,166,.22);max-width:720px;width:100%;margin-top:2.6rem;text-align:left}
+.lens>div{background:rgba(6,8,10,.94);padding:1.3rem 1.4rem}
+.lens h6{font-family:'IBM Plex Mono';font-weight:400;font-size:9.5px;letter-spacing:.32em;color:var(--amber);text-transform:uppercase;margin-bottom:.8rem}
+.lens p{font-size:clamp(15px,1.8vw,19px);color:var(--bone);line-height:1.4;margin:.4em 0}
+.lens p.dimmer{color:var(--steel)}
+@media (max-width:620px){.lens{grid-template-columns:1fr}}
+.tele-m{display:none;text-align:left;border-top:1px solid rgba(143,163,166,.2)}
+.tele-m p{display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem;padding:.9rem 0;border-bottom:1px solid rgba(143,163,166,.2)}
+.tele-m span{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.18em;color:var(--steel);text-transform:uppercase}
+.tele-m b{font-weight:400;font-size:20px;letter-spacing:.2em;color:var(--amber);text-transform:uppercase;grid-row:span 2;align-self:center}
+.tele-m i{font-family:'Cormorant Garamond';font-size:17px;color:var(--bone)}
+@media (max-width:560px){.tele-m{display:block}svg.tele-d{display:none!important}}
 h1 small{display:block;font-size:.3em;letter-spacing:.62em;color:var(--steel);margin-top:2rem}
 h2.part{font-weight:300;font-size:clamp(46px,11vw,150px);letter-spacing:.22em;text-transform:uppercase;line-height:1;color:var(--bone)}
 h2.part.long{font-size:clamp(30px,6.4vw,112px);letter-spacing:.14em}
@@ -181,6 +194,41 @@ nav.index a:hover{color:var(--glow)}
 footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.42em;color:var(--dim);text-transform:uppercase;line-height:2.2}
 #surface{background:radial-gradient(ellipse at 50% 20%,rgba(201,216,210,.06),transparent 60%)}
 @media (prefers-reduced-motion:reduce){.js .r,.swerve,.door::before,.door::after{transition:none}.grain{animation:none}}
+
+/* ===== continuous motion ===== */
+.door i::after{content:'';position:absolute;left:50%;top:-20%;width:14px;height:70px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(255,250,235,.95),rgba(var(--tint),.25) 45%,transparent 70%);animation:glint 3.8s linear infinite}
+.door i{overflow:visible}
+@keyframes glint{to{top:110%}}
+.seen .door::before{animation:panelL 7s ease-in-out infinite 3.4s}
+.seen .door::after{animation:panelR 7s ease-in-out infinite 3.4s}
+@keyframes panelL{50%{transform:translateX(calc(var(--gap) / -2 - 3px))}}
+@keyframes panelR{50%{transform:translateX(calc(var(--gap) / 2 + 3px))}}
+.seen .door.full::before,.seen .door.full::after{animation:none}
+svg .flowline{fill:none;stroke-dasharray:.018 .07;stroke-dashoffset:0;opacity:0;transition:opacity 2s ease}
+.seen svg .flowline{opacity:1;animation:flow 7s linear infinite}
+.seen svg .flowline.rev{animation-direction:reverse}
+@keyframes flow{to{stroke-dashoffset:-1}}
+.seen svg .spin{transform-box:fill-box;transform-origin:center;animation:spin 40s linear infinite}
+.seen svg .spin.ccw{animation-duration:60s;animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.seen svg .breathe{animation:sbreathe 5s ease-in-out infinite}
+@keyframes sbreathe{50%{opacity:.45}}
+.seen .claims .claim{animation:bob 6s ease-in-out infinite}
+.seen .claims .claim:nth-child(2){animation-duration:7.5s;animation-delay:-2s}
+.seen .claims .claim:nth-child(3){animation-duration:5.5s;animation-delay:-4s}
+.seen .claims .claim:nth-child(4){animation-duration:8s;animation-delay:-1s}
+.seen .claims .claim:nth-child(5){animation-duration:4.5s;animation-delay:-3s}
+@keyframes bob{50%{translate:0 -6px}}
+.js .seen .fade-words span.flash{opacity:1!important;filter:none!important;transition:opacity 1s ease,filter 1s ease!important}
+.seen .door i{animation:seam 3.4s ease-in-out infinite 3s}
+@keyframes seam{50%{filter:brightness(1.6);box-shadow:0 0 60px 16px rgba(var(--tint),.35)}}
+.tile i{animation:tick 2.8s ease-in-out infinite}
+.tile:nth-child(2) i{animation-delay:-.7s}.tile:nth-child(3) i{animation-delay:-1.4s}.tile:nth-child(4) i{animation-delay:-2.1s}.tile:nth-child(5) i{animation-delay:-.35s}.tile:nth-child(6) i{animation-delay:-1.75s}
+@keyframes tick{50%{opacity:.35}}
+.tile b{transition:color .4s}.tile b.blip{color:#c9f2d2}
+.tele-m b{animation:sbreathe 5s ease-in-out infinite}
+.tele-m p:nth-child(2) b{animation-delay:-1.6s}.tele-m p:nth-child(3) b{animation-delay:-3.2s}
+@media (prefers-reduced-motion:reduce){.seen svg .flowline,.seen svg .spin,.seen .claims .claim,.seen .door i{animation:none}}
 </style>
 </head>
 <body data-part="0">
@@ -188,7 +236,7 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
 <div id="shaft" aria-hidden="true"><svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="sf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fa3a6" stop-opacity="0"/><stop offset=".5" stop-color="#8fa3a6" stop-opacity=".3"/><stop offset="1" stop-color="#8fa3a6" stop-opacity="0"/></linearGradient></defs><g id="stair" stroke="url(#sf)" fill="none" stroke-width="1"></g><line x1="200" y1="0" x2="200" y2="800" stroke="#8fa3a6" stroke-opacity=".07"/></svg></div>
 <div class="grain"></div><div class="scan"></div><div class="vignette"></div>
 
-<div id="hud" aria-hidden="true">Depth<b id="lvl">000<small> / 148</small></b><div class="where" id="where">Surface</div></div>
+<div id="hud" aria-hidden="true">Depth<b id="lvl">000<small> / 150</small></b><div class="where" id="where">Surface</div></div>
 <div id="rail"><i id="dot"></i></div>
 <svg id="pulse" viewBox="0 0 120 24" aria-hidden="true"><polyline id="pl" fill="none" stroke="#8fa3a6" stroke-width="1"/></svg>
 
@@ -203,12 +251,15 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
       <path class="draw d2" pathLength="1" stroke-opacity=".5" d="M40 55H160M40 90H160M40 125H160M40 160H160M40 195H160M40 230H160M40 265H160"/>
       <path class="draw d3" pathLength="1" stroke="#c9d8d2" d="M100 20 C130 32 130 48 100 55 C70 62 70 82 100 90 C130 98 130 118 100 125 C70 132 70 152 100 160 C130 168 130 188 100 195 C70 202 70 222 100 230 C130 238 130 258 100 265 C80 270 85 278 100 280"/>
       <path class="draw d4" pathLength="1" stroke="#a8643f" stroke-opacity=".7" d="M30 20h-8M30 280h-8M26 20V280"/>
+      <circle r="2.6" fill="#d9a25b"><animateMotion dur="14s" repeatCount="indefinite" path="M100 20 C130 32 130 48 100 55 C70 62 70 82 100 90 C130 98 130 118 100 125 C70 132 70 152 100 160 C130 168 130 188 100 195 C70 202 70 222 100 230 C130 238 130 258 100 265 C80 270 85 278 100 280"/></circle>
+      <rect x="22" width="8" height="2" fill="#a8643f"><animate attributeName="y" values="20;278;20" dur="14s" repeatCount="indefinite"/></rect>
     </svg>
   </figure>
   <h1 class="r">The Architecture of<br>Responsible Organisations<small>Dynamics of Fluidity</small></h1>
-  <p class="epi r" style="margin-top:2.6rem">How humanity becomes capable of carrying increasing awareness without losing relation</p>
+  <p class="sub2 r">An Inquiry through Cybernetics and Complexity</p>
+  <p class="epi r" style="margin-top:2.4rem">How humanity becomes capable of carrying increasing awareness without losing relation</p>
   <p class="by r">Donald Innes Davies · 2026</p>
-  <p class="s r" style="margin-top:2rem">A treatment in descent, 148 levels down</p>
+  <p class="s r" style="margin-top:2rem">A treatment in descent, 150 levels down</p>
   <p class="cue r">Descend</p>
 </section>
 
@@ -217,23 +268,24 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <nav class="index r">
     <div><h4>Above</h4>
       <a href="#why"><span>017</span>Why Architecture?</a>
-      <a href="#waves"><span>023</span>The Waves of Time</a>
-      <a href="#clinamen"><span>028</span>Note on the Clinamen</a>
+      <a href="#cybernetics"><span>018</span>Cybernetics and Complexity</a>
+      <a href="#waves"><span>025</span>The Waves of Time</a>
+      <a href="#clinamen"><span>031</span>Note on the Clinamen</a>
       <h4 style="margin-top:2rem">Part 1 · Formation</h4>
-      <a href="#m1"><span>032</span>I · The Swerve and the Field</a>
-      <a href="#m2"><span>038</span>II · What We Inherit</a>
-      <a href="#m3"><span>049</span>III · Purpose in Motion</a></div>
+      <a href="#m1"><span>035</span>I · The Swerve and the Field</a>
+      <a href="#m2"><span>041</span>II · What We Inherit</a>
+      <a href="#m3"><span>052</span>III · Purpose in Motion</a></div>
     <div><h4>Part 2 · Rational</h4>
-      <a href="#m4"><span>064</span>IV · Judgement in Practice</a>
-      <a href="#m5"><span>077</span>V · What Becomes Hard to Notice</a>
+      <a href="#m4"><span>067</span>IV · Judgement in Practice</a>
+      <a href="#m5"><span>080</span>V · What Becomes Hard to Notice</a>
       <h4 style="margin-top:2rem">Part 3 · Transformative</h4>
-      <a href="#m6"><span>094</span>VI · Opening Possibilities</a>
-      <a href="#m7"><span>107</span>VII · Noticing Again</a>
-      <a href="#m8"><span>120</span>VIII · What We Carry Forward</a></div>
+      <a href="#m6"><span>097</span>VI · Opening Possibilities</a>
+      <a href="#m7"><span>110</span>VII · Noticing Again</a>
+      <a href="#m8"><span>123</span>VIII · What We Carry Forward</a></div>
     <div><h4>Below</h4>
-      <a href="#lineages"><span>136</span>Foundational Lineages</a>
-      <a href="#reflections"><span>140</span>Author’s Reflections</a>
-      <a href="#airlock"><span>148</span>The Airlock</a></div>
+      <a href="#lineages"><span>138</span>Foundational Lineages</a>
+      <a href="#reflections"><span>142</span>Author’s Reflections</a>
+      <a href="#airlock"><span>150</span>The Airlock</a></div>
   </nav>
 </section>
 
@@ -241,84 +293,225 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
 <section id="why" data-page="17" data-part="0" data-where="Why Architecture?">
   <div class="level r">Level 017 <span>· Why Architecture?</span></div>
   <p class="l r">An organisation has to keep going.</p>
-  <p class="l r">It has to pay for the work already done,</p>
-  <p class="l r">keep the promises already made,</p>
-  <p class="l r">find the means for work still to come.</p>
+  <p class="l r">It has to honour the commitments already made</p>
+  <p class="l r">and find ways to take on the work still to come.</p>
   <p class="gap"></p>
-  <p class="l r">And the way it keeps going <em>makes things possible</em></p>
-  <p class="l r">for people it will never meet.</p>
+  <p class="q r">How can it keep its capacity to continue while taking responsibility for what its way of continuing makes possible for others?</p>
   <p class="gap"></p>
-  <p class="s r">The architecture is not the building.</p>
-  <p class="s r">It is the relationships through which people judge, learn and change course.</p>
+  <p class="s r">Customers rely on promises. Employees plan their lives around its continuing.</p>
+  <p class="s r">Suppliers, investors and communities each meet its activity on their own terms.</p>
 </section>
 
-<section class="short" data-page="19" data-part="0" data-where="Author’s Preface">
-  <div class="level r">Level 019 <span>· Author’s Preface</span></div>
-  <p class="l r">Forty years in banking.</p>
+<section data-page="17" data-part="0" data-where="Why · Responsibility in Practice">
+  <div class="level r">Level 017 <span>· Responsibility in Practice</span></div>
+  <figure class="fx r" data-fx="twofold" data-ar="0.62" data-arm="0.9"><figcaption>Two architectures, one structure · what is set up on purpose · what grows through habit and conversation</figcaption></figure>
+  <p class="l r">Some arrangements are built on purpose:</p>
+  <p class="l r">mandates, processes, resources.</p>
+  <p class="l r">Others grow through habit, conversation, feeling,</p>
+  <p class="l r">and expectations nobody ever writes down.</p>
+  <p class="gap"></p>
+  <p class="caps r">You can hold a responsibility and still be unable to exercise it.</p>
+  <p class="gap"></p>
+  <p class="s r">No information. No time. No access to the person whose help you need.</p>
+  <p class="s r">Seeing the difficulty before you can explain why it matters.</p>
+</section>
+
+<section id="cybernetics" data-page="18" data-part="0" data-where="Why · An Inquiry through Cybernetics and Complexity">
+  <div class="level r">Level 018 <span>· An Inquiry through Cybernetics and Complexity</span></div>
+  <figure class="fx wide r" data-fx="cyberplex" data-ar="0.56" data-arm="1.35"><figcaption>Cybernetics: communication, regulation and learning · Complexity: intentions meeting in relationships nobody fully controls</figcaption></figure>
+  <div class="lens r">
+    <div><h6>Cybernetics</h6><p>How people recognise what is happening, coordinate what they do, and use knowledge of consequences to shape what happens next.</p><p class="dimmer">And how our own ways of observing shape what reaches judgement.</p></div>
+    <div><h6>Complexity</h6><p>How people’s intentions meet in relationships whose development no participant can fully determine.</p><p class="dimmer">A response can sustain a familiar pattern, amplify a small departure, or open what no one foresaw.</p></div>
+  </div>
+  <p class="gap"></p>
+  <p class="s r">The architecture gives these activities some durability.</p>
+  <p class="s r">The Dynamics of Fluidity show how their relationships keep forming.</p>
+</section>
+
+<section data-page="18" data-part="0" data-where="Why · Memory and Continuing Formation">
+  <div class="level r">Level 018 <span>· Memory and Continuing Formation</span></div>
+  <figure class="fx r" data-fx="rates" data-ar="0.6" data-arm="0.85"><figcaption>Movements at different rates · a decision lands in weeks · its consequences surface over years</figcaption></figure>
+  <p class="l r">Records keep the agreements.</p>
+  <p class="l r">People keep what helped, what hurt,</p>
+  <p class="l r">and why a course was chosen.</p>
+  <p class="gap"></p>
+  <p class="s r">Passed on, that know-how lets successors reconsider with some sense of the history.</p>
+  <p class="s r">Lost, it leaves them meeting an old difficulty alone.</p>
+  <p class="gap"></p>
+  <p class="caps r">An expectation can acquire the force of an obligation.</p>
+  <p class="s r">A commitment endures for years while the means of honouring it change.</p>
+</section>
+
+<section class="short" data-page="19" data-part="0" data-where="Why · Carrying Responsibility Forward">
+  <div class="level r">Level 019 <span>· Carrying Responsibility Forward</span></div>
+  <p class="l r">An organisation can become more able to carry responsibility</p>
+  <p class="l r">through changes of people, purpose and circumstance.</p>
+  <p class="gap"></p>
+  <p class="s r">Its capacity to compete and continue growing alongside</p>
+  <p class="s r">its capacity to understand and answer for what it asks of others.</p>
+  <p class="gap"></p>
+  <p class="caps r">What deserves to be sustained?</p>
+  <p class="caps r">What needs to change?</p>
+  <p class="caps r">What might become possible?</p>
+</section>
+
+<section class="short" data-page="20" data-part="0" data-where="Author’s Preface">
+  <div class="level r">Level 020 <span>· Author’s Preface</span></div>
+  <p class="l r">More than forty years in banking and financial services.</p>
   <p class="l r">One question, carried the whole way down:</p>
   <p class="gap"></p>
   <p class="q r">What happens to a decision after the people who took it have moved on?</p>
   <p class="gap"></p>
-  <p class="s r">The agreement keeps shaping the work.</p>
-  <p class="s r">The consequence arrives through someone who was never in the room.</p>
-  <p class="s r">Someone else inherits what follows.</p>
+  <p class="s r">An Open University course on the Enlightenment and Romanticism.</p>
+  <p class="s r">The Complexity Research Group at the University of Hertfordshire.</p>
+  <p class="s r">Then cybernetics: communication, regulation, learning, and what keeps an undertaking viable.</p>
+  <p class="gap"></p>
+  <p class="l r">Feedback shows how people recognise consequences and reconsider.</p>
+  <p class="l r">Complexity shows how intentions meet and something unforeseen emerges.</p>
+  <p class="s r">Both ask how far anyone can know or direct, including the one asking.</p>
 </section>
 
-<section class="short" data-page="20" data-part="0" data-where="Knowledge in Motion">
-  <div class="level r">Level 020 <span>· Knowledge in Motion</span></div>
+<section class="short" data-page="22" data-part="0" data-where="Knowledge in Motion">
+  <div class="level r">Level 022 <span>· Knowledge in Motion</span></div>
   <p class="epi r">The knowledge of an effect depends on and involves knowledge of a cause.</p>
   <p class="cite r">Spinoza · Ethics · 1677</p>
   <p class="gap"></p>
   <p class="l r">An idea from physics reaches communication.</p>
   <p class="l r">An account of conduct changes a procedure.</p>
-  <p class="l r">Knowledge travels, and what it means keeps changing.</p>
+  <p class="gap"></p>
+  <p class="s r">Atmosphere · Noticing · <span class="amber">Cybernetics</span> · <span class="amber">Complexity</span> · Symbiosis · Potentiality</p>
   <p class="gap"></p>
   <p class="caps r">Understanding an effect changes the effect.</p>
 </section>
 
-<section data-page="22" data-part="0" data-where="The Arc of the Inquiry">
-  <div class="level r">Level 022 <span>· The Arc of the Inquiry</span></div>
+<section data-page="24" data-part="0" data-where="The Arc of the Inquiry">
+  <div class="level r">Level 024 <span>· The Arc of the Inquiry</span></div>
   <figure class="fx wide r">
-    <svg viewBox="0 -40 600 270" fill="none" font-family="IBM Plex Mono" font-size="9" letter-spacing="2">
+    <svg viewBox="0 -40 600 300" fill="none" font-family="IBM Plex Mono" font-size="9" letter-spacing="2">
       <g stroke="#8fa3a6">
         <circle class="draw" pathLength="1" cx="100" cy="110" r="58"/>
         <circle class="draw d2" pathLength="1" cx="300" cy="110" r="58"/>
         <circle class="draw d3" pathLength="1" cx="500" cy="110" r="58" stroke="#d9a25b"/>
         <path class="draw d2" pathLength="1" d="M160 110H240M360 110H440" stroke-opacity=".6"/>
         <path class="draw d4" pathLength="1" d="M500 52 C 430 -30, 170 -30, 100 52" stroke="#a8643f" stroke-dasharray="2 4" stroke-opacity=".8"/>
-        <path class="draw d4" pathLength="1" d="M300 170 C 260 215, 140 215, 100 170" stroke="#a8643f" stroke-opacity=".5"/>
       </g>
+      <rect class="draw d4" pathLength="1" x="40" y="200" width="520" height="34" stroke="#c9d8d2" stroke-opacity=".35"/>
+      <circle r="3" fill="#d9a25b"><animateMotion dur="9s" repeatCount="indefinite" path="M100 52 C 170 -30, 430 -30, 500 52"/></circle>
+      <circle r="2.5" fill="#c9d8d2"><animateMotion dur="6s" repeatCount="indefinite" path="M100 110H500"/></circle>
+      <circle r="2" fill="#c9d8d2" opacity=".8"><animateMotion dur="7s" repeatCount="indefinite" path="M40 217H560"/></circle>
+      <path class="draw d4" pathLength="1" d="M100 168V200M300 168V200M500 168V200" stroke="#c9d8d2" stroke-opacity=".3" stroke-dasharray="2 3"/>
       <g fill="#d9d4c7" text-anchor="middle">
-        <text x="100" y="106">FORMATION</text><text x="100" y="122" fill="#4b5a5c" font-size="8">HOW IT CAME</text>
-        <text x="300" y="106">RATIONAL</text><text x="300" y="122" fill="#4b5a5c" font-size="8">HOW WE JUDGE</text>
-        <text x="500" y="106" fill="#d9a25b" font-size="8" letter-spacing="1">TRANSFORMATIVE</text><text x="500" y="122" fill="#4b5a5c" font-size="8">WHAT MAY BECOME</text>
+        <text x="100" y="106">FORMATION</text><text x="100" y="122" fill="#728385" font-size="8">HOW IT CAME</text>
+        <text x="300" y="106">RATIONAL</text><text x="300" y="122" fill="#728385" font-size="8">HOW WE JUDGE</text>
+        <text x="500" y="106" fill="#d9a25b" font-size="8" letter-spacing="1">TRANSFORMATIVE</text><text x="500" y="122" fill="#728385" font-size="8">WHAT MAY BECOME</text>
+        <text x="300" y="221" fill="#c9d8d2" font-size="9" letter-spacing="4">CYBERNETICS · COMPLEXITY — THROUGHOUT</text>
       </g>
     </svg>
-    <figcaption>Three Parts · Eight Movements · nine Interstices — what returns from later changes what came before</figcaption>
+    <figcaption>Three Parts · eight Movements · nine Interstices · one question carried throughout</figcaption>
   </figure>
+  <p class="q r">How does an organisation become capable of continuing responsibly?</p>
+  <p class="gap"></p>
   <p class="l r">A commitment met in Formation</p>
   <p class="l r">comes back as a question of judgement in Rational,</p>
   <p class="l r">and means something new in Transformative.</p>
   <p class="gap"></p>
-  <p class="s r">The descent is not a line. It is a return, made with more experience each time.</p>
+  <p class="s r">Communication, regulation and learning meet continuity and change in every Part.</p>
 </section>
 
-<section id="waves" data-page="23" data-part="0" data-where="The Waves of Time · Echoes in the Water">
-  <div class="level r">Level 023 <span>· The Waves of Time · Echoes in the Water</span></div>
-  <figure class="fx r" data-fx="ripples" data-ar="0.62"><figcaption>1996 published · 2011 bought · 2026 read again — the book never changed; the reader did</figcaption></figure>
+<section id="waves" data-page="25" data-part="0" data-where="The Waves of Time · Echoes in the Water">
+  <div class="level r">Level 025 <span>· The Waves of Time · Echoes in the Water</span></div>
+  <figure class="fx r" data-fx="ripples" data-ar="0.62"><figcaption>1996 published · 2011 bought · 2026 read again · the book never changed; the reader did</figcaption></figure>
   <p class="l r">A book sits on a shelf for fifteen years.</p>
   <p class="l r">The reader keeps changing.</p>
   <p class="gap"></p>
-  <p class="l r">McMaster, 1996: <em>learn new cooperative behaviours at every level.</em></p>
-  <p class="l r">Thirty years later the words come back as echoes in the water,</p>
-  <p class="l r">the Lady of Shalott drifting into an experience whose ending no one knows.</p>
-  <p class="gap"></p>
-  <p class="s r">Re-sensitisation. Atmosphere. Hermes. Potentiality. Symbiosis.</p>
-  <p class="s r">Five inquiries meet here and become one architecture.</p>
+  <p class="s r">McMaster, <em>The Intelligence Advantage</em>.</p>
+  <p class="s r">Something already present gains a significance that can now be recognised.</p>
+  <p class="caps r">A first experience of re-sensitisation.</p>
 </section>
 
-<section id="clinamen" class="short" data-page="28" data-part="0" data-where="Note on the Clinamen">
-  <div class="level r">Level 028 <span>· Note on the Clinamen</span></div>
+<section data-page="25" data-part="0" data-where="Waves · Inheritance, Intention and Change">
+  <div class="level r">Level 025 <span>· Inheritance, Intention and Change</span></div>
+  <figure class="fx wide r">
+    <svg class="tele-d" viewBox="0 0 600 230" fill="none" font-family="IBM Plex Mono" font-size="9" letter-spacing="2" text-anchor="middle">
+      <text x="300" y="18" fill="#728385" font-size="8" letter-spacing="3">STACEY · GRIFFIN · SHAW · 2000 — THREE TELEOLOGIES</text>
+      <g stroke="#8fa3a6" stroke-opacity=".6">
+        <rect class="draw" pathLength="1" x="30" y="40" width="160" height="56"/><rect class="draw" pathLength="1" x="220" y="40" width="160" height="56"/><rect class="draw" pathLength="1" x="410" y="40" width="160" height="56"/>
+      </g>
+      <g fill="#c9d8d2"><text x="110" y="64">FORMATIVE</text><text x="300" y="64">RATIONALIST</text><text x="490" y="64">TRANSFORMATIVE</text></g>
+      <g fill="#728385" font-size="7.5" letter-spacing="1"><text x="110" y="82">unfolding what is enfolded</text><text x="300" y="82">the future that is chosen</text><text x="490" y="82">a future in the making</text></g>
+      <path class="draw d2" pathLength="1" d="M110 96V150M300 96V150M490 96V150" stroke="#a8643f"/>
+      <path d="M105 144l5 8l5-8M295 144l5 8l5-8M485 144l5 8l5-8" stroke="#a8643f"/>
+      <circle r="2.6" fill="#d9a25b"><animateMotion dur="2.4s" repeatCount="indefinite" path="M110 96V150"/></circle><circle r="2.6" fill="#d9a25b"><animateMotion dur="2.4s" begin="-.8s" repeatCount="indefinite" path="M300 96V150"/></circle><circle r="2.6" fill="#d9a25b"><animateMotion dur="2.4s" begin="-1.6s" repeatCount="indefinite" path="M490 96V150"/></circle>
+      <g stroke="#d9a25b" stroke-opacity=".75" class="breathe"><rect class="draw d3" pathLength="1" x="30" y="158" width="160" height="44"/><rect class="draw d3" pathLength="1" x="220" y="158" width="160" height="44"/><rect class="draw d3" pathLength="1" x="410" y="158" width="160" height="44"/></g>
+      <g fill="#d9a25b" font-size="10" letter-spacing="4"><text x="110" y="185">FORMATION</text><text x="300" y="185">RATIONAL</text><text x="490" y="185">TRANSFORMATIVE</text></g>
+      <text x="300" y="224" fill="#728385" font-size="8" letter-spacing="3">INHERITED PATTERN · PURPOSEFUL ACTION · AN UNKNOWABLE FUTURE</text>
+    </svg>
+    <div class="tele-m">
+      <p><span>Formative teleology</span><b>Formation</b><i>inherited pattern</i></p>
+      <p><span>Rationalist teleology</span><b>Rational</b><i>purposeful action</i></p>
+      <p><span>Transformative teleology</span><b>Transformative</b><i>an unknowable future</i></p>
+    </div>
+    <figcaption>Stacey, Griffin and Shaw (2000) · The Complexity Research Group, University of Hertfordshire, 2011–12 · the teleological arc behind the book’s three Parts</figcaption>
+  </figure>
+  <p class="l r">Supervised by Ralph Stacey and Douglas Griffin,</p>
+  <p class="l r">he learnt to take everyday organisational experience seriously:</p>
+  <p class="l r">how continuity and change emerge through human interaction.</p>
+  <p class="gap"></p>
+  <p class="s r">The three Parts organise the inquiry.</p>
+  <p class="s r">They are not stages every organisation must pass through.</p>
+</section>
+
+<section data-page="26" data-part="0" data-where="Waves · When a Possibility Becomes Practical">
+  <div class="level r">Level 026 <span>· When a Possibility Becomes Practical</span></div>
+  <figure class="fx wide r" data-fx="lineage" data-ar="0.5" data-arm="1.25"><figcaption>From an ancient demonstration to Maxwell’s regulator · the historical thread that leads to cybernetics</figcaption></figure>
+  <p class="l r">Electric motors: their promised benefits</p>
+  <p class="l r">went unrealised for decades,</p>
+  <p class="l r">until machinery, workflow and work itself were reorganised.</p>
+  <p class="gap"></p>
+  <p class="s r">Watt meets a Newcomen engine and its practical troubles.</p>
+  <p class="s r">Boulton brings finance, manufacture and skilled hands.</p>
+  <p class="s r">An inventor’s name opens onto a much larger field of human endeavour.</p>
+  <p class="gap"></p>
+  <p class="caps r">Does the response steady the motion, or disturb it further?</p>
+  <p class="s r">Complexity takes it further: participants interpret one another and change what they are trying to understand.</p>
+</section>
+
+<section class="short" data-page="27" data-part="0" data-where="Waves · Continuing through Different Contributions">
+  <div class="level r">Level 027 <span>· Continuing through Different Contributions</span></div>
+  <p class="l r">What people accomplish becomes part of the circumstances</p>
+  <p class="l r">in which others live, learn and act.</p>
+  <p class="gap"></p>
+  <p class="epi r">We must learn new cooperative behaviors at every level.</p>
+  <p class="cite r">McMaster · 1996 · p. xviii</p>
+  <p class="gap"></p>
+  <p class="s r">Progressive collaborative continuance.</p>
+  <p class="s r">Whose possibilities expand, and whose become constrained?</p>
+</section>
+
+<section class="short" data-page="28" data-part="0" data-where="Waves · Becoming Receptive Again">
+  <div class="level r">Level 028 <span>· Becoming Receptive Again</span></div>
+  <p class="l r">Waterhouse, <em>The Lady of Shalott</em>, 1888.</p>
+  <p class="l r">A movement into the water,</p>
+  <p class="l r">into an experience whose consequences no one knows.</p>
+  <p class="gap"></p>
+  <p class="s r">Re-sensitisation: recovering responsiveness to differences that matter.</p>
+  <p class="s r">Atmosphere · Hermes · Potentiality · Symbiosis</p>
+</section>
+
+<section class="short" data-page="29" data-part="0" data-where="Waves · Bringing the Inquiries Together">
+  <div class="level r">Level 029 <span>· Bringing the Inquiries Together</span></div>
+  <p class="l r">Responsibility clearly assigned,</p>
+  <p class="l r">and people struggling to exercise it.</p>
+  <p class="gap"></p>
+  <p class="s r">Knowledge, authority, resources. Confidence, recognition, the chance of being heard.</p>
+  <p class="s r">A concern can go unnoticed despite abundant information.</p>
+  <p class="s r">An interpretation can keep its authority long after experience has begun to unsettle it.</p>
+  <p class="gap"></p>
+  <p class="caps r">Re-sensitisation belongs within responsibility itself.</p>
+</section>
+
+<section id="clinamen" class="short" data-page="31" data-part="0" data-where="Note on the Clinamen">
+  <div class="level r">Level 031 <span>· Note on the Clinamen</span></div>
   <p class="r" style="font-family:'Cormorant Garamond';font-style:italic;font-size:clamp(64px,14vw,170px);line-height:1;color:var(--glow);letter-spacing:.02em">clīnāmen</p>
   <p class="cite r">Lucretius · De Rerum Natura II · ca. 55 BCE</p>
   <p class="gap"></p>
@@ -328,13 +521,17 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
 </section>
 
 <!-- ================= PART 1 ================= -->
-<section data-page="31" data-part="1" data-where="Part 1 · Formation">
+<section data-page="34" data-part="1" data-where="Part 1 · Formation">
   <h2 class="part r"><small>Part 1</small>Formation</h2>
   <p class="partq r">What form do organisations now face, and how did it come to be?</p>
   <p class="triad r">Swerve · Field · Inheritance</p>
+  <div class="lens r">
+    <div><h6>Cybernetic lens</h6><p>How consequences return to the activity that produced them, and whether they get into the mechanism that decides what happens next.</p></div>
+    <div><h6>Complexity lens</h6><p>How a small departure becomes an encounter, and how an arrangement becomes familiar through countless mutual adjustments.</p></div>
+  </div>
 </section>
 
-<section id="m1" class="short" data-page="32" data-part="1" data-where="Movement I · The Swerve and the Field">
+<section id="m1" class="short" data-page="35" data-part="1" data-where="Movement I · The Swerve and the Field">
   <h3 class="mv r"><small>Movement I</small>The Swerve<br>and the Field</h3>
   <ul class="asks">
     <li class="r">How a form endures as the people within it change</li>
@@ -343,8 +540,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   </ul>
 </section>
 
-<section data-page="32" data-part="1" data-where="I · How a Form Endures">
-  <div class="level r">Level 032 <span>· How a Form Endures</span></div>
+<section data-page="35" data-part="1" data-where="I · How a Form Endures">
+  <div class="level r">Level 035 <span>· How a Form Endures</span></div>
   <figure class="fx r" data-fx="names" data-ar="0.42"><figcaption>The name holds · the people change · the promise outlasts them</figcaption></figure>
   <p class="l r">A promise made years ago still matters.</p>
   <p class="l r">Different people do the work now, and do it differently.</p>
@@ -353,8 +550,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">Keeping the promise may ask something its makers could hardly have imagined.</p>
 </section>
 
-<section data-page="33" data-part="1" data-where="I · The Swerve and the Possibility of Encounter">
-  <div class="level r">Level 033 <span>· The Swerve and the Possibility of Encounter</span></div>
+<section data-page="36" data-part="1" data-where="I · The Swerve and the Possibility of Encounter">
+  <div class="level r">Level 036 <span>· The Swerve and the Possibility of Encounter</span></div>
   <figure class="fx tap r" data-fx="atoms" data-ar="0.9"><figcaption>Tap the void to make a swerve</figcaption></figure>
   <p class="l r">Rain falling through empty space.</p>
   <p class="l r">Every drop at the same speed. The gaps never change.</p>
@@ -364,8 +561,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="l r">One of them <span class="swerve">swerves.</span></p>
 </section>
 
-<section data-page="34" data-part="1" data-where="I · Faraday, Maxwell and the Field">
-  <div class="level r">Level 034 <span>· Faraday, Maxwell and the Field</span></div>
+<section data-page="37" data-part="1" data-where="I · Faraday, Maxwell and the Field">
+  <div class="level r">Level 037 <span>· Faraday, Maxwell and the Field</span></div>
   <figure class="fx r" data-fx="faraday" data-ar="0.6"><figcaption>29 August 1831 · an iron ring · two coils · a needle</figcaption></figure>
   <p class="l r">Make the connection: the needle jumps, then settles.</p>
   <p class="l r">Hold it: nothing.</p>
@@ -377,8 +574,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">Whoever sees what has changed must find words, find a listener, find the authority to reconsider.</p>
 </section>
 
-<section data-page="35" data-part="1" data-where="I · How an Arrangement Becomes Familiar">
-  <div class="level r">Level 035 <span>· How an Arrangement Becomes Familiar</span></div>
+<section data-page="38" data-part="1" data-where="I · How an Arrangement Becomes Familiar">
+  <div class="level r">Level 038 <span>· How an Arrangement Becomes Familiar</span></div>
   <figure class="fx r" data-fx="crossing" data-ar="0.62"><figcaption>A figuration (Elias) · strangers adjusting to one another in a few seconds</figcaption></figure>
   <p class="l r">A pedestrian crossing.</p>
   <p class="l r">A driver eases off. A walker watches. Someone hesitates. Everyone adjusts.</p>
@@ -387,7 +584,7 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">are present in what strangers can expect of each other.</p>
 </section>
 
-<section class="interstice" data-page="36" data-part="1" data-where="Interstice · What Takes Hold">
+<section class="interstice" data-page="39" data-part="1" data-where="Interstice · What Takes Hold">
   <div class="door r" style="--gap:2px"><i></i></div>
   <p class="tag r">The Interstice · I</p>
   <h4 class="r">What Takes Hold</h4>
@@ -397,7 +594,7 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="q r">How did the organisation learn to carry a commitment so far, and what did that ask of those who came after?</p>
 </section>
 
-<section id="m2" class="short" data-page="38" data-part="1" data-where="Movement II · What We Inherit">
+<section id="m2" class="short" data-page="41" data-part="1" data-where="Movement II · What We Inherit">
   <h3 class="mv r"><small>Movement II</small>What We Inherit</h3>
   <ul class="asks">
     <li class="r">How an organisation came to hold property and carry commitments through changes of ownership</li>
@@ -407,12 +604,14 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   </ul>
 </section>
 
-<section data-page="38" data-part="1" data-where="II · The Making of the Enduring Organisation">
-  <div class="level r">Level 038 <span>· The Making of the Enduring Organisation</span></div>
+<section data-page="41" data-part="1" data-where="II · The Making of the Enduring Organisation">
+  <div class="level r">Level 041 <span>· The Making of the Enduring Organisation</span></div>
   <figure class="fx r" style="width:min(200px,48vw)">
     <svg viewBox="0 0 200 200" fill="none">
       <circle class="draw" pathLength="1" cx="100" cy="100" r="78" stroke="#a8643f" stroke-width="1.2"/>
+      <circle class="spin" cx="100" cy="100" r="84" stroke="#a8643f" stroke-opacity=".5" stroke-dasharray="2 6"/>
       <circle class="draw d2" pathLength="1" cx="100" cy="100" r="66" stroke="#a8643f" stroke-opacity=".6"/>
+      <circle class="spin ccw" cx="100" cy="100" r="60" stroke="#d9a25b" stroke-opacity=".35" stroke-dasharray="1 9"/>
       <path class="draw d3" pathLength="1" d="M100 52 L112 88 L150 88 L119 110 L131 146 L100 124 L69 146 L81 110 L50 88 L88 88Z" stroke="#a8643f" stroke-opacity=".5"/>
       <text x="100" y="186" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" letter-spacing="3" fill="#4b5a5c">31 DEC 1600</text>
       <text x="100" y="107" text-anchor="middle" font-family="Cormorant Garamond" font-size="26" font-style="italic" fill="#d9d4c7">Charter</text>
@@ -428,8 +627,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">Whoever takes it over inherits property and promises that can still be traced.</p>
 </section>
 
-<section data-page="40" data-part="1" data-where="II · The Birth of the Industrial Era">
-  <div class="level r">Level 040 <span>· The Birth of the Industrial Era</span></div>
+<section data-page="43" data-part="1" data-where="II · The Birth of the Industrial Era">
+  <div class="level r">Level 043 <span>· The Birth of the Industrial Era</span></div>
   <figure class="fx r" data-fx="gears" data-ar="0.55"><figcaption>c. 1700 · Crowley Iron Works · a bell at five in the morning</figcaption></figure>
   <p class="l r">Water and steam bring the operations under one roof.</p>
   <p class="l r">Capital outlasts any single order.</p>
@@ -439,8 +638,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">Someone else lives that hour on the spinning floor.</p>
 </section>
 
-<section data-page="41" data-part="1" data-where="II · Time, Distance and the Organisation of Work">
-  <div class="level r">Level 041 <span>· Time, Distance and the Organisation of Work</span></div>
+<section data-page="44" data-part="1" data-where="II · Time, Distance and the Organisation of Work">
+  <div class="level r">Level 044 <span>· Time, Distance and the Organisation of Work</span></div>
   <figure class="fx r" data-fx="clock" style="width:min(320px,70vw)" data-ar="1"><figcaption>Bristol Corn Exchange · two minute hands · London time runs eleven minutes ahead</figcaption></figure>
   <p class="l r">January 1841: the Great Western keeps London time.</p>
   <p class="l r">Bristol keeps its own.</p>
@@ -452,8 +651,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">until someone needs to know what went into the result, or what it cost elsewhere.</p>
 </section>
 
-<section data-page="42" data-part="1" data-where="II · Offices, Records and Answerability">
-  <div class="level r">Level 042 <span>· Offices, Records and Answerability</span></div>
+<section data-page="45" data-part="1" data-where="II · Offices, Records and Answerability">
+  <div class="level r">Level 045 <span>· Offices, Records and Answerability</span></div>
   <figure class="fx r" data-fx="offices" data-ar="0.5"><figcaption>Weber · the office outlives the officer · the record outlives the meeting</figcaption></figure>
   <p class="l r">An office is a role with duties and authority.</p>
   <p class="l r">Whoever fills it can read the records and carry on the work.</p>
@@ -463,8 +662,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">even after the person you first dealt with has gone.</p>
 </section>
 
-<section data-page="43" data-part="1" data-where="II · What the Law Asks of Companies and Directors">
-  <div class="level r">Level 043 <span>· What the Law Asks of Companies and Directors</span></div>
+<section data-page="46" data-part="1" data-where="II · What the Law Asks of Companies and Directors">
+  <div class="level r">Level 046 <span>· What the Law Asks of Companies and Directors</span></div>
   <p class="l r">A company owes obligations in its own name.</p>
   <p class="l r">Directors owe their duties to the company.</p>
   <div class="plate r">
@@ -483,8 +682,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">every change of personnel makes the past harder to know.</p>
 </section>
 
-<section class="short" data-page="44" data-part="1" data-where="II · Why the FCA Asks for Evidence of Conduct">
-  <div class="level r">Level 044 <span>· Why the FCA Asks for Evidence of Conduct</span></div>
+<section class="short" data-page="47" data-part="1" data-where="II · Why the FCA Asks for Evidence of Conduct">
+  <div class="level r">Level 047 <span>· Why the FCA Asks for Evidence of Conduct</span></div>
   <p class="l r">Someone designs the product. Someone sells it.</p>
   <p class="l r">Someone else handles what goes wrong later.</p>
   <p class="gap"></p>
@@ -494,8 +693,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">Sometimes the arrangement has to change before the outcome can.</p>
 </section>
 
-<section data-page="45" data-part="1" data-where="II · How Conduct Becomes Culture">
-  <div class="level r">Level 045 <span>· How Conduct Becomes Culture</span></div>
+<section data-page="48" data-part="1" data-where="II · How Conduct Becomes Culture">
+  <div class="level r">Level 048 <span>· How Conduct Becomes Culture</span></div>
   <figure class="fx r" data-fx="strata" data-ar="0.62"><figcaption>Schein · what you can see moves fast · what people assume moves slowly</figcaption></figure>
   <p class="l r">A statement of values can be changed at a board meeting.</p>
   <p class="l r">It takes repeated experience before anyone believes</p>
@@ -505,9 +704,9 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">What earns recognition when demands compete.</p>
 </section>
 
-<section data-page="47" data-part="1" data-where="II · How Consequences Return">
-  <div class="level r">Level 047 <span>· How Consequences Return</span></div>
-  <figure class="fx r" data-fx="governor" data-ar="0.75"><figcaption>Maxwell · On Governors · 1868 · the change has to get into the mechanism</figcaption></figure>
+<section data-page="50" data-part="1" data-where="II · How Consequences Return">
+  <div class="level r">Level 050 <span>· How Consequences Return</span></div>
+  <figure class="fx r" data-fx="governor" data-ar="0.75"><figcaption>Maxwell · On Governors · 1868 · the historical root of cybernetics · the change has to get into the mechanism</figcaption></figure>
   <p class="l r">A governor keeps the engine steady.</p>
   <p class="l r">A change of speed lifts the arms, and the lifting adjusts the valve.</p>
   <p class="gap"></p>
@@ -518,7 +717,7 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">An account of what people gave up to produce them arrives much later.</p>
 </section>
 
-<section class="interstice" data-page="48" data-part="1" data-where="Interstice · The Weight of a Promise">
+<section class="interstice" data-page="51" data-part="1" data-where="Interstice · The Weight of a Promise">
   <div class="door r" style="--gap:5px"><i></i></div>
   <p class="tag r">The Interstice · II</p>
   <h4 class="r">The Weight of a Promise</h4>
@@ -531,7 +730,7 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="q r">How does a result the organisation has learnt to count as success gain the authority to shape what it does next?</p>
 </section>
 
-<section id="m3" class="short" data-page="49" data-part="1" data-where="Movement III · Purpose in Motion">
+<section id="m3" class="short" data-page="52" data-part="1" data-where="Movement III · Purpose in Motion">
   <h3 class="mv r"><small>Movement III</small>Purpose in Motion</h3>
   <ul class="asks">
     <li class="r">How repeated decisions give purpose a direction</li>
@@ -541,8 +740,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   </ul>
 </section>
 
-<section data-page="49" data-part="1" data-where="III · How Purpose Takes Shape">
-  <div class="level r">Level 049 <span>· How Purpose Takes Shape</span></div>
+<section data-page="52" data-part="1" data-where="III · How Purpose Takes Shape">
+  <div class="level r">Level 052 <span>· How Purpose Takes Shape</span></div>
   <p class="l r">A revenue figure gets there before the people making the next decision.</p>
   <p class="gap"></p>
   <p class="q r">“the purpose of a system is what it does”</p>
@@ -553,8 +752,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">What happens when experience calls those decisions into question?</p>
 </section>
 
-<section data-page="51" data-part="1" data-where="III · What Came to Count as Success">
-  <div class="level r">Level 051 <span>· What Came to Count as Success</span></div>
+<section data-page="54" data-part="1" data-where="III · What Came to Count as Success">
+  <div class="level r">Level 054 <span>· What Came to Count as Success</span></div>
   <figure class="fx r" data-fx="stopwatch" style="width:min(340px,74vw)" data-ar="1"><figcaption>Taylor · The Principles of Scientific Management · 1911</figcaption></figure>
   <p class="l r">The clock measured how long you were present.</p>
   <p class="l r">Then came a harder question:</p>
@@ -564,8 +763,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">Over time, these decisions teach people which contributions matter most.</p>
 </section>
 
-<section data-page="53" data-part="1" data-where="III · Whose Interests Count?">
-  <div class="level r">Level 053 <span>· Whose Interests Count?</span></div>
+<section data-page="56" data-part="1" data-where="III · Whose Interests Count?">
+  <div class="level r">Level 056 <span>· Whose Interests Count?</span></div>
   <figure class="fx r" data-fx="scales" data-ar="0.6"><figcaption>Friedman, 1970 · the executive acts for the owners · within law and ethical custom</figcaption></figure>
   <p class="l r">A standard tells you whether you got what was expected.</p>
   <p class="l r">It cannot tell you whether it was worth pursuing.</p>
@@ -576,8 +775,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="q r">How do you stay able to compete, and answerable for what competing asks of others?</p>
 </section>
 
-<section data-page="55" data-part="1" data-where="III · When the Rule Becomes the Aim">
-  <div class="level r">Level 055 <span>· When the Rule Becomes the Aim</span></div>
+<section data-page="58" data-part="1" data-where="III · When the Rule Becomes the Aim">
+  <div class="level r">Level 058 <span>· When the Rule Becomes the Aim</span></div>
   <figure class="fx r" style="width:min(380px,80vw)">
     <svg viewBox="0 0 320 190" fill="none" font-family="IBM Plex Mono" font-size="9" letter-spacing="3">
       <text x="30" y="99" fill="#d9d4c7">RULE</text>
@@ -586,6 +785,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
       <path d="M236 90 l8 5 l-8 5" stroke="#4b5a5c"/>
       <path class="draw d2" pathLength="1" d="M74 86 C 100 20, 200 20, 205 70 C 210 125, 120 150, 82 108" stroke="#a8643f" stroke-width="1.5"/>
       <path class="draw d3" pathLength="1" d="M90 104 L80 110 L84 98" stroke="#a8643f" stroke-width="1.5"/>
+      <circle r="3" fill="#d9a25b"><animateMotion dur="5s" repeatCount="indefinite" path="M74 86 C 100 20, 200 20, 205 70 C 210 125, 120 150, 82 108"/></circle>
+      <circle r="2" fill="#4b5a5c"><animateMotion dur="9s" repeatCount="indefinite" keyPoints="0;0.55;0.55" keyTimes="0;0.6;1" calcMode="linear" path="M78 95 H240"/></circle>
       <text x="160" y="22" text-anchor="middle" fill="#a8643f" font-size="8" letter-spacing="2">MEANS BECOME ENDS</text>
       <text x="160" y="182" text-anchor="middle" fill="#4b5a5c" font-size="8" letter-spacing="2">THE PURPOSE RECEDES</text>
     </svg>
@@ -599,8 +800,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">while those living with its effects start asking what it actually achieves.</p>
 </section>
 
-<section data-page="57" data-part="1" data-where="III · When Reported Success Misleads">
-  <div class="level r">Level 057 <span>· When Reported Success Misleads</span></div>
+<section data-page="60" data-part="1" data-where="III · When Reported Success Misleads">
+  <div class="level r">Level 060 <span>· When Reported Success Misleads</span></div>
   <figure class="fx r" data-fx="enron" data-ar="0.6"><figcaption>December 2001 · false profits · concealed debt</figcaption></figure>
   <p class="l r">A lender lends. A supplier extends credit. An employee plans a life.</p>
   <p class="l r">All of it rests on the figures.</p>
@@ -611,7 +812,7 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">the account can be tested, and understanding revised when the evidence demands it.</p>
 </section>
 
-<section class="interstice" data-page="59" data-part="1" data-where="Interstice · A Different Light">
+<section class="interstice" data-page="62" data-part="1" data-where="Interstice · A Different Light">
   <div class="door r" style="--gap:9px"><i></i></div>
   <p class="tag r">The Interstice · III</p>
   <h4 class="r">A Different Light</h4>
@@ -623,13 +824,17 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
 </section>
 
 <!-- ================= PART 2 ================= -->
-<section data-page="63" data-part="2" data-where="Part 2 · Rational">
+<section data-page="66" data-part="2" data-where="Part 2 · Rational">
   <h2 class="part r"><small>Part 2</small>Rational</h2>
   <p class="partq r">How do organisations decide what matters, and what shapes those decisions?</p>
   <p class="triad r">Success · Judgement · Feedback</p>
+  <div class="lens r">
+    <div><h6>Cybernetic lens</h6><p>What reaches the decision. Every report and screen is a filter, and regulation can only respond to what gets through.</p></div>
+    <div><h6>Complexity lens</h6><p>Claims, pressures and obligations meeting at once. Each judgement changes the circumstances the next one faces.</p></div>
+  </div>
 </section>
 
-<section id="m4" class="short" data-page="64" data-part="2" data-where="Movement IV · Judgement in Practice">
+<section id="m4" class="short" data-page="67" data-part="2" data-where="Movement IV · Judgement in Practice">
   <h3 class="mv r"><small>Movement IV</small>Judgement<br>in Practice</h3>
   <ul class="asks">
     <li class="r">How people decide what deserves attention</li>
@@ -639,8 +844,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   </ul>
 </section>
 
-<section data-page="64" data-part="2" data-where="IV · What Makes a Decision Reasonable?">
-  <div class="level r">Level 064 <span>· What Makes a Decision Reasonable?</span></div>
+<section data-page="67" data-part="2" data-where="IV · What Makes a Decision Reasonable?">
+  <div class="level r">Level 067 <span>· What Makes a Decision Reasonable?</span></div>
   <figure class="fx r" data-fx="balance" data-ar="0.55"><figcaption>Income · people · customers · colleagues · the beam never quite settles</figcaption></figure>
   <p class="l r">The service needs more people.</p>
   <p class="l r">The organisation cannot fund every request.</p>
@@ -650,8 +855,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">Every concern has grounds that deserve a hearing.</p>
 </section>
 
-<section data-page="67" data-part="2" data-where="IV · What Reaches the Decision">
-  <div class="level r">Level 067 <span>· What Reaches the Decision</span></div>
+<section data-page="70" data-part="2" data-where="IV · What Reaches the Decision">
+  <div class="level r">Level 070 <span>· What Reaches the Decision</span></div>
   <figure class="fx r" data-fx="filter" data-ar="0.9"><figcaption>Rising from the work · thinned by each layer · a few signals reach the decision</figcaption></figure>
   <p class="l r">Long before a concern appears in a report,</p>
   <p class="l r">someone has started working around it.</p>
@@ -662,8 +867,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="q r">How does something people are living with become something the organisation can act on?</p>
 </section>
 
-<section data-page="70" data-part="2" data-where="IV · What Deserves Priority?">
-  <div class="level r">Level 070 <span>· What Deserves Priority?</span></div>
+<section data-page="73" data-part="2" data-where="IV · What Deserves Priority?">
+  <div class="level r">Level 073 <span>· What Deserves Priority?</span></div>
   <div class="claims r">
     <div class="claim">Replace ageing equipment<span>01</span></div>
     <div class="claim">Retain experienced people<span>02</span></div>
@@ -677,8 +882,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">which promises hold, and which concerns have to explain themselves twice.</p>
 </section>
 
-<section data-page="73" data-part="2" data-where="IV · Reasons to Reconsider">
-  <div class="level r">Level 073 <span>· Reasons to Reconsider</span></div>
+<section data-page="76" data-part="2" data-where="IV · Reasons to Reconsider">
+  <div class="level r">Level 076 <span>· Reasons to Reconsider</span></div>
   <figure class="fx r" data-fx="course" data-ar="0.5"><figcaption>A reasonable course · new experience · a course reconsidered with care</figcaption></figure>
   <p class="l r">A decision can be reasonable when it is made</p>
   <p class="l r">and still need to change.</p>
@@ -689,7 +894,7 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="q r">How does an organisation keep the confidence to act while staying open to what its actions reveal?</p>
 </section>
 
-<section class="interstice" data-page="76" data-part="2" data-where="Interstice · Room to Respond">
+<section class="interstice" data-page="79" data-part="2" data-where="Interstice · Room to Respond">
   <div class="door r" style="--gap:14px"><i></i></div>
   <p class="tag r">The Interstice · IV</p>
   <h4 class="r">Room to Respond</h4>
@@ -701,7 +906,7 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="q r">What happens to our ability to notice once a way of working becomes familiar?</p>
 </section>
 
-<section id="m5" class="short" data-page="77" data-part="2" data-where="Movement V · What Becomes Hard to Notice">
+<section id="m5" class="short" data-page="80" data-part="2" data-where="Movement V · What Becomes Hard to Notice">
   <h3 class="mv r"><small>Movement V</small>What Becomes<br>Hard to Notice</h3>
   <ul class="asks">
     <li class="r">How familiarity shapes attention</li>
@@ -711,8 +916,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   </ul>
 </section>
 
-<section data-page="77" data-part="2" data-where="V · When the Familiar Recedes">
-  <div class="level r">Level 077 <span>· When the Familiar Recedes</span></div>
+<section data-page="80" data-part="2" data-where="V · When the Familiar Recedes">
+  <div class="level r">Level 080 <span>· When the Familiar Recedes</span></div>
   <p class="l r">Knowing the work well is an achievement.</p>
   <p class="l r">Then the contributions that keep it dependable sink into the walls.</p>
   <div class="fade-words r">
@@ -724,8 +929,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">Their value is often clearest when they stop.</p>
 </section>
 
-<section class="short" data-page="80" data-part="2" data-where="V · What We Learn to Trust">
-  <div class="level r">Level 080 <span>· What We Learn to Trust</span></div>
+<section class="short" data-page="83" data-part="2" data-where="V · What We Learn to Trust">
+  <div class="level r">Level 083 <span>· What We Learn to Trust</span></div>
   <p class="l r">An accountant relies on methods older than her career.</p>
   <p class="l r">An engineer on investigations he never witnessed.</p>
   <p class="l r">A manager on reports she cannot follow in every detail.</p>
@@ -735,8 +940,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="q r">What do we start to see when the account of the work is more familiar than the work?</p>
 </section>
 
-<section data-page="83" data-part="2" data-where="V · Through Reports and Screens">
-  <div class="level r">Level 083 <span>· Through Reports and Screens</span></div>
+<section data-page="86" data-part="2" data-where="V · Through Reports and Screens">
+  <div class="level r">Level 086 <span>· Through Reports and Screens</span></div>
   <figure class="fx wide r">
     <div class="dash">
       <div class="tile"><small>Requests closed</small><b data-count="98.4">98.4%</b><i>✓</i></div>
@@ -757,8 +962,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="caps r">The screen is a sieve.</p>
 </section>
 
-<section class="short" data-page="86" data-part="2" data-where="V · What Becomes Difficult to Question">
-  <div class="level r">Level 086 <span>· What Becomes Difficult to Question</span></div>
+<section class="short" data-page="89" data-part="2" data-where="V · What Becomes Difficult to Question">
+  <div class="level r">Level 089 <span>· What Becomes Difficult to Question</span></div>
   <p class="l r">People built their confidence learning it.</p>
   <p class="l r">They earned recognition using it well.</p>
   <p class="l r">They taught others to do the same.</p>
@@ -769,7 +974,7 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="q r">What becomes possible once an arrangement is seen as something people made, and can keep changing?</p>
 </section>
 
-<section class="interstice" data-page="89" data-part="2" data-where="Interstice · A Familiar View">
+<section class="interstice" data-page="92" data-part="2" data-where="Interstice · A Familiar View">
   <div class="door r" style="--gap:20px"><i></i></div>
   <p class="tag r">The Interstice · V</p>
   <h4 class="r">A Familiar View</h4>
@@ -781,13 +986,17 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
 </section>
 
 <!-- ================= PART 3 ================= -->
-<section data-page="93" data-part="3" data-where="Part 3 · Transformative">
+<section data-page="96" data-part="3" data-where="Part 3 · Transformative">
   <h2 class="part long r"><small>Part 3</small>Transformative</h2>
   <p class="partq r">What might organisations become as they learn to see their effects?</p>
   <p class="triad r">Re-sensitisation · Agency · Symbiosis</p>
+  <div class="lens r">
+    <div><h6>Cybernetic lens</h6><p>Learning through feedback: renewed attention that changes how the organisation observes its own activity.</p></div>
+    <div><h6>Complexity lens</h6><p>Emergence through relationship: distinct participants generating possibilities and demands no one of them directs.</p></div>
+  </div>
 </section>
 
-<section id="m6" class="short" data-page="94" data-part="3" data-where="Movement VI · Opening Possibilities">
+<section id="m6" class="short" data-page="97" data-part="3" data-where="Movement VI · Opening Possibilities">
   <h3 class="mv r"><small>Movement VI</small>Opening<br>Possibilities</h3>
   <ul class="asks">
     <li class="r">How a different understanding opens another course</li>
@@ -797,8 +1006,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   </ul>
 </section>
 
-<section data-page="94" data-part="3" data-where="VI · A Different Starting Point">
-  <div class="level r">Level 094 <span>· A Different Starting Point</span></div>
+<section data-page="97" data-part="3" data-where="VI · A Different Starting Point">
+  <div class="level r">Level 097 <span>· A Different Starting Point</span></div>
   <figure class="fx r" data-fx="fragments" data-ar="0.6"><figcaption>Each role holds a piece the others need · the arrangement kept them apart</figcaption></figure>
   <p class="l r">A repeated request for help looks like a training gap.</p>
   <p class="l r">Conversation shows something else: the trouble comes</p>
@@ -807,8 +1016,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="caps r">What changes first is what we think we are dealing with.</p>
 </section>
 
-<section class="short" data-page="97" data-part="3" data-where="VI · Becoming Able to Act">
-  <div class="level r">Level 097 <span>· Becoming Able to Act</span></div>
+<section class="short" data-page="100" data-part="3" data-where="VI · Becoming Able to Act">
+  <div class="level r">Level 100 <span>· Becoming Able to Act</span></div>
   <p class="l r">Everyone agrees it could be better,</p>
   <p class="l r">and the next morning they go back to the old way.</p>
   <p class="gap"></p>
@@ -818,8 +1027,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="l r">A lot happens in the interval between <em>seeing</em> a possibility and <em>being able</em> to pursue it.</p>
 </section>
 
-<section data-page="100" data-part="3" data-where="VI · Giving a Possibility Time">
-  <div class="level r">Level 100 <span>· Giving a Possibility Time</span></div>
+<section data-page="103" data-part="3" data-where="VI · Giving a Possibility Time">
+  <div class="level r">Level 103 <span>· Giving a Possibility Time</span></div>
   <figure class="fx r" data-fx="growth" data-ar="0.8"><figcaption>Attention given · resources committed before the benefit is proven</figcaption></figure>
   <p class="l r">A new undertaking needs enough support</p>
   <p class="l r">to find out what it can become.</p>
@@ -829,8 +1038,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="q r">What should be made to last, and how can it stay responsive once others depend on it?</p>
 </section>
 
-<section class="short" data-page="103" data-part="3" data-where="VI · As a New Practice Takes Hold">
-  <div class="level r">Level 103 <span>· As a New Practice Takes Hold</span></div>
+<section class="short" data-page="106" data-part="3" data-where="VI · As a New Practice Takes Hold">
+  <div class="level r">Level 106 <span>· As a New Practice Takes Hold</span></div>
   <p class="l r">Others start to rely on it.</p>
   <p class="l r">What once took long explanation becomes easy to do.</p>
   <p class="gap"></p>
@@ -840,7 +1049,7 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="q r">As a new practice becomes ordinary, how do people stay sensitive to what it asks of others?</p>
 </section>
 
-<section class="interstice" data-page="106" data-part="3" data-where="Interstice · What Opens Between Us">
+<section class="interstice" data-page="109" data-part="3" data-where="Interstice · What Opens Between Us">
   <div class="door r" style="--gap:30px"><i></i></div>
   <p class="tag r">The Interstice · VI</p>
   <h4 class="r">What Opens Between Us</h4>
@@ -852,7 +1061,7 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="q r">What helps us become receptive to something we have lived alongside but not yet understood?</p>
 </section>
 
-<section id="m7" class="short" data-page="107" data-part="3" data-where="Movement VII · Noticing Again">
+<section id="m7" class="short" data-page="110" data-part="3" data-where="Movement VII · Noticing Again">
   <h3 class="mv r"><small>Movement VII</small>Noticing Again</h3>
   <ul class="asks">
     <li class="r">How familiar experience gains fresh significance</li>
@@ -862,8 +1071,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   </ul>
 </section>
 
-<section data-page="107" data-part="3" data-where="VII · When Something Reaches Us">
-  <div class="level r">Level 107 <span>· When Something Reaches Us</span></div>
+<section data-page="110" data-part="3" data-where="VII · When Something Reaches Us">
+  <div class="level r">Level 110 <span>· When Something Reaches Us</span></div>
   <figure class="fx tap r" data-fx="wave" data-ar="0.42"><figcaption>Touch the line · re-sensitisation · the signal returns</figcaption></figure>
   <p class="l r">The words are the same.</p>
   <p class="l r">We come back to them carrying experience</p>
@@ -873,8 +1082,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">It gives responsibility a human depth.</p>
 </section>
 
-<section class="short" data-page="110" data-part="3" data-where="VII · Feeling and Understanding">
-  <div class="level r">Level 110 <span>· Feeling and Understanding</span></div>
+<section class="short" data-page="113" data-part="3" data-where="VII · Feeling and Understanding">
+  <div class="level r">Level 113 <span>· Feeling and Understanding</span></div>
   <p class="l r">A phrase. A hesitation.</p>
   <p class="l r">The effort it took someone to explain.</p>
   <p class="gap"></p>
@@ -885,8 +1094,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">These experiences belong inside judgement.</p>
 </section>
 
-<section data-page="113" data-part="3" data-where="VII · When Another Account Matters">
-  <div class="level r">Level 113 <span>· When Another Account Matters</span></div>
+<section data-page="116" data-part="3" data-where="VII · When Another Account Matters">
+  <div class="level r">Level 116 <span>· When Another Account Matters</span></div>
   <p class="l r">The event is familiar.</p>
   <p class="l r">It means something different seen from where they stood.</p>
   <div class="accounts r">
@@ -898,8 +1107,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">What changes is the care with which they are made.</p>
 </section>
 
-<section class="short" data-page="116" data-part="3" data-where="VII · Keeping Responsiveness Alive">
-  <div class="level r">Level 116 <span>· Keeping Responsiveness Alive</span></div>
+<section class="short" data-page="119" data-part="3" data-where="VII · Keeping Responsiveness Alive">
+  <div class="level r">Level 119 <span>· Keeping Responsiveness Alive</span></div>
   <p class="l r">One person’s understanding can change</p>
   <p class="l r">while the organisation carries on exactly as before.</p>
   <p class="gap"></p>
@@ -909,7 +1118,7 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="caps r">Understanding gains reach through connection.</p>
 </section>
 
-<section class="interstice" data-page="119" data-part="3" data-where="Interstice · A Renewed Presence">
+<section class="interstice" data-page="122" data-part="3" data-where="Interstice · A Renewed Presence">
   <div class="door r" style="--gap:44px"><i></i></div>
   <p class="tag r">The Interstice · VII</p>
   <h4 class="r">A Renewed Presence</h4>
@@ -920,7 +1129,7 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="q r">How might its way of continuing leave others more able to continue too?</p>
 </section>
 
-<section id="m8" class="short" data-page="120" data-part="3" data-where="Movement VIII · What We Carry Forward">
+<section id="m8" class="short" data-page="123" data-part="3" data-where="Movement VIII · What We Carry Forward">
   <h3 class="mv r"><small>Movement VIII</small>What We<br>Carry Forward</h3>
   <ul class="asks">
     <li class="r">How commercial continuation depends on others</li>
@@ -930,8 +1139,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   </ul>
 </section>
 
-<section data-page="120" data-part="3" data-where="VIII · Continuing with Others">
-  <div class="level r">Level 120 <span>· Continuing with Others</span></div>
+<section data-page="123" data-part="3" data-where="VIII · Continuing with Others">
+  <div class="level r">Level 123 <span>· Continuing with Others</span></div>
   <figure class="fx r" data-fx="symbiosis" data-ar="0.75"><figcaption>Symbiosis · bound together · each keeping its own colour</figcaption></figure>
   <p class="l r">Customers, employees, suppliers, lenders, public institutions.</p>
   <p class="l r">The organisation keeps going because others keep contributing.</p>
@@ -940,8 +1149,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">Cooperation without giving up difference. Competition continuing within the relationship.</p>
 </section>
 
-<section data-page="123" data-part="3" data-where="VIII · The Conditions We Depend Upon">
-  <div class="level r">Level 123 <span>· The Conditions We Depend Upon</span></div>
+<section data-page="126" data-part="3" data-where="VIII · The Conditions We Depend Upon">
+  <div class="level r">Level 126 <span>· The Conditions We Depend Upon</span></div>
   <figure class="fx r" data-fx="roots" data-ar="0.75"><figcaption>Above the line, the price · below it, everything that keeps the supply alive</figcaption></figure>
   <p class="l r">An invoice records what was supplied and what is owed.</p>
   <p class="l r">The knowledge, maintenance and materials behind it run far below the surface.</p>
@@ -949,8 +1158,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="q r">What does our activity help sustain, and what does it make harder for others to sustain?</p>
 </section>
 
-<section data-page="126" data-part="3" data-where="VIII · What Others Inherit">
-  <div class="level r">Level 126 <span>· What Others Inherit</span></div>
+<section data-page="129" data-part="3" data-where="VIII · What Others Inherit">
+  <div class="level r">Level 129 <span>· What Others Inherit</span></div>
   <figure class="fx r" data-fx="relay" data-ar="0.45"><figcaption>Generation to generation · what is passed on grows in the hands that receive it</figcaption></figure>
   <p class="l r">A completed piece of work becomes part of someone else’s plan.</p>
   <p class="l r">An agreement keeps working long after its negotiators have gone.</p>
@@ -958,9 +1167,10 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="q r">What would it mean to leave an inheritance others can rely on and still be free to develop?</p>
 </section>
 
-<section data-page="129" data-part="3" data-where="VIII · Recognising Responsibility">
-  <div class="level r">Level 129 <span>· Recognising Responsibility</span></div>
-  <p class="l r">The definition the whole descent has been building towards.</p>
+<section data-page="132" data-part="3" data-where="VIII · Recognising Responsibility">
+  <div class="level r">Level 132 <span>· Recognising Responsibility</span></div>
+  <p class="l r">The definition given at the top of the shaft,</p>
+  <p class="l r">now carrying everything learnt on the way down.</p>
   <div class="plate def r">
     <h5>A responsible organisation</h5>
     <ol>
@@ -974,9 +1184,14 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="gap"></p>
   <p class="s r">Each generation receives something it did not create,</p>
   <p class="s r">finds out more of what it means, and adds to what others will inherit.</p>
+  <p class="gap"></p>
+  <p class="l r">Consequences can inform further action</p>
+  <p class="l r">when people have ways to recognise, communicate and examine them.</p>
+  <p class="l r">Those responses change the circumstances in which others act.</p>
+  <p class="s r">Responsibility continues through this involvement, including the willingness to reconsider how the organisation understands its own activity.</p>
 </section>
 
-<section class="interstice" data-page="133" data-part="3" data-where="Interstice · What Remains Possible">
+<section class="interstice" data-page="135" data-part="3" data-where="Interstice · What Remains Possible">
   <div class="door r" style="--gap:64px"><i></i></div>
   <p class="tag r">The Interstice · VIII</p>
   <h4 class="r">What Remains Possible</h4>
@@ -989,8 +1204,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
 </section>
 
 <!-- ================= BELOW ================= -->
-<section id="lineages" data-page="136" data-part="3" data-where="Foundational Lineages">
-  <div class="level r">Level 136 <span>· Foundational Lineages</span></div>
+<section id="lineages" data-page="138" data-part="3" data-where="Foundational Lineages">
+  <div class="level r">Level 138 <span>· Foundational Lineages</span></div>
   <figure class="fx r" data-fx="constellation" data-ar="0.72"><figcaption>Beer · Stacey · Bateson — and the company gathered around them</figcaption></figure>
   <p class="l r">No inquiry develops alone.</p>
   <p class="gap"></p>
@@ -1001,8 +1216,8 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="q r">What might people become able to do together while keeping their freedom to differ?</p>
 </section>
 
-<section id="reflections" data-page="140" data-part="3" data-where="Author’s Reflections · November 2026">
-  <div class="level r">Level 140 <span>· Author’s Reflections · November 2026</span></div>
+<section id="reflections" data-page="142" data-part="3" data-where="Author’s Reflections · November 2026">
+  <div class="level r">Level 142 <span>· Author’s Reflections · November 2026</span></div>
   <p class="l r">Reach keeps growing.</p>
   <p class="l r">Decisions travel through arrangements whose participants barely know each other.</p>
   <p class="l r">Distant activity arrives as records, reports and screens.</p>
@@ -1010,15 +1225,19 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
   <p class="s r">That distance is hard to see from inside.</p>
   <p class="s r">Managers carry real pressures, worthwhile ambitions, and responsibilities that pull different ways.</p>
   <p class="gap"></p>
+  <p class="s r"><span class="amber">Cybernetics</span>: whether knowledge of consequences can influence what happens next.</p>
+  <p class="s r"><span class="amber">Complexity</span>: every response enters relationships whose development exceeds anyone’s intention.</p>
+  <p class="s r">Together they change how he understands his own involvement in what he is trying to make sense of.</p>
+  <p class="gap"></p>
   <p class="l r">Responsibility continues through the willingness to learn</p>
   <p class="l r">what our activity asks of others,</p>
   <p class="l r">and the practical capacity to respond.</p>
   <p class="cite r">Donald Innes Davies · November 2026</p>
 </section>
 
-<section id="airlock" class="interstice" data-page="148" data-part="3" data-where="The Airlock">
+<section id="airlock" class="interstice" data-page="150" data-part="3" data-where="The Airlock">
   <div class="door full r" style="--gap:2px"><i></i><b></b></div>
-  <p class="tag r">Level 148 · The Airlock</p>
+  <p class="tag r">Level 150 · The Airlock</p>
   <p class="s r">Light at the seam. A single question, held in the breath before the door opens:</p>
   <p class="gap"></p>
   <p class="q r">What might we leave them able to continue, reconsider and begin?</p>
@@ -1033,7 +1252,7 @@ footer{position:relative;z-index:3;text-align:center;padding:8vh 8vw 16vh;font-f
 <footer>
   The Architecture of Responsible Organisations · Dynamics of Fluidity<br>
   Donald Innes Davies · 2026<br>
-  A treatment in descent · Principia Humanitatis
+  An Inquiry through Cybernetics and Complexity<br>A treatment in descent · Principia Humanitatis
 </footer>
 
 <script>
@@ -1497,6 +1716,7 @@ FX.constellation={init:function(s,W,H){s.big=[{l:'BEER',x:.24,y:.34},{l:'STACEY'
     s.sm.push({l:l,k:k,x:s.big[k].x*W+Math.cos(a)*r,y:s.big[k].y*H+Math.sin(a)*r*(k==2?.62:.95),ph:rnd(0,7)})})});
   s.sm.forEach(function(o){o.x=clamp(o.x,44,W-44);o.y=clamp(o.y,18,H-22)})},
 draw:function(x,W,H,t,s){frameLabel(x,W,'LINEAGES');
+  s.sm.forEach(function(o){if(o.x0===undefined){o.x0=o.x;o.y0=o.y}o.x=o.x0+Math.sin(t*.25+o.ph)*5;o.y=o.y0+Math.cos(t*.21+o.ph)*4});
   s.sm.forEach(function(o){var b=s.big[o.k];x.strokeStyle=rgba('steel',.16);x.beginPath();x.moveTo(o.x,o.y);x.lineTo(b.x*W,b.y*H);x.stroke()});
   x.strokeStyle=rgba('amber',.4);x.setLineDash([2,5]);x.beginPath();s.big.forEach(function(b,i){i?x.lineTo(b.x*W,b.y*H):x.moveTo(b.x*W,b.y*H)});x.closePath();x.stroke();x.setLineDash([]);
   var fs=Math.max(11,Math.min(15,W*.024));
@@ -1575,17 +1795,123 @@ FX.names=(function(base){return{init:base.init,draw:function(x,W,H,t,s){frameLab
   x.strokeStyle=rgba('steel',.2);x.beginPath();x.moveTo(W*.08,H*.93);x.lineTo(W*.92,H*.93);x.stroke();
   var yr=1600+Math.floor(t*12)%426;txt(x,String(yr),W-12,12,{size:9,col:rgba('amber',.9),align:'right',ls:2})}}})(FX.names);
 
+FX.growth=(function(base){return{init:base.init,draw:function(x,W,H,t,s,dt){
+  var sw=function(X,Y){var h=(H*.96-Y)/H;return X+Math.sin(t*1.1+h*2.2)*h*h*W*.035+Math.sin(t*2.3+X*.05)*h*1.2}
+  if(!s.orig){s.orig=s.b.map(function(b){return[b.x,b.y,b.x2,b.y2]})}
+  s.b.forEach(function(b,i){var o=s.orig[i];b.x=sw(o[0],o[1]);b.y=o[1];b.x2=sw(o[2],o[3]);b.y2=o[3]});
+  base.draw(x,W,H,t,s,dt);
+  var ph=t%14;if(ph>6&&ph<12){s.b.forEach(function(b,i){if(b.d>=7&&(i*7+Math.floor(t*3))%11==0){x.fillStyle=rgba('bone',.9);x.beginPath();x.arc(b.x2,b.y2,2,0,7);x.fill()}})}
+}}})(FX.growth);
+FX.roots=(function(base){return{init:base.init,draw:function(x,W,H,t,s,dt){base.draw(x,W,H,t,s,dt);
+  var ph=t%14;if(ph<3||ph>12)return;
+  s.b.forEach(function(b,i){if(b.d)return;var P=b.pts;for(var k=0;k<3;k++){var u=((t*.22+k/3+i*.13)%1),X=(1-u)*(1-u)*P[0][0]+2*(1-u)*u*P[1][0]+u*u*P[2][0],Y=(1-u)*(1-u)*P[0][1]+2*(1-u)*u*P[1][1]+u*u*P[2][1];
+    var g=x.createRadialGradient(X,Y,0,X,Y,7);g.addColorStop(0,rgba('amber',.9));g.addColorStop(1,rgba('amber',0));x.fillStyle=g;x.beginPath();x.arc(X,Y,7,0,7);x.fill()}
+    x.strokeStyle=rgba('amber',.35+.35*Math.sin(t*2+i));x.beginPath();x.arc(b.ex,b.ey,5+2*Math.sin(t*2+i),0,7);x.stroke()});
+  var p=.5+.5*Math.sin(t*1.5);x.strokeStyle=rgba('bone',.15+.25*p);x.strokeRect(W/2-Math.min(W*.5,240)/2-3,s.gy-H*.15-H*.05-3,Math.min(W*.5,240)+6,H*.15+6);
+}}})(FX.roots);
 FX.relay=(function(base){return{draw:function(x,W,H,t){frameLabel(x,W,'WHAT OTHERS INHERIT');base.draw(x,W,H,t)}}})(FX.relay);
 FX.symbiosis=(function(base){return{init:base.init,draw:function(x,W,H,t,s,dt){frameLabel(x,W,'SYMBIOSIS');base.draw(x,W,H,t,s,dt)}}})(FX.symbiosis);
 FX.filter=(function(base){return{init:base.init,draw:function(x,W,H,t,s,dt){base.draw(x,W,H,t,s,dt);txt(x,'REACHED · '+s.reach,W-12,H*.04,{size:8,col:rgba('amber',.9),align:'right',ls:2})}}})(FX.filter);
 FX.strata=(function(base){return{draw:function(x,W,H,t){base.draw(x,W,H,t)}}})(FX.strata);
+
+
+/* ===== revised-edition diagrams: cybernetics and complexity ===== */
+FX.twofold={init:function(s,W,H){s.curves=[];for(var i=0;i<5;i++)s.curves.push({y:rnd(.2,.8),a:rnd(.04,.09),f:rnd(1.5,3),ph:rnd(0,7),sp:rnd(.2,.45)})},
+draw:function(x,W,H,t,s){frameLabel(x,W,'RESPONSIBILITY IN PRACTICE');
+  var x0=W*.08,x1=W*.92,y0=H*.16,y1=H*.82,cols=6,rows=4;
+  x.strokeStyle=rgba('steel',.45);x.lineWidth=1;
+  for(var i=0;i<=cols;i++){var X=lerp(x0,x1,i/cols);x.beginPath();x.moveTo(X,y0);x.lineTo(X,y1);x.stroke()}
+  for(i=0;i<=rows;i++){var Y=lerp(y0,y1,i/rows);x.beginPath();x.moveTo(x0,Y);x.lineTo(x1,Y);x.stroke()}
+  s.curves.forEach(function(c,k){x.strokeStyle=rgba('amber',.55+.15*Math.sin(t+k));x.lineWidth=1.4;x.beginPath();
+    for(var X=x0;X<=x1;X+=4){var u=(X-x0)/(x1-x0),Y=lerp(y0,y1,c.y)+Math.sin(u*Math.PI*c.f+t*c.sp+c.ph)*H*c.a+Math.sin(u*9+t*.7+k)*H*.012;X==x0?x.moveTo(X,Y):x.lineTo(X,Y)}x.stroke()});x.lineWidth=1;
+  // a person trying to exercise a responsibility: moves along grid, pauses where no curve meets
+  var path=[[0,4],[1,4],[1,3],[2,3],[3,3],[3,2],[4,2],[4,1],[5,1],[6,1],[6,0]],L=path.length-1,u=(t*.18)%1*L,k=Math.floor(u),f=u-k;
+  var A=path[k],B=path[Math.min(L,k+1)],px=lerp(lerp(x0,x1,A[0]/cols),lerp(x0,x1,B[0]/cols),f),py=lerp(lerp(y0,y1,A[1]/rows),lerp(y0,y1,B[1]/rows),f);
+  var g=x.createRadialGradient(px,py,0,px,py,16);g.addColorStop(0,rgba('glow',.5));g.addColorStop(1,rgba('glow',0));x.fillStyle=g;x.beginPath();x.arc(px,py,16,0,7);x.fill();
+  x.fillStyle=rgba('bone',1);x.beginPath();x.arc(px,py,3,0,7);x.fill();
+  txt(x,W<520?'MANDATES · PROCESSES · RESOURCES':'DELIBERATE · MANDATES · PROCESSES · RESOURCES',x0,H*.09,{size:7.5,col:rgba('steel',.85),align:'left',ls:1.5});
+  txt(x,W<520?'HABIT · CONVERSATION · EXPECTATION':'GROWN · HABIT · CONVERSATION · FEELING · EXPECTATION',x1,H*.92,{size:7.5,col:rgba('amber',.9),align:'right',ls:1.5});
+}};
+
+FX.cyberplex={init:function(s,W,H){s.ag=[];s.N=0;s.seed=0;s.nxt=1},
+draw:function(x,W,H,t,s,dt){
+  var vert=H>W;var pa,pb;
+  if(vert){pa={x:0,y:0,w:W,h:H*.48};pb={x:0,y:H*.52,w:W,h:H*.48}}else{pa={x:0,y:0,w:W*.48,h:H};pb={x:W*.52,y:0,w:W*.48,h:H}}
+  // divider
+  x.strokeStyle=rgba('steel',.18);x.beginPath();if(vert){x.moveTo(W*.08,H*.5);x.lineTo(W*.92,H*.5)}else{x.moveTo(W*.5,H*.08);x.lineTo(W*.5,H*.92)}x.stroke();
+  // --- cybernetics loop
+  var cx=pa.x+pa.w/2,cy=pa.y+pa.h*(vert?.5:.54),R=Math.min(pa.w,pa.h)*(vert?.25:.3);
+  txt(x,'CYBERNETICS',pa.x+12,pa.y+14,{size:8.5,col:rgba('glow',.9),align:'left',ls:3});
+  x.setLineDash([2,5]);x.strokeStyle=rgba('steel',.35);x.beginPath();x.arc(cx,cy,R*1.42,0,7);x.stroke();x.setLineDash([]);
+  var eyeA=t*.25,ex=cx+Math.cos(eyeA)*R*1.42,ey=cy+Math.sin(eyeA)*R*1.42;
+  x.strokeStyle=rgba('amber',.9);x.beginPath();x.ellipse(ex,ey,7,4,0,0,7);x.stroke();x.fillStyle=rgba('amber',.9);x.beginPath();x.arc(ex,ey,1.8,0,7);x.fill();
+  x.strokeStyle=rgba('glow',.55);x.lineWidth=1.3;x.beginPath();x.arc(cx,cy,R,0,7);x.stroke();x.lineWidth=1;
+  var nodes=['OBSERVE','COMMUNICATE','REGULATE','LEARN'];
+  nodes.forEach(function(n,i){var a=-Math.PI/2+i*Math.PI/2,nx=cx+Math.cos(a)*R,ny=cy+Math.sin(a)*R;
+    arrowHead(x,cx+Math.cos(a+.55)*R,cy+Math.sin(a+.55)*R,a+.55+Math.PI/2,6,rgba('glow',.7));
+    var ph=((t*.35)%1)*4,lit=Math.max(0,1-Math.abs(ph-i)%4);x.fillStyle=rgba('glow',.4+.6*lit);x.beginPath();x.arc(nx,ny,4+lit*2,0,7);x.fill();
+    var lx=nx+Math.cos(a)*22,ly=ny+Math.sin(a)*16;txt(x,n,lx,ly,{size:Math.max(7,Math.min(9,pa.w*.02)),col:rgba('bone',.75+.25*lit),ls:1.5,align:Math.abs(Math.cos(a))<.1?'center':(Math.cos(a)>0?'left':'right'),bg:'rgba(8,11,12,.85)'})});
+  var pa2=-Math.PI/2+((t*.35)%1)*Math.PI*2;x.fillStyle=rgba('amber',1);x.beginPath();x.arc(cx+Math.cos(pa2)*R,cy+Math.sin(pa2)*R,3,0,7);x.fill();
+  txt(x,'feedback',cx,cy,{size:Math.max(12,Math.min(17,pa.w*.04)),font:SERIF,col:rgba('glow',.85)});
+  txt(x,'THE OBSERVER IS PART OF THE LOOP',cx,pa.y+pa.h-6,{size:7,col:rgba('amber',.8),ls:1.5});
+  // --- complexity field
+  var cols=vert?14:12,rows=vert?8:11,gx0=pb.x+pb.w*.08,gy0=pb.y+pb.h*.14,gw=pb.w*.84,gh=pb.h*.74;
+  if(!s.ag.length||s.N!==cols*rows){s.ag=[];s.N=cols*rows;for(var i=0;i<s.N;i++)s.ag.push({v:0,a:rnd(0,7),r:0})}
+  txt(x,'COMPLEXITY',pb.x+12,pb.y+14,{size:8.5,col:rgba('amber',.95),align:'left',ls:3});
+  s.nxt-=dt;if(s.nxt<0){s.nxt=rnd(4,6);var k=(Math.random()*s.N)|0;s.ag[k].v=1;s.ag[k].r=12;s.seed=k;s.gain=rnd(.06,.42)}
+  var nv=s.ag.map(function(o){return o.v});
+  for(i=0;i<s.N;i++){var c=i%cols,r=(i/cols)|0,m=0;[[1,0],[-1,0],[0,1],[0,-1]].forEach(function(d){var cc=c+d[0],rr=r+d[1];if(cc>=0&&cc<cols&&rr>=0&&rr<rows)m=Math.max(m,s.ag[rr*cols+cc].v)});
+    s.ag[i].r=Math.max(0,s.ag[i].r-dt);if(m>.6&&s.ag[i].v<.05&&s.ag[i].r<=0&&Math.random()<s.gain*dt*4){nv[i]=1;s.ag[i].r=12}nv[i]=Math.max(0,nv[i]-dt*.3)}
+  s.ag.forEach(function(o,i){o.v=nv[i];var c=i%cols,r=(i/cols)|0,X=gx0+(c+.5)*gw/cols,Y=gy0+(r+.5)*gh/rows;o.a+=dt*(.3+o.v*2);
+    var L=Math.min(gw/cols,gh/rows)*.32;x.strokeStyle=o.v>.05?rgba('amber',.35+.65*o.v):rgba('steel',.4);x.lineWidth=o.v>.05?1.5:1;
+    x.beginPath();x.moveTo(X-Math.cos(o.a)*L,Y-Math.sin(o.a)*L);x.lineTo(X+Math.cos(o.a)*L,Y+Math.sin(o.a)*L);x.stroke()});x.lineWidth=1;
+  var active=s.ag.filter(function(o){return o.v>.3}).length/s.N;
+  var state=active<.04?'A FAMILIAR PATTERN SUSTAINED':active<.25?'A SMALL DEPARTURE AMPLIFYING':'SOMETHING NO ONE ANTICIPATED';
+  txt(x,state,pb.x+pb.w/2,pb.y+pb.h-12,{size:7,col:rgba(active<.04?'steel':'amber',.9),ls:1.5});
+}};
+
+FX.rates={init:function(s){s.ev=[];s.nx=.5;s.exp=[]},
+draw:function(x,W,H,t,s,dt){frameLabel(x,W,'DYNAMICS OF FLUIDITY');
+  var tracks=[{l:'DECISIONS',y:.24,c:'glow'},{l:'CONSEQUENCES',y:.52,c:'rust'},{l:'EXPECTATIONS',y:.8,c:'amber'}],x0=W*.2,x1=W*.96,v=W*.07;
+  tracks.forEach(function(tr){x.strokeStyle=rgba('steel',.18);x.beginPath();x.moveTo(x0,tr.y*H);x.lineTo(x1,tr.y*H);x.stroke();txt(x,tr.l,W*.03,tr.y*H,{size:Math.max(7,Math.min(8.5,W*.016)),col:rgba(tr.c,.9),align:'left',ls:1.5})});
+  s.nx-=dt;if(s.nx<0){s.nx=rnd(2.2,3.6);s.ev.push({t0:t})}
+  s.ev.forEach(function(e){var age=t-e.t0,X=x1-age*v;if(X<x0)return;
+    x.strokeStyle=rgba('glow',.95);x.lineWidth=1.6;x.beginPath();x.moveTo(X,H*.24-14);x.lineTo(X,H*.24+4);x.stroke();x.lineWidth=1;
+    // consequence: delayed, spread, emerging
+    var delay=2.5,spread=Math.max(0,age-delay);if(spread>0){var cX=X+W*.0,amp=Math.min(1,spread/4)*H*.08,wid=W*.03+spread*W*.012;
+      x.strokeStyle=rgba('rust',.8);x.beginPath();for(var k=-1;k<=1;k+=.05){var xx=X+k*wid,yy=H*.52-amp*Math.exp(-k*k*3)*Math.cos(k*6);k==-1?x.moveTo(xx,yy):x.lineTo(xx,yy)}x.stroke();
+      x.strokeStyle=rgba('rust',.25);x.setLineDash([2,4]);x.beginPath();x.moveTo(X,H*.24+4);x.lineTo(X,H*.52-amp);x.stroke();x.setLineDash([])}});
+  s.ev=s.ev.filter(function(e){return x1-(t-e.t0)*v>x0-40});
+  // expectations accumulate
+  x.strokeStyle=rgba('amber',.9);x.lineWidth=1.5;x.beginPath();for(var X=x0;X<=x1;X+=3){var age=(x1-X)/v,base=H*.8-Math.min(H*.12,(t-age)*H*.004)-Math.sin((X+t*v)*.02)*3;X==x0?x.moveTo(X,base):x.lineTo(X,base)}x.stroke();x.lineWidth=1;
+  txt(x,'NOW',x1,H*.95,{size:7.5,col:rgba('dim',1),align:'right',ls:2});txt(x,'← WEEKS · MONTHS · YEARS',x0,H*.95,{size:7.5,col:rgba('dim',1),align:'left',ls:2});
+}};
+
+FX.lineage={draw:function(x,W,H,t){frameLabel(x,W,'THE THREAD TO CYBERNETICS');
+  var ev=[['1ST C. AD','Ancient steam','demonstration'],['1712','Newcomen','engine'],['1775','Boulton & Watt','partnership'],['1788','Watt’s','governor'],['1868','Maxwell','On Governors'],['1948','Wiener','Cybernetics']];
+  var vert=H>W,n=ev.length;
+  for(var i=0;i<n;i++){var u=i/(n-1),X=vert?W*.3:lerp(W*.11,W*.89,u),Y=vert?lerp(H*.1,H*.9,u):H*.5;
+    if(i<n-1){var X2=vert?X:lerp(W*.11,W*.89,(i+1)/(n-1)),Y2=vert?lerp(H*.1,H*.9,(i+1)/(n-1)):Y;x.strokeStyle=rgba(i>=3?'amber':'steel',.45);x.beginPath();x.moveTo(X,Y);x.lineTo(X2,Y2);x.stroke()}
+    var ph=(t*.32)%(n+1),lit=Math.max(0,1-Math.abs(ph-i));var col=i>=4?'amber':i==3?'glow':'steel';
+    var g=x.createRadialGradient(X,Y,0,X,Y,18);g.addColorStop(0,rgba(col,.15+.45*lit));g.addColorStop(1,rgba(col,0));x.fillStyle=g;x.beginPath();x.arc(X,Y,18,0,7);x.fill();
+    x.fillStyle=rgba(col,.7+.3*lit);x.beginPath();x.arc(X,Y,3.5+lit*1.5,0,7);x.fill();
+    var fs=Math.max(7,Math.min(8.5,W*.0145)),up=!vert&&i%2==0;
+    if(vert){txt(x,ev[i][0],X-14,Y,{size:fs,col:rgba(col,.95),align:'right',ls:1.5});txt(x,ev[i][1],X+16,Y-7,{size:13,font:SERIF,col:rgba('bone',.9),align:'left'});txt(x,ev[i][2],X+16,Y+9,{size:fs,col:rgba('steel',.8),align:'left',ls:1})}
+    else{var o=up?[-20,-50,-36]:[20,36,50];txt(x,ev[i][0],X,Y+o[0],{size:fs,col:rgba(col,.95),ls:1.5});txt(x,ev[i][1],X,Y+o[1],{size:Math.max(11,Math.min(14,W*.022)),font:SERIF,col:rgba('bone',.9)});txt(x,ev[i][2],X,Y+o[2],{size:fs,col:rgba('steel',.8),ls:1})}}
+  // regulator pulse running along
+  var pu=(t*.32)%(n+1)/(n-1);if(pu<=1){var PX=vert?W*.3:lerp(W*.11,W*.89,pu),PY=vert?lerp(H*.1,H*.9,pu):H*.5;var gg=x.createRadialGradient(PX,PY,0,PX,PY,16);gg.addColorStop(0,rgba('amber',.7));gg.addColorStop(1,rgba('amber',0));x.fillStyle=gg;x.beginPath();x.arc(PX,PY,16,0,7);x.fill();x.fillStyle=rgba('bone',1);x.beginPath();x.arc(PX,PY,3.2,0,7);x.fill()}
+}};
+
+FX.constellation=(function(base){return{init:base.init,draw:function(x,W,H,t,s){base.draw(x,W,H,t,s);
+  var sub=['VIABLE SYSTEMS','COMPLEX RESPONSIVE PROCESSES','PATTERN · LEARNING · CONTEXT'],tag=['CYBERNETICS','COMPLEXITY','CYBERNETICS'];
+  s.big.forEach(function(b,i){var X=b.x*W,Y=b.y*H;txt(x,tag[i],X,Y+22,{size:7,col:rgba('glow',.85),ls:2,bg:'rgba(8,11,12,.8)'});if(W>=520)txt(x,sub[i],X,Y+34,{size:6.5,col:rgba('steel',.8),ls:1,bg:'rgba(8,11,12,.8)'})})}}})(FX.constellation);
 
 /* ---------------- runtime ---------------- */
 var DPR=Math.min(2,window.devicePixelRatio||1),live=[];
 [].forEach.call(document.querySelectorAll('figure[data-fx]'),function(fig){
   var fx=FX[fig.dataset.fx];if(!fx)return;var c=document.createElement('canvas');fig.insertBefore(c,fig.firstChild);
   var o={fig:fig,c:c,x:c.getContext('2d'),fx:fx,s:{},vis:false,t:0,ar:+fig.dataset.ar||.6,init:false};
-  function size(){var w=fig.clientWidth||300,h=Math.round(w*o.ar);c.width=w*DPR;c.height=h*DPR;c.style.height=h+'px';o.W=w;o.H=h;o.x.setTransform(DPR,0,0,DPR,0,0);if(!o.init||fx.init){o.s={};fx.init&&fx.init(o.s,w,h);o.init=true}}
+  function size(){var w=fig.clientWidth||300,ar=(w<500&&fig.dataset.arm)?+fig.dataset.arm:o.ar,h=Math.round(w*ar);c.width=w*DPR;c.height=h*DPR;c.style.height=h+'px';o.W=w;o.H=h;o.x.setTransform(DPR,0,0,DPR,0,0);if(!o.init||fx.init){o.s={};fx.init&&fx.init(o.s,w,h);o.init=true}}
   o.size=size;size();
   if(fx.tap)c.addEventListener('pointerdown',function(e){var r=c.getBoundingClientRect();fx.tap(o.s,o.W,o.H,e.clientX-r.left,e.clientY-r.top)});
   live.push(o);
@@ -1599,6 +1925,25 @@ function frame(now){var dt=Math.min(.05,(now-last)/1000);last=now;
   live.forEach(function(o){if(!o.vis)return;o.t+=dt;var x=o.x;x.clearRect(0,0,o.W,o.H);try{o.fx.draw(x,o.W,o.H,o.t,o.s,dt)}catch(err){console.log(err)}});
   requestAnimationFrame(frame)}
 requestAnimationFrame(frame);
+
+
+/* ===== continuous motion for drawn diagrams and HTML panels ===== */
+(function(){
+  var NS='http://www.w3.org/2000/svg';
+  [].forEach.call(document.querySelectorAll('figure svg .draw'),function(p,i){var c=p.cloneNode(false);c.removeAttribute('class');c.setAttribute('class','flowline'+(i%2?' rev':''));
+    var col=p.getAttribute('stroke')||(p.closest('[stroke]')&&p.closest('[stroke]').getAttribute('stroke'))||'#c9d8d2';
+    c.setAttribute('stroke',col=='#4b5a5c'?'#8fa3a6':'#e9dcc0');c.setAttribute('stroke-opacity','.75');c.setAttribute('stroke-width',String((+p.getAttribute('stroke-width')||1)*1.6));
+    c.style.animationDuration=(5+(i%5)*1.3)+'s';c.style.animationDelay=(-(i*1.7)%7)+'s';p.parentNode.insertBefore(c,p.nextSibling)});
+  // dashboard figures keep updating
+  var tiles=[].slice.call(document.querySelectorAll('.tile b'));
+  var base=[98.4,96.1,0,-0.8,4.6];
+  setInterval(function(){if(!tiles.length||!tiles[0].closest('section').classList.contains('seen'))return;var i=(Math.random()*5)|0,b=tiles[i];
+    var v=base[i]+(i==2?0:(Math.random()-.5)*(i==4?.2:.6));b.textContent=i==2?'0':i==3?(v>0?'+':'−')+Math.abs(v).toFixed(1)+'%':i==4?v.toFixed(1):v.toFixed(1)+'%';
+    b.classList.add('blip');setTimeout(function(){b.classList.remove('blip')},500)},900);
+  // faded contributions surface one at a time
+  var fw=[].slice.call(document.querySelectorAll('.fade-words span'));
+  setInterval(function(){if(!fw.length||!fw[0].closest('section').classList.contains('seen'))return;var w=fw[(Math.random()*fw.length)|0];w.classList.add('flash');setTimeout(function(){w.classList.remove('flash')},1800)},2200);
+})();
 
 /* reveal */
 var secs=[].slice.call(document.querySelectorAll('main section'));
@@ -1614,7 +1959,7 @@ function stair(off){for(var i=0;i<steps.length;i++){var tt=i*.42+off,y=((i*9-off
 /* HUD + rail */
 var lvl=document.getElementById('lvl'),where=document.getElementById('where'),dot=document.getElementById('dot'),rail=document.getElementById('rail');
 var shown=0,target=0,curWhere='';
-var marks=[['m1','I'],['m2','II'],['m3','III'],['m4','IV'],['m5','V'],['m6','VI'],['m7','VII'],['m8','VIII'],['airlock','148']];
+var marks=[['m1','I'],['m2','II'],['m3','III'],['m4','IV'],['m5','V'],['m6','VI'],['m7','VII'],['m8','VIII'],['airlock','150']];
 function placeMarks(){[].forEach.call(rail.querySelectorAll('a'),function(a){a.remove()});var max=document.documentElement.scrollHeight-innerHeight;
   marks.forEach(function(m){var el=document.getElementById(m[0]);if(!el)return;var a=document.createElement('a');a.href='#'+m[0];a.textContent=m[1];a.style.top=(clamp(el.offsetTop/max,0,1)*100)+'%';rail.appendChild(a)})}
 function onScroll(){var max=document.documentElement.scrollHeight-innerHeight,p=max>0?scrollY/max:0;stair(p*40);dot.style.top=(p*(rail.clientHeight-7))+'px';
